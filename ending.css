@@ -1,6 +1,6 @@
 .ending {
     --ending-gradient-size: 15vh;
-    --ending-box-size: 22vh;
+    --ending-box-size: 5em;
     margin: 0;
     padding: 0;
 }
