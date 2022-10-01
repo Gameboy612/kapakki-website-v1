@@ -1,0 +1,46 @@
+.transition.parent {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+}
+
+.transition.gradient {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+
+.transition.topgradient {
+    background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,255));
+    bottom: 0;
+    top: 10;
+}
+
+
+.transition.bottomgradient {
+    background-image:linear-gradient(rgba(0,0,0,255), rgba(0,0,0,0));
+}
+
+.transition.container {
+    height:auto;
+}
+
+.transition.body {
+    height:auto;
+    background-color: black;
+}
+
+.transition.body p {
+    font-family: sans-serif;
+    padding: 40vh 15vw;
+    font-size: 0.5em;
+    color:white
+}

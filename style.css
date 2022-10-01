@@ -5,9 +5,8 @@
     padding: 0;
     border: 0;
     font-family: Calibri;
-    font-size: 5vh;
-    /* -webkit-text-stroke: 0.04em black; */
-    text-shadow: #000000 100px;
+    font-size: max(30px, 2.2vw);
+    -webkit-text-stroke: 0.04em black;
 }
 
 body {
@@ -143,7 +142,7 @@ button.travel span{
     left: 0;
     bottom: 0;
     z-index: -1;
-    transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 button.travel:hover span {
