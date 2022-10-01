@@ -6,7 +6,7 @@
     border: 0;
     font-family: Calibri;
     font-size: max(40px, 1.35rem);
-    -webkit-text-stroke: 0.02em black;
+    -webkit-text-stroke: 0.03em black;
 }
 
 body {
@@ -72,7 +72,7 @@ section.background.content {
 }
 
 .info h1 {
-    -webkit-text-stroke: 0.03em black;
+    -webkit-text-stroke: 0.02em black;
     display: flex inline-block;
     transform: translateY(-200%);
     transition: transform 1s 2s;
@@ -89,7 +89,7 @@ section.background.content {
 }
 
 .info p {
-    -webkit-text-stroke: 0.04em black;
+    -webkit-text-stroke: 0.03em black;
     transform: translateY(-200%);
     transition: transform 1s 2s;
     font-size: 1.1em;
@@ -97,7 +97,7 @@ section.background.content {
 }
 
 .info h3 {
-    -webkit-text-stroke: 0.04em black;
+    -webkit-text-stroke: 0.03em black;
     transform: translateY(-200%);
     transition: transform 1s 2s;
     font-size: 1.1em;
