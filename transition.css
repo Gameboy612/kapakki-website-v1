@@ -38,9 +38,37 @@
     background-color: black;
 }
 
+.transition.body {
+    padding: 40vh 16vw;
+    color:white;
+    text-shadow: 0 0 0.15em white;
+}
+
+.transition.body h1 {
+    font-size: 1.5em;
+    padding-bottom: 1.5vh;
+    -webkit-text-stroke: 0.025em black;
+}
 .transition.body p {
-    font-family: sans-serif;
-    padding: 40vh 15vw;
-    font-size: 0.5em;
-    color:white
+    font-size: 1em;
+    -webkit-text-stroke: 0.035em black;
+}
+.transition.body ul {
+    list-style-type: circle;
+    font-size: 1em;
+    -webkit-text-stroke: 0.045em black;
+    padding-left: 5vw;
+    padding-top: 4vh;
+}
+
+.font-fantasy {
+    font-family: fantasy;
+
+}
+
+.alt-text {
+    font-size: 0.8em;
+    color: lightgray;
+    text-shadow: 0 0 0.08em white;
+    padding-bottom: 2vh;
 }

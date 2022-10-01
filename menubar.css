@@ -2,10 +2,22 @@ section.menubar {
     z-index: 10000;
     width: 100vw;
     height: 30vh;
-    padding-top: 3vh;
+    padding-top: 0.55em;
     position: fixed;
     background-image:linear-gradient(rgba(0,0,0,100),rgba(0,0,0,0));
-    animation: displaymenu 0.5s ease-out forwards; 
+    top: -100%;
+    transition: top 0.35s ease-in-out; 
+}
+
+section.menubar-activated {
+    transition: top 0.35s ease-in-out; 
+    animation: displaymenu 0.15s forwards;
+    top: 0%;
+}
+
+section.menubar-init {
+    transition: top 0.8s ease-in-out; 
+    animation: displaymenu 0.8s forwards;
 }
 
 section.menubar ul {
@@ -15,14 +27,15 @@ section.menubar ul {
 }
 
 section.menubar ul li{
+    z-index: 10015;
     float: right;
     display: inline;
     padding-right: 7vw;
 }
 
-section.menubar ul li.home {
+section.menubar ul li.menutoggle {
     float: left;
-    padding-left: 4vw;
+    padding-left: 14vw;
 }
 section.menubar ul li a {
     background-image: linear-gradient(rgb(0, 0, 0), rgb(255, 255, 255));
@@ -34,14 +47,21 @@ section.menubar ul li a {
     text-decoration: none;
 
     transition: background-size 0.25s ease-in-out;
-    
 }
 
 section.menubar ul li a:hover {
     background-size: 100% 0.1em;
 }
-section.menubar ul li.home a {
+
+section.menubar ul li.menutoggle a {
     font-size: calc(2 * 0.75em);
+}
+
+
+
+section.menubar ul li button {
+    background-color: transparent;
+    width: fit-content;
 }
 
 @keyframes displaymenu {
@@ -51,4 +71,61 @@ section.menubar ul li.home a {
     100% {
         transform: translateY(0%);
     }
+}
+
+
+
+
+
+/* Animation */
+.menu-rectangle {
+    z-index: 10001;
+    position: fixed;
+    left: 5vw;
+    top: 1.5em;
+    width: 1em;
+    height: 0.15em;
+    /* border: 0.08em solid black; */
+    background-image: linear-gradient(rgb(210, 210, 210), rgb(210, 210, 210));
+    background-size: 100% 0.2em;
+    background-repeat: no-repeat;
+
+    transform: rotate(0);
+    transition-timing-function: ease-in-out;
+    transition: background-size 0.5s, transform 0.5s, top 0.5s;
+}
+
+.top-menu {
+    top: 1.2em;
+}
+
+.bottom-menu {
+    top: 1.8em;
+}
+
+.mid-menu.menu-close {
+    transform: rotate(-45deg);
+    top: 1.5em;
+    /* background-size: 100% 0.2em; */
+}
+
+.top-menu.menu-close {
+    transform: rotate(45deg);
+    top: 1.5em;
+    background-size: 50% 0.2em;
+}
+
+.bottom-menu.menu-close {
+    transform: translateX(calc(0.70710678118 * 0.5em)) translateY(calc(0.70710678118 * 0.5em)) rotate(45deg);
+    top: 1.5em;
+    background-size: 50% 0.2em;
+}
+
+#btn-toggle-menu {
+    position: fixed;
+    z-index: 10000;
+    background-color: transparent;
+    width: 100vw;
+    height: 10vh;
+    top: 3vh;
 }

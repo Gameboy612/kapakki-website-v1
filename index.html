@@ -7,9 +7,23 @@
         <link rel="stylesheet" href="transition.css">
     </head>
     <body>
-        <section class="menubar">
+        <!--Animated Toggle-->
+        <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+        <div class="menutoggle-animation" onclick="togglemenu()">
+            <div class="menu-rectangle top-menu"></div>
+            <div class="menu-rectangle mid-menu"></div>
+            <div class="menu-rectangle bottom-menu"></div>
+        </div>
+
+        <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+            
             <ul>
-                <li class="home"><a>Kapakki</a></li>
+                <li class="menutoggle">
+                    <button>    
+                        <a>Kapakki</a>
+
+                    </button>
+                </li>
                 <li><a href="pages/"></a></li>
                 <li><a href="pages/projects.html">Projects</a></li>
                 <li><a href="pages/achievements.html">Achievements</a></li>
@@ -33,7 +47,8 @@
             <div class="transition parent">
                 <div class="transition container">
                     <div class="transition body">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, in nostrum tempora temporibus fugiat harum ipsa unde doloribus magni laudantium consectetur quasi! Ullam et nulla similique vitae id voluptatem quos. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur nesciunt unde animi hic velit odit? Ex quidem illum natus ratione maxime numquam, dolore ipsum qui, voluptatum architecto officia placeat at?</p>
+                        <h1 class="font-fantasy">Hi there!</h1>
+                        <p class="font-fantasy">I'm Kapakki Lo,<br>a student from CCCKYC.</p>
                     
                     </div>
         
@@ -64,7 +79,17 @@
             <div class="transition parent">
                 <div class="transition container">
                     <div class="transition body">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, in nostrum tempora temporibus fugiat harum ipsa unde doloribus magni laudantium consectetur quasi! Ullam et nulla similique vitae id voluptatem quos. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur nesciunt unde animi hic velit odit? Ex quidem illum natus ratione maxime numquam, dolore ipsum qui, voluptatum architecto officia placeat at?</p>
+                        <h1>Fields</h1>
+                        <p>Over the past few years,<br>Kapakki has worked on multiple projects,</p>
+                        <ul>
+                            <li>Minecraft <div class="alt-text">(Datapacks, Modpacks, RPGs)</div></li>
+                            <li>Unity</li>
+                            <li>Discord Bots</li>
+                            <li>Python Voice Assist</li>
+                            <li>3D to 2D Projection</li>
+                            <li>Neural Network Design</li>
+                            <li>Misc.</li>
+                        </ul>
                     
                     </div>
         
@@ -102,4 +127,5 @@
         </section>
 
     </body>
+    <script src="scripts/menubutton.js"></script>
 </html>

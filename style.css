@@ -6,7 +6,7 @@
     border: 0;
     font-family: Calibri;
     font-size: max(40px, 1.35rem);
-    -webkit-text-stroke: 0.03em black;
+    -webkit-text-stroke: 0.035em black;
 }
 
 body {
@@ -38,11 +38,9 @@ section.background.content {
 
 .shading {
     width: 100vw;
-    height: auto;
+    height: 100vh;
     background-size: cover;
     background-position: center;
-    display: flex inline-block;
-    background-image: rgba(255, 255, 255, 0.4);
 }
 
 .shading.content {
@@ -66,13 +64,14 @@ section.background.content {
 }
 
 .info {
-    display: flex inline-block;
+    transform: translate(0, 35%);
+    height: 100vh;
     text-align: center;
-    padding: 43vh 0;
+    margin: auto;
 }
 
 .info h1 {
-    -webkit-text-stroke: 0.02em black;
+    -webkit-text-stroke: 0.035em black;
     display: flex inline-block;
     transform: translateY(-200%);
     transition: transform 1s 2s;
@@ -89,7 +88,7 @@ section.background.content {
 }
 
 .info p {
-    -webkit-text-stroke: 0.03em black;
+    -webkit-text-stroke: 0.035em black;
     transform: translateY(-200%);
     transition: transform 1s 2s;
     font-size: 1.1em;
@@ -97,7 +96,7 @@ section.background.content {
 }
 
 .info h3 {
-    -webkit-text-stroke: 0.03em black;
+    -webkit-text-stroke: 0.035em black;
     transform: translateY(-200%);
     transition: transform 1s 2s;
     font-size: 1.1em;
