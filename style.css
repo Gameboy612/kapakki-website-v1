@@ -1,0 +1,155 @@
+/* https://stackoverflow.com/questions/1762539/margin-on-child-element-moves-parent-element */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Calibri;
+    font-size: 5vh;
+    /* -webkit-text-stroke: 0.04em black; */
+    text-shadow: #000000 100px;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.background {
+    color: white;
+    width: auto;
+    height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex inline-block;
+}
+
+.background.content {
+    background-image: url(assets/background.png);
+}
+
+.background.achievements {
+    background-image: url(https://cdn.discordapp.com/attachments/738532982985457724/1025087167971725353/unknown.png)
+}
+
+.background.projects {
+    background-image: url(https://cdn.discordapp.com/attachments/738532982985457724/1025110894662930563/2021-11-20_18.10.42.png);
+}
+
+.shading {
+    width: 100vw;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    display: flex inline-block;
+    background-image: rgba(255, 255, 255, 0.4);
+}
+
+.shading.content {
+    animation: show_background 1s ease-in-out forwards;
+}
+.shading.achievements {
+    animation: show_background 1s ease-in-out forwards;
+}
+.shading.projects {
+    animation: show_background 1s ease-in-out forwards;
+}
+
+@keyframes show_background {
+    30% {
+        background-color: rgba(255, 255, 255, 0.9);
+
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+.info {
+    display: flex inline-block;
+    text-align: center;
+    padding: 43vh 0;
+}
+
+.info h1 {
+    -webkit-text-stroke: 0.03em black;
+    display: flex inline-block;
+    transform: translateY(-200%);
+    transition: transform 1s 2s;
+    animation: slide-into-mid-h1 0.8s ease-in-out forwards;
+    font-size: 2em;
+}
+
+
+
+@keyframes slide-into-mid-h1 {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.info p {
+    -webkit-text-stroke: 0.04em black;
+    transform: translateY(-200%);
+    transition: transform 1s 2s;
+    font-size: 1.1em;
+    animation: slide-into-mid-p 1s ease-in-out forwards;
+}
+
+.info h3 {
+    -webkit-text-stroke: 0.04em black;
+    transform: translateY(-200%);
+    transition: transform 1s 2s;
+    font-size: 1.1em;
+    animation: slide-into-mid-p 1s ease-in-out forwards;
+}
+
+
+@keyframes slide-into-mid-p {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+button.travel {
+    text-align: center;
+    height: 8vh;
+    min-width: 200px;
+    width: 10vw;
+    background-color: rgba(10, 10, 10, 0.5);
+    border: 4px solid #00afc7;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: 1s;
+}
+
+button.travel div {
+    transform: translateY(-8vh);
+}
+button.travel a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+
+button.travel span{
+    background: #00afc700;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    display: inline-block;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 1s ease-in-out;
+}
+
+button.travel:hover span {
+    background-color: #00afc777;
+    width: 100%;
+}
+button.travel:hover{
+    border: 4px solid #00000000;
+}
