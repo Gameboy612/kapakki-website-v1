@@ -1,6 +1,6 @@
 .ending {
     --ending-gradient-size: 15vh;
-    --ending-box-size: 20vh;
+    --ending-box-size: 22vh;
     margin: 0;
     padding: 0;
 }
@@ -67,10 +67,15 @@ img.logo {
     -webkit-text-stroke: 0em black;
 }
 
-p.contact_details {
+.contact_details {
     padding-top: 0.5em;
     font-size: 0.5em;
+    -webkit-text-stroke: 0em black;
     text-align: center;
 
     color:lightgray;
+}
+
+.icon_subtexts {
+    -webkit-text-stroke: 0.02em black;
 }

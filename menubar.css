@@ -41,7 +41,7 @@ section.menubar ul li a:hover {
     background-size: 100% 0.1em;
 }
 section.menubar ul li.home a {
-    font-size: 1.2em;
+    font-size: calc(2 * 0.75em);
 }
 
 @keyframes displaymenu {
