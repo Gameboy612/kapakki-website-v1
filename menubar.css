@@ -126,19 +126,22 @@ section.menubar ul li button {
 }
 
 .mid-menu.menu-close {
+    z-index: 10005;
     transform: rotate(-45deg);
     top: calc(1.5 * var(--menubar-icon-size));
 }
 
 .top-menu.menu-close {
-    transform: rotate(45deg);
+    transform: translateX(calc((-0.70710678118 / 4 + 0.25) * var(--menubar-icon-size)))
+            translateY(calc(-0.70710678118 / 4 * var(--menubar-icon-size))) rotate(45deg);
     top: calc(1.5 * var(--menubar-icon-size));
     width: calc(0.5 * var(--menubar-icon-size));
 }
 
 .bottom-menu.menu-close {
     width: calc(0.5 * var(--menubar-icon-size));
-    /* transform: translateX(calc(0.70710678118 * calc(0.5 * var(--menubar-icon-size)))) translateY(calc(0.70710678118 * calc(0.5 * var(--menubar-icon-size)))) rotate(45deg); */
+    transform: translateX(calc((0.70710678118 / 4 + 0.25) * var(--menubar-icon-size)))
+            translateY(calc(0.70710678118 / 4 * var(--menubar-icon-size))) rotate(45deg);
     top: calc(1.5 * var(--menubar-icon-size));
 }
 
