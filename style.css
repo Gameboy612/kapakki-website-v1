@@ -13,6 +13,8 @@
     --fs-400: 1.1rem; --ts-400: 0.001rem;
     --fs-350: 1rem; --ts-350: 0.001rem;
     --fs-300: 0.875rem; --ts-300: 0.001rem;
+
+    --clr-blue: #00afc7;
 }
 
 @media (max-width: 50em) {
@@ -152,7 +154,7 @@ button.travel {
     min-width: 200px;
     width: auto;
     background-color: rgba(10, 10, 10, 0.5);
-    border: 4px solid #00afc7;
+    border: 4px solid var(--clr-blue);
     border-radius: 25px;
     position: relative;
     overflow: hidden;

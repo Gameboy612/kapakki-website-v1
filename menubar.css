@@ -9,7 +9,7 @@ section.menubar {
     height: 30vh;
     padding-top: calc(0.55 * var(--menubar-fs));
     position: fixed;
-    background-image:linear-gradient(rgba(0,0,0,100),rgba(0,0,0,0));
+    background-image: linear-gradient(rgba(0,0,0,100),rgba(0,0,0,0));
     top: -100%;
     transition: top 0.35s ease-in-out; 
 }
@@ -112,8 +112,9 @@ section.menubar ul li button {
 
     transform: rotate(0);
     transition-timing-function: ease-in-out;
-    transition: background-size 0.5s, transform 0.5s, top 0.5s;
+    transition: transform 0.5s, top 0.5s, width 0.5s, box-shadow 0.25s;
 }
+
 
 .top-menu {
     top: calc(1.2 * var(--menubar-icon-size));
@@ -126,19 +127,18 @@ section.menubar ul li button {
 .mid-menu.menu-close {
     transform: rotate(-45deg);
     top: calc(1.5 * var(--menubar-icon-size));
-    /* background-size: 100% 0.2em; */
 }
 
 .top-menu.menu-close {
     transform: rotate(45deg);
     top: calc(1.5 * var(--menubar-icon-size));
-    background-size: 50% calc(0.2 * var(--menubar-icon-size));
+    width: calc(0.5 * var(--menubar-icon-size));
 }
 
 .bottom-menu.menu-close {
-    transform: translateX(calc(0.70710678118 * calc(0.5 * var(--menubar-icon-size)))) translateY(calc(0.70710678118 * calc(0.5 * var(--menubar-icon-size)))) rotate(45deg);
+    width: calc(0.5 * var(--menubar-icon-size));
+    /* transform: translateX(calc(0.70710678118 * calc(0.5 * var(--menubar-icon-size)))) translateY(calc(0.70710678118 * calc(0.5 * var(--menubar-icon-size)))) rotate(45deg); */
     top: calc(1.5 * var(--menubar-icon-size));
-    background-size: 50% calc(0.2 * var(--menubar-icon-size));
 }
 
 #btn-toggle-menu {
@@ -148,4 +148,17 @@ section.menubar ul li button {
     width: 100vw;
     height: 10vh;
     top: 3vh;
+}
+
+
+
+
+/* Blue Shadow */
+
+.menutoggle-animation:hover > .menu-rectangle {
+    box-shadow: 0 0 1.5em var(--clr-blue);
+}
+
+section.menubar ul li a:hover {
+    text-shadow: 0 0 1.5em var(--clr-blue);
 }
