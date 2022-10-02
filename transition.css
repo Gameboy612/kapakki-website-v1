@@ -19,14 +19,14 @@
 
 
 .transition.topgradient {
-    background-image:linear-gradient(rgba(0,0,0,0), rgba(0,0,0,255));
+    background-image:linear-gradient(#CEDDFF00, #CEDDFF60);
     bottom: 0;
     top: 10;
 }
 
 
 .transition.bottomgradient {
-    background-image:linear-gradient(rgba(0,0,0,255), rgba(0,0,0,0));
+    background-image:linear-gradient(#CEDDFF60, #CEDDFF00);
 }
 
 .transition.container {
@@ -35,7 +35,7 @@
 
 .transition.body {
     height:auto;
-    background-color: black;
+    background-color: #CEDDFF60;
 }
 
 .transition.body {
@@ -45,11 +45,13 @@
 }
 
 .transition.body h1 {
+    color: white;
     font-size: 1.5em;
     padding-bottom: 1.5vh;
     -webkit-text-stroke: 0.025em black;
 }
 .transition.body p {
+    color: white;
     font-size: 1em;
     -webkit-text-stroke: 0.035em black;
 }
