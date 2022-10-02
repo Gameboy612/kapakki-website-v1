@@ -112,6 +112,7 @@ section.menubar ul li button {
 
     transform: rotate(0);
     transition-timing-function: ease-in-out;
+    box-shadow: 0 0 20px #0000;
     transition: transform 0.5s, top 0.5s, width 0.5s, box-shadow 0.25s;
 }
 
@@ -156,9 +157,15 @@ section.menubar ul li button {
 /* Blue Shadow */
 
 .menutoggle-animation:hover > .menu-rectangle {
-    box-shadow: 0 0 1.5em var(--clr-blue);
+    box-shadow: 0 0 20px var(--clr-blue);
 }
 
-section.menubar ul li a:hover {
-    text-shadow: 0 0 1.5em var(--clr-blue);
+a {
+    transition: text-shadow 1s;
+}
+
+a:hover {
+    text-shadow:
+         0 0 20px var(--clr-blue),
+         0 0 20px var(--clr-blue);
 }
