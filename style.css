@@ -1,10 +1,35 @@
 /* https://stackoverflow.com/questions/1762539/margin-on-child-element-moves-parent-element */
 
 :root {
-    --fs-xl: 5rem;
-    --fs-600: 1.5rem;
-    --fs-500: 1.25rem;
-    --fs-400: 1rem;
+    --fs-xl: 5rem; --ts-xl: 0.25rem;
+    --fs-l: 3.5rem; --ts-l: 0.1rem;
+    --fs-m: 3rem; --ts-m: 0.16rem;
+    --fs-850: 2.5rem; --ts-850: 0.1rem;
+    --fs-800: 2rem; --ts-800: 0.08rem;
+    --fs-750: 1.875rem; --ts-750: 0.06rem;
+    --fs-700: 1.75rem; --ts-700: 0.06rem;
+    --fs-600: 1.5rem; --ts-600: 0.025rem;
+    --fs-500: 1.25rem; --ts-500: 0.0125rem;
+    --fs-400: 1.1rem; --ts-400: 0.001rem;
+    --fs-350: 1rem; --ts-350: 0.001rem;
+    --fs-300: 0.875rem; --ts-300: 0.001rem;
+}
+
+@media (max-width: 50em) {
+    :root {
+        --fs-xl: 3.3rem; --ts-xl: 0.15rem;
+        --fs-l: 3rem; --ts-l: 0.1rem;
+        --fs-m: 2.2rem; --ts-m: 0.1rem;
+        --fs-850: 2rem; --ts-850: 0.1rem;
+        --fs-800: 1.7rem; --ts-800: 0.04rem;
+        --fs-750: 1.5rem; --ts-750: 0.042rem;
+        --fs-700: 1.45rem; --ts-700: 0.06rem;
+        --fs-600: 1.4rem; --ts-600: 0.001rem;
+        --fs-500: 1.25rem; --ts-500: 0.0125rem;
+        --fs-400: 1rem; --ts-400: 0.001rem;
+        --fs-350: 0.875rem; --ts-350: 0.001rem;
+        --fs-300: 0.75rem; --ts-300: 0.001rem;
+    }
 }
 
 * {
@@ -12,12 +37,13 @@
     padding: 0;
     border: 0;
     font-family: Calibri;
-    font-size: max(30px, 1.35rem);
+    font-size: var(--fs-400);
     -webkit-text-stroke: 0.035em black;
 }
 
 body {
     background-color: rgba(0, 0, 0, 0.4);
+    font-size: var(--fs-400);
 }
 
 .background {
@@ -78,12 +104,12 @@ section.background.content {
 }
 
 .info h1 {
-    -webkit-text-stroke: 0.035em black;
+    -webkit-text-stroke: var(--ts-xl) black;
     display: flex inline-block;
     transform: translateY(-200%);
     transition: transform 1s 2s;
     animation: slide-into-mid-h1 0.8s ease-in-out forwards;
-    font-size: 2em;
+    font-size: var(--fs-xl);
 }
 
 
@@ -95,18 +121,18 @@ section.background.content {
 }
 
 .info p {
-    -webkit-text-stroke: 0.035em black;
+    -webkit-text-stroke: var(--ts-l) black;
     transform: translateY(-200%);
     transition: transform 1s 2s;
-    font-size: 1.1em;
+    font-size: var(--fs-l);
     animation: slide-into-mid-p 1s ease-in-out forwards;
 }
 
 .info h3 {
-    -webkit-text-stroke: 0.035em black;
+    -webkit-text-stroke: var(--ts-m) black;
     transform: translateY(-200%);
     transition: transform 1s 2s;
-    font-size: 1.1em;
+    font-size: var(--fs-m);
     animation: slide-into-mid-p 1s ease-in-out forwards;
 }
 
@@ -117,9 +143,12 @@ section.background.content {
     }
 }
 
+/* button */
+
 button.travel {
+    position: relative;
     text-align: center;
-    height: 2em;
+    height: calc(var(--fs-850) * 2);
     min-width: 200px;
     width: auto;
     background-color: rgba(10, 10, 10, 0.5);
@@ -131,15 +160,17 @@ button.travel {
 }
 
 button.travel div {
-    transform: translateY(-1.8em);
-}
-button.travel a {
     position: relative;
+}
+
+button.travel a {
     text-decoration: none;
     color: #fff;
+    font-size: var(--fs-850);
 }
 
 button.travel span{
+    position: absolute;
     background: #00afc700;
     height: 100%;
     width: 0%;

@@ -1,6 +1,24 @@
-.ending {
+:root {
+    --ending-contacts-fs: var(--fs-400);
+    --ending-socials-fs: var(--fs-700);
+    --ending-socials-logo-fs: var(--ending-socials-fs);
+    --ending-socials-logo-spacing: calc(var(--ending-socials-fs) * 0.121);
+
     --ending-gradient-size: 15vh;
-    --ending-box-size: 5em;
+    --ending-box-size: calc(var(--ending-socials-fs) * 5);
+}
+
+@media (max-width: 50em) {
+    :root {
+        --ending-socials-logo-spacing: calc(var(--ending-socials-fs) * 0.121);
+        --ending-socials-fs: 0;
+        --ending-socials-logo-fs: calc(var(--fs-700) * 1.2);
+        --ending-box-size: calc(var(--fs-700) * 5);
+    }
+}
+
+
+.ending {
     margin: 0;
     padding: 0;
 }
@@ -42,34 +60,36 @@ section.ending {
 .ending ul li {
     float: right;
     display: inline;
-    font-size: 0.7em;
     padding-right: 3vw;
 }
 
 .ending ul li a {
     text-decoration: none;
     color: white;
-    font-size: 1.0em;
+    font-size: var(--ending-socials-fs);
 }
 
 
 .ending ul li.contacts {
     padding-left: 5vw;
+    padding-bottom: calc(var(--ending-socials-fs) * 0.4);
     float: left;
+    font-size: calc(var(--ending-socials-fs) * 1.2);
 }
 
 img.logo {
     color: white;
-    height: 0.7em;
-    width: 0.7em;
-    transform: translateY(0.15em);
-    filter:invert();
+    height: calc(0.9 * var(--ending-socials-logo-fs));
+    width: calc(0.9 * var(--ending-socials-logo-fs));
+    transform: translateY(calc(0.15 * var(--ending-socials-logo-fs)));
+    padding-right: var(--ending-socials-logo-spacing);
+    filter: invert();
     -webkit-text-stroke: 0em black;
 }
 
 .contact_details {
-    padding-top: 0.5em;
-    font-size: 0.5em;
+    padding-top: calc(var(--ending-contacts-fs) * 0.5);
+    font-size: var(--ending-contacts-fs);
     -webkit-text-stroke: 0em black;
     text-align: center;
 
