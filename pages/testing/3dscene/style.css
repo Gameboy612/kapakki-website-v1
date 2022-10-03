@@ -1,6 +1,6 @@
 :root {
     --boxColor: #0ff7;
-    --rotateSpeed: 120s;
+    --rotateSpeed: 10s;
 }
 
 body {
@@ -42,11 +42,26 @@ body {
     position: absolute;
 
     top: 1em;
-    transform: translate(-50%, -50%) rotateX(90deg) translateY(-2em);
+    transform: translate(-50%, -50%) rotateX(90deg) translateY(5em) translateZ(-2em);
 }
 
 .floor-shadow {
+    position: absolute;
     width: 100%;
     height: 100%;
     background-image: radial-gradient(#fdd1, #000f 80%);
+}
+
+
+
+.dodecahedron {
+    position: absolute;
+}
+
+.pentagon.base {
+    position: absolute;
+    width: 3em;
+    height: 3em;
+
+    transform: rotateX(90deg);
 }

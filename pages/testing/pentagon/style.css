@@ -1,0 +1,70 @@
+:root {
+    --cos72deg: 0.30901699437;
+    --sin72deg: 0.95105651629;
+
+    --cos54deg: 0.58778525229;
+    --sin54deg: 0.80901699437;
+
+    --sidelength: calc(1 / (var(--cos54deg) + var(--sin72deg)))
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.pentagon {
+    position: relative;
+    width: 3em;
+    height: 3em;
+}
+
+.frame {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.line {
+    position: absolute;
+    background-color: black;
+
+    --width: calc(100% * var(--sidelength));
+    --height: calc(100% * var(--sidelength) / 80);
+
+    width: var(--width);
+    height: var(--height);
+}
+
+.line1 {
+    top: calc(100% - var(--height) / 2);
+    left: calc(50% - var(--width) / 2);
+}
+
+.line2 {
+    rotate: -72deg;
+    top: calc(100% * (1 - var(--sidelength) * var(--sin72deg) / 2) - var(--height) / 2);
+    left: calc(100% * (1 - var(--sidelength) * var(--cos72deg) / 2) - var(--width) / 2);
+}
+
+.line3 {
+    rotate: -144deg;
+    top: calc(100% * var(--sidelength) * var(--cos54deg) / 2 - var(--height) / 2);
+    left: calc(75% - var(--width) / 2);
+}
+
+.line4 {
+    rotate: 144deg;
+    top: calc(100% * var(--sidelength) * var(--cos54deg) / 2 - var(--height) / 2);
+    left: calc(25% - var(--width) / 2);
+}
+
+.line5 {
+    rotate: 72deg;
+    top: calc(100% * (1 - var(--sidelength) * var(--sin72deg) / 2) - var(--height) / 2);
+    left: calc(100% * (var(--sidelength) * var(--cos72deg) / 2) - var(--width) / 2);
+
+}
