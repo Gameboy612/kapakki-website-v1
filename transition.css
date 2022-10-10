@@ -33,38 +33,100 @@
     height:auto;
 }
 
-.transition.body {
-    height:auto;
-    background-color: #CEDDFF60;
-}
 
 .transition.body {
-    padding: 40vh 16vw;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    background-color: #CEDDFF60;
+    min-height: 100vh;
+    position: relative;
     color:white;
-    text-shadow: 0 0 0.15em white;
+    height: auto;
 }
 
 .transition.body h1 {
+    text-align: center;
+    font-family: 'Bungee', cursive;
     color: white;
-    font-size: var(--fs-l);
-    padding-bottom: 1.5vh;
+    font-size: var(--fs-m);
+    padding-bottom: 0.1vh;
     -webkit-text-stroke: var(--ts-l) black;
 }
 .transition.body p {
+    padding: 0 14vw;
+    font-family: cursive;
     color: white;
     font-size: var(--fs-750);
     -webkit-text-stroke: var(--ts-750) black;
 }
 .transition.body ul {
-    list-style-type: circle;
-    padding-left: 5vw;
-    padding-top: 4vh;
-    
+    width: 100%;
+    list-style-type: none;
+    padding-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .transition.body ul li {
+    margin: 2vh 4vw;
+    display: inline-block;
     font-size: var(--fs-800);
     -webkit-text-stroke: var(--ts-800) black;
 }
+
+.transition.body ul li .slot {
+    padding: 1.5em 0 1.5em 0;
+    max-width: 15em;
+    width: 40vw;
+    height: clamp(13em, 30vw, 15em);
+    border: 2px white dashed;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+}
+
+.transition.body ul li .slot h1 {
+    text-align: center;
+    padding: 0 0;
+    line-height: 1.5em;
+    margin: 0 0.3em 0.5em 0.3em;
+    font-size: clamp(var(--fs-600), 4vw, var(--fs-750));
+}
+.transition.body ul li .slot p {
+    padding: 0 1.5em;
+    text-align: center;
+    font-size: var(--fs-450);
+    font-family: cursive;
+    -webkit-text-stroke: var(--ts-500) black;
+}
+
+
+
+
+.transition.body ul li .slot:hover {
+    transform: scale(1.1);
+    background-color: #fff9;
+    animation: alternate-reverse 3s chroma_border infinite;
+}
+
+@keyframes chroma_border {
+    0% {
+        border-color: gold;
+    }
+    100% {
+        border-color: var(--clr-blue);
+    }
+
+}
+
+.transition.body ul li .slot:hover p {
+    color: black;
+    -webkit-text-stroke: var(--ts-450) white;
+}
+
 
 
 .font-fantasy {
@@ -76,6 +138,5 @@
     font-size: var(--fs-600);
     -webkit-text-stroke: var(--ts-600) black;
     color: lightgray;
-    text-shadow: 0 0 var(--ts-600) white;
     padding-bottom: 2vh;
 }

@@ -112,6 +112,7 @@ section.background.content {
     transition: transform 1s 2s;
     animation: slide-into-mid-h1 0.8s ease-in-out forwards;
     font-size: var(--fs-xl);
+    
 }
 
 
@@ -131,10 +132,11 @@ section.background.content {
 }
 
 .info h3 {
-    -webkit-text-stroke: var(--ts-m) black;
+    
+    -webkit-text-stroke: var(--ts-800) black;
     transform: translateY(-200%);
     transition: transform 1s 2s;
-    font-size: var(--fs-m);
+    font-size: var(--fs-800);
     animation: slide-into-mid-p 1s ease-in-out forwards;
 }
 
