@@ -92,18 +92,33 @@
     text-align: center;
     padding: 0 0;
     line-height: 1.5em;
-    margin: 0 0.3em 0.5em 0.3em;
+    margin: 0 0.3em 1.2em 0.3em;
     font-size: clamp(var(--fs-600), 4vw, var(--fs-750));
 }
 .transition.body ul li .slot p {
-    padding: 0 1.5em;
+    padding: 0 0.8em;
     text-align: center;
-    font-size: var(--fs-450);
-    font-family: cursive;
+    font-size: var(--fs-600);
+    font-family: 'Gemunu Libre', sans-serif, Arial, Helvetica, sans-serif;
     -webkit-text-stroke: var(--ts-500) black;
 }
 
+@media (max-width: 50em) {
+    .transition.body ul li .slot {
+        padding: 1.5em 0 1.5em 0;
+        max-width: 15em;
+        width: 50vw;
+        height: clamp(14em, 40vw, 18em);
+        border: 2px white dashed;
+        overflow: hidden;
+        transition: 0.2s ease-in-out;
+    }
 
+    .transition.body ul li .slot p {
+        font-size: var(--fs-600);
+    }
+    
+}
 
 
 .transition.body ul li .slot:hover {
