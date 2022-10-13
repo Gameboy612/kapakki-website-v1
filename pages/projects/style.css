@@ -60,14 +60,28 @@
 }
 
 .body {
+    
+    padding: 10em 0;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.5;
     background-image: url('../../assets/background.png');
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 10em 0;
+
 }
 
 .projects h1 {
     font-size: 3em;
+    text-shadow:
+         0 0 20px white;
 }
 
 .projects {
@@ -109,4 +123,26 @@
     border-width: 2px;
     border-style: solid;
     background-color: #bbb;
+}
+
+.project-element a {
+    transition: ease-in-out 0.3s;
+    color: rgb(53, 147, 161);
+    
+}
+
+.project-element a:hover {
+    text-shadow:
+         0 0 20px white,
+         0 0 20px white,
+         0 0 20px white,
+         0 0 20px white;
+}
+
+.project-element a.button:hover {
+    
+    box-shadow:
+    0 0 20px white,
+    0 0 20px white;
+
 }
