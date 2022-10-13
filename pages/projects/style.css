@@ -146,3 +146,13 @@
     0 0 20px white;
 
 }
+
+.body p.text-shadow {
+    text-shadow:
+         0 0 20px white,
+         0 0 20px white,
+         0 0 20px white,
+         0 0 20px white;
+    font-weight: 600;
+
+}
