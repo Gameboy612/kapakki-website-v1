@@ -41,7 +41,6 @@
     border: 0;
     font-family: Calibri;
     font-size: var(--fs-400);
-    -webkit-text-stroke: 0.035em black;
 }
 
 body {
@@ -125,7 +124,7 @@ section.background.content {
 }
 
 .info p {
-    -webkit-text-stroke: var(--ts-l) black;
+    -webkit-text-stroke: var(--ts-300) black;
     transform: translateY(-200%);
     transition: transform 1s 2s;
     font-size: var(--fs-l);

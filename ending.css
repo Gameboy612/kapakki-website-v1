@@ -87,6 +87,13 @@ img.logo {
     -webkit-text-stroke: 0em black;
 }
 
+img.black {
+    filter: none;
+    height: 1.2em;
+    width: auto;
+
+}
+
 .contact_details {
     padding-top: calc(var(--ending-contacts-fs) * 0.5);
     font-size: var(--ending-contacts-fs);

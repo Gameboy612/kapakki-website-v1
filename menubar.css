@@ -6,10 +6,10 @@
 section.menubar {
     z-index: 10000;
     width: 100vw;
-    height: 30vh;
+    height: 28vh;
     padding-top: calc(0.55 * var(--menubar-fs));
     position: fixed;
-    background-image: linear-gradient(rgba(0,0,0,100),rgba(0,0,0,0));
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0));
     top: -100%;
     transition: top 0.35s ease-in-out; 
 }
@@ -45,11 +45,19 @@ section.menubar ul li.menutoggle {
     padding-left: calc(9vw + var(--menubar-icon-size) * 1.5 + 0.35 * var(--menubar-fs));
 }
 
-@media (max-width: 50em) {
+@media (max-width: 899px) {
     section.menubar ul li.menutoggle {
         float: left;
         transform: translateY(calc(0.95 * var(--menubar-icon-size) - 0.65 * var(--menubar-fs)));
         padding-left: calc(5vw + var(--menubar-icon-size) * 1.5 + 0.35 * var(--menubar-fs));
+    }
+
+    section.menubar ul li{
+        transform: translateY(0);
+        z-index: 10015;
+        float: right;
+        display: inline;
+        padding-right: 7vw;
     }
 }
 

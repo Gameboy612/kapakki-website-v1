@@ -1,9 +1,104 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        
-    </head>
-    <body>
-        
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../menubar.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../ending.css">
+    <link rel="stylesheet" href="../../menubar.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="timeline.css">
+</head>
+<body>
+    
+        <!--Animated Toggle-->
+        <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+        <div class="menutoggle-animation" onclick="togglemenu()">
+            <div class="menu-rectangle top-menu"></div>
+            <div class="menu-rectangle mid-menu"></div>
+            <div class="menu-rectangle bottom-menu"></div>
+        </div>
+
+        <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+            
+            <ul>
+                <li class="menutoggle">
+                    <button>    
+                        <a href="../../index.html",class="menutoggle_a">Kapakki</a>
+
+                    </button>
+                </li>
+                <li><a href="pages/"></a></li>
+                <li><a href="../projects/index.html">Projects</a></li>
+                <li><a href="../achievements/index.html">Achievements</a></li>
+            </ul>
+        </section>
+
+    <section class="body">
+        <div class="projects">
+            <h1>Projects</h1>
+            <div class="project-element" id="devas">
+                <h2>Devas - A Minecraft RPG Datapack</h2>
+                <p>Devas is a Minecraft RPG Datapack developed by me, and a couple of my friends, forming a team of 5 members. I am responsible for the programming, and about 20-30% of the 3D modelling, while the others vary from texture artists, to bug tracking.</p>
+                <p>We have started developing Devas since 2019, and there had been one redo of the entire game, due to optimization. We have reworked the whole system of Devas starting from the first line of code in May 2021, and have become a fully expandable sandbox RPG in the current day.</p>
+                <p>Devas is currently still in its development stage, and is expected to come out with a beta release in 2023.</p>
+                <a href="https://youtu.be/N282dS96YoM" target="_blank"><button type="button">&nbsp<img src="../../assets/logo/youtube_icon.png" class="logo black">&nbsp See Preview</button></a>
+            </div>
+
+            <div class="project-element">
+                <h2>Gamma - A Python Voice Assistant</h2>
+                <p>Gamma is developed by Kapakki since September of 2022, as a program to attempt to improve computer accessability. </p>
+            </div>
+
+            <div class="project-element">
+                <h2>Tough as Nails Remake</h2>
+                <p>Tough as Nails Remake is a clone of the Tough as Nails mod, with the aim of improving my programming skills. The project received a lot of feedback from curseforge, reaching over 2400 downloads. Unfortunately, we have since terminated the project due to copyright reasons and the cost of time to optimize and maintain it, as it was made very early in my programming career.</p>
+                <a href="https://www.curseforge.com/minecraft/customization/tough-as-nails-remake-datapack" target="_blank"><button type="button">&nbsp<img src="../../assets/logo/curseforge_icon.png" class="logo black">&nbsp Visit Curseforge Page</button></a>
+            </div>
+
+            <div class="project-element">
+                <h2>Gameboy's Particle System</h2>
+                <p>In the work of creating <a href="#devas">Devas</a>, I have made a custom particle system in Minecraft, which ityou can change the particle's velocity, despawn time, textures, or even animate them.<br><br>This project required a large amount of mathematical computation, such as Rotation Matrices, Cross Products, Linear Transformations, etc.</p>
+                <a href="https://github.com/Gameboy612/Gamiboi-s-Particle-System" target="_blank"><button type="button">&nbsp<img src="../../assets/logo/github_icon.png" class="logo black">&nbsp Visit Github Page</button></a>
+            </div>
+
+            
+            <div class="project-element">
+                <h2>Gameboy's Furniture Datapack</h2>
+                <p>I have also created a datapack library for Java Edition of Minecraft, which allows players to add custom 3D modelled blocks to Minecraft. Currently, custom blocks in Minecraft are not an easy thing to create, but with the help of this datapack, every step is simplified, and the pack is overall relatively optimized. This makes programming simpler for newcomers.</p>
+                <a href="https://github.com/Gameboy612/Gameboy-s-Furniture-Datapack" target="_blank"><button type="button">&nbsp<img src="../../assets/logo/github_icon.png" class="logo black">&nbsp Visit Github Page</button></a>
+            </div>
+
+            
+            
+            <div class="project-element">
+                <h2>Gameboy's Furniture Datapack</h2>
+                <p>I have also created a datapack library for Java Edition of Minecraft, which allows players to add custom 3D modelled blocks to Minecraft. Currently, custom blocks in Minecraft are not an easy thing to create, but with the help of this datapack, every step is simplified, and the pack is overall relatively optimized. This makes programming simpler for newcomers.</p>
+                <a href="https://github.com/Gameboy612/Gameboy-s-Furniture-Datapack" target="_blank"><button type="button">&nbsp<img src="../../assets/logo/github_icon.png" class="logo black">&nbsp Visit Github Page</button></a>    
+                <a href="https://youtu.be/XXIBarXdWvA" target="_blank"><button type="button">&nbsp<img src="../../assets/logo/youtube_icon.png" class="logo black">&nbsp Tutorial</button></a>
+            </div>
+
+
+        </section>
+
+
+        <!-- This is the ending section -->
+        <section class="ending">
+            <div class="ending topgradient"></div>
+            <div class="ending endingbody">
+                <p class="contact_details">Email: lokapakki@gmail.com <br> Phone/WhatsApp: +852 6088 2264</p>
+                <br>
+                <ul>
+                    <li class="contacts icon_subtexts">Contacts:</li>
+                    <li><a href="https://discord.gg/Ne89zag6" class="icon_subtexts"><img src="../../assets/logo/discord_icon.png" class="logo"> Discord</a></li>
+                    <li><a href="https://github.com/Gameboy612" class="icon_subtexts"><img src="../../assets/logo/github_icon.png" class="logo"> Github</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCH1wHa73ATP44bbg9_4zwjg" class="icon_subtexts"><img src="../../assets/logo/youtube_icon.png" class="logo"> Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="../../scripts/menubutton.js"></script>
 </html>

@@ -4,10 +4,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achievements</title>
+    <link rel="stylesheet" href="../menubar.css">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../ending.css">
+    <link rel="stylesheet" href="../../menubar.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="timeline.css">
 </head>
 <body>
+    
+        <!--Animated Toggle-->
+        <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+        <div class="menutoggle-animation" onclick="togglemenu()">
+            <div class="menu-rectangle top-menu"></div>
+            <div class="menu-rectangle mid-menu"></div>
+            <div class="menu-rectangle bottom-menu"></div>
+        </div>
+
+        <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+            
+            <ul>
+                <li class="menutoggle">
+                    <button>    
+                        <a href="../../index.html",class="menutoggle_a">Kapakki</a>
+
+                    </button>
+                </li>
+                <li><a href="pages/"></a></li>
+                <li><a href="../projects/index.html">Projects</a></li>
+                <li><a href="../achievements/index.html">Achievements</a></li>
+            </ul>
+        </section>
+
     <section class="page page1">
         <div class="decoration">
             <div class="circle1"></div>
@@ -19,36 +47,104 @@
         </div>
     </section>
     <section class="achievements">
+        <h1 class="timeline-title">Timeline</h1>
         <div class="container">
             <div class="timeline">
-                <ul>
-                    <li>
+                <ul class="achievements-ul">
+                    <li class="timeline-li">
                         <div class="timeline-element">
-                            <h1>Heading 1</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis in accusantium voluptatem, quos repellendus dolore praesentium quisquam</p>
+                            <h2>June - *Present* 2022</h2>
+                            <h1>CityU AIoT Programme</h1>
+                            <p>Joined the <a style="color:var(--clr-pale)" href="https://www.ee.cityu.edu.hk/prospective_students/Gifted_Education_Fund">Gifted Education Fund: AIoT Coding, Engineering and Entrepreneurial Skills Education for Gifted Students</a> held by CityU</p>
+                            <img src="../../assets/background.png" class="description-pic">
+                            <a href="https://youtu.be/0BMVAAz5NOo" target="_blank">
+                                <button class="certificates" type="button"><div class="lines"></div><p>Admission Video</p></button>
+                            </a>
+                            
                         </div>
                     </li>
-                    <li>
+                    
+                    <li class="timeline-li">
                         <div class="timeline-element">
-                            <h1>Heading 2</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis in accusantium voluptatem, quos repellendus dolore praesentium quisquam</p>
+                            <h2>Jan 2022</h2>
+                            <h1>Further Pure Mathematics 1 - 3</h1>
+                            <p>Participated in the IAL Further Pure Mathematics public examination held by the HKEAA, in Janurary of 2022.<br><br>Results:</p>
+                            
+                            <ul>
+                                <li>FP1:  A</li>
+                                <li>FP2:  A</li>
+                                <li>FP3:  B</li>
+                            </ul>
+                            <img src="../../assets/background.png" class="description-pic">
+                            <a href="../../assets/achievements/pdfs/maths/2022-ial.pdf" target="_blank">
+                                <button class="certificates" type="button"><div class="lines"></div><p>Certifications</p></button>
+                            </a>
                         </div>
                     </li>
-                    <li>
+                    
+                    <li class="timeline-li">
                         <div class="timeline-element">
-                            <h1>Heading 3</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis in accusantium voluptatem, quos repellendus dolore praesentium quisquam</p>
+                            <h2>4 Oct 2021</h2>
+                            <h1>Towards Differential Geometry (CUHK)</h1>
+                            <p>Completed the TDG course in the EPYMT programme held by CUHK in the Summer of 2021.<br><br>Results &nbsp- &nbspMerit</p>
+                            <img src="../../assets/background.png" class="description-pic">
+                            <a href="../../assets/achievements/pdfs/maths/cuhk-tdg.pdf" target="_blank">
+                                <button class="certificates" type="button"><div class="lines"></div><p>Certifications</p></button>
+                            </a>
                         </div>
                     </li>
-                    <li>
+                    <li class="timeline-li">
                         <div class="timeline-element">
-                            <h1>Heading 4</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis in accusantium voluptatem, quos repellendus dolore praesentium quisquam</p>
+                            <h2>27 Aug 2021</h2>
+                            <h1>Microsoft Azure AI Fundamentals</h1>
+                            <p>Obtained a score of <strong>903/1000</strong> in the Microsoft Certified: Azure AI Fundamentals.</p>
+                            <a href="../../assets/achievements/pdfs/computing/Microsoft_Certified_Professional_Certificate_0.pdf" target="_blank">
+                                <button class="certificates" type="button"><div class="lines"></div><p>Certifications</p></button>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="timeline-li">
+                        <div class="timeline-element">
+                            <h2>15 Aug 2021</h2>
+                            <h1>Microsoft PowerPoint (Office 2016)</h1>
+                            <p>I have took part in the Microsoft PowerPoint (Office 2016) qualification exam held by Microsoft.
+                            <br><br>Results &nbsp- &nbspBronze Award
+                            </p>
+                            <a href="../../assets/achievements/pdfs/computing/microsoft-ppt.pdf" target="_blank">
+                                <button class="certificates" type="button"><div class="lines"></div><p>Certifications</p></button>
+                            </a>
+                            
+                        </div>
+                    </li>
+                    <li class="timeline-li">
+                        <div class="timeline-element">
+                            <h2>July 2021</h2>
+                            <h1>International Chemistry Quiz (Year 10)</h1>
+                            <p>Participated in the Junior Division Year 10 International Chemistry Quiz.<br><br>Results &nbsp- &nbspHigh Distinction</p>
+                            <a href="../../assets/achievements/pdfs/chem/2021-icq.pdf" target="_blank">
+                                <button class="certificates" type="button"><div class="lines"></div><p>Certifications</p></button>
+                            </a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </section>
+    <!-- This is the ending section -->
+    <section class="ending">
+        <div class="ending topgradient"></div>
+        <div class="ending endingbody">
+            <p class="contact_details">Email: lokapakki@gmail.com <br> Phone/WhatsApp: +852 6088 2264</p>
+            <br>
+            <ul>
+                <li class="contacts icon_subtexts">Contacts:</li>
+                <li><a href="https://discord.gg/Ne89zag6" class="icon_subtexts"><img src="../../assets/logo/discord_icon.png" class="logo"> Discord</a></li>
+                <li><a href="https://github.com/Gameboy612" class="icon_subtexts"><img src="../../assets/logo/github_icon.png" class="logo"> Github</a></li>
+                <li><a href="https://www.youtube.com/channel/UCH1wHa73ATP44bbg9_4zwjg" class="icon_subtexts"><img src="../../assets/logo/youtube_icon.png" class="logo"> Youtube</a></li>
+            </ul>
+        </div>
+
+    </section>
 </body>
+<script src="../../scripts/menubutton.js"></script>
 </html>

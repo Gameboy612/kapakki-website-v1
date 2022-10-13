@@ -57,10 +57,10 @@
 }
 .transition.body p {
     padding: 0 14vw;
-    font-family: cursive;
+    font-family: 'Gemunu Libre', sans-serif, Arial, Helvetica, sans-serif;
     color: white;
-    font-size: var(--fs-750);
-    -webkit-text-stroke: var(--ts-750) black;
+    font-size: var(--fs-m);
+    -webkit-text-stroke: var(--ts-700) black;
 }
 .transition.body ul {
     width: 100%;

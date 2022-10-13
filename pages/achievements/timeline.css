@@ -1,78 +1,244 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Courgette&family=Gemunu+Libre:wght@600;700;800&display=swap');
 
+section.achievements {
+    background-color: var(--clr-10);
+    height: auto;
+}
 
+h1.timeline-title {
+    font-size: var(--fs-m);  
+    padding-top: 2em;
+    text-align: center;
+    margin-bottom: var(--fs-xl);
+    width: 100%;
+}
 
 .container {
-    min-height: 100vh;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
 }
 
 .timeline {
     font-family: 'Gemunu Libre', sans-serif;
-    width: 80%;
+    width: 100vw;
     height: auto;
-    max-width: 80vw;
     margin: 0 auto;
     position: relative;
 }
 
-.timeline ul {
+.timeline ul.achievements-ul {
     list-style: none;
+    color: var(--clr-pale);
 }
 
-.timeline ul li {
+ul {
+    list-style:inside;
+}
+
+
+.timeline-element {
+    position: relative;
     padding: 20px;
-    background-color: #c0c0c0;
-    margin-bottom: 1.5em;
+    background-color: var(--clr-11);
+    margin: 0 7.5vw;
+    margin-bottom: 3em;
     border-radius: 0.75em;
+    transition: ease-in-out 0.3s;
 }
 
+
+
+
+.title h1 {
+    color: #dddd;
+    -webkit-text-stroke: 0.04em #000f;
+}
+
+.timeline-element h2 {
+    
+    color: #222;
+    position: absolute;
+}
 .timeline-element h1 {
-    font-size: 1.5em;
+    font-size: var(--fs-800);
+    color: var(--clr-pale);
+    margin-bottom: 0.35em;
 }
 
-.timeline-element p {
-    font-size: 1em;
+
+button.certificates {
+    background-color: var(--clr-pale);
+    padding: 0.4em;
+    margin-top: 1.5em;
+    border-radius: 0.5em;
+    border-color: var(--clr-10);
+    border-width: 0.15em;
+    border-style: solid;
+    position: relative;
+    overflow: hidden;
 }
 
-@media only screen and (min-width: 800px) {
 
-    .timeline ul li {
-        padding: 20px;
-        background-color: #c0c0c0;
-        margin-bottom: 1.5em;
+button.certificates p {
+    
+    z-index: 3;
+    color: #222;
+    
+}
+
+@keyframes button-border {
+    0% {
+        transform: rotate(360deg);
+    }
+    360% {
+        transform: rotate(0%);
+    }
+}
+button.certificates:hover {
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 50em) {
+    .timeline-element h2 {
+        top: -1.6em;
+        font-size: var(--fs-400);
+        letter-spacing: 0.05em;
+    }
+
+    .timeline-element {
+        margin-bottom: 4.5em;
+    }
+
+    .timeline-element p {
+        color: var(--clr-pale);
+        font-size: var(--fs-450);
+    }
+    .timeline-element h1 {
+        font-size: var(--fs-750);
+    }
+
+    .timeline ul.achievements-ul li.timeline-li img.description-pic {
+        top: 0;
+        max-height: 150%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+}
+
+
+@media only screen and (min-width: 50em) {
+
+    .timeline-element {
+        margin: 0 1vw;
+    }
+
+    .timeline ul.achievements-ul li.timeline-li {
+        margin: 0 1.5vw 10em 1.5vw;
         border-radius: 0.75em;
-        max-width: 30em;
+        max-width: 42.5vw;
+    }
+
+    h1.timeline-title {
+        margin-bottom: var(--fs-xl);
     }
     
-    .timeline ul li:nth-of-type(odd) {
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(odd) {
         float: left;
         clear: right;
     }
-    .timeline ul li:nth-of-type(even) {
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(even) {
         float: right;
         clear: left;
+        transition: ease-in-out 0.3s;
     }
 
+    
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(odd)::before {
+        position: absolute;
+        content: "";
+        min-width: 1em;
+        min-height: 1em;
+        background-color: #555;
+        border-radius: 50%;
+        right: 50%;
+        transform: translateX(50%) translateY(-1em);
+        transition: ease-in-out 0.3s;
+    }
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(even)::before {
+        position: absolute;
+        content: "";
+        min-width: 1em;
+        min-height: 1em;
+        background-color: #555;
+        border-radius: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-1em);
+        transition: ease-in-out 0.3s;
+    }
+
+
+
+
+
+    .timeline-element h2 {
+        top: -1.15em;
+        font-size: var(--fs-600);
+        letter-spacing: 0.05em;
+    }
+    .timeline-element p {
+        color: var(--clr-pale);
+        font-size: var(--fs-450);
+        line-height: 1.3em;
+    }
     .timeline-element h1 {
-        font-size: 2em;
+        font-size: var(--fs-800);
+    }
+
+    
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(odd):hover::before {
+        background-color: var(--clr-4);
+    }
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(even):hover::before {
+        background-color: var(--clr-4);
     }
     
-    .timeline-element p {
-        font-size: 1.5em;
-    }
-
-    .timeline::before {
-        content: "";
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(odd) img.description-pic {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: black;
-        width: 3px;
-        height: 100%;
+        top: 0;
+        right: 0;
+        transform: translateX(52vw);
+        max-height: 150%;
+        max-width: 40vw;
+        width: auto;
     }
+    
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(even) img.description-pic {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(-52vw);
+        max-height: 150%;
+        max-width: 40vw;
+        width: auto;
+    }
+}
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #44444499;
+    width: 3px;
+    height: 100%;
+}
+.timeline ul.achievements-ul li.timeline-li:nth-of-type(odd):hover .timeline-element {
+    transform: scale(1.1);
+}
+
+.timeline ul.achievements-ul li.timeline-li:nth-of-type(even):hover .timeline-element {
+    transform: scale(1.1);
 }

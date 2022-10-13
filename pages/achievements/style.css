@@ -6,9 +6,14 @@
 :root {
     --clr-0: #e4eef7;
     --clr-1: #F5EFE6;
-    --clr-2: #E8DFCA;
+    --clr-2: #303030;
     --clr-3: #AEBDCA;
     --clr-4: #7895B2;
+
+    --clr-10: #c5bbac;
+    --clr-11: #656363;
+
+    --clr-pale: #ddd;
 
     --fs-xl: 5rem; --ts-xl: 0.25rem;
     --fs-l: 3.5rem; --ts-l: 0.1rem;
@@ -19,11 +24,22 @@
     --fs-700: 1.75rem; --ts-700: 0.06rem;
     --fs-600: 1.5rem; --ts-600: 0.025rem;
     --fs-500: 1.25rem; --ts-500: 0.0125rem;
+    --fs-450: 1.15rem; --ts-400: 0.001rem;
     --fs-400: 1.1rem; --ts-400: 0.001rem;
     --fs-350: 1rem; --ts-350: 0.001rem;
     --fs-300: 0.875rem; --ts-300: 0.001rem;
     --fs-200: 0.8rem; --ts-300: 0.001rem;
 }
+/* 
+:root {
+    --clr-0: #768089;
+    --clr-1: #8b9ead38;
+    --clr-2: #576372;
+    --clr-3: #AEBDCA;
+    --clr-4: #7895B2;
+
+} */
+
 
 @media (max-width: 50em) {
     :root {
