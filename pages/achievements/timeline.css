@@ -211,20 +211,41 @@ button.certificates:hover {
         top: 0;
         right: 0;
         transform: translateX(52vw);
-        max-height: 150%;
+        min-height: 80%;
+        max-height: 120%;
         max-width: 40vw;
         width: auto;
+        transition: ease-in-out 0.3s;
     }
+
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(odd):hover img {
+        transform: translateX(45vw);
+    }
+    
     
     .timeline ul.achievements-ul li.timeline-li:nth-of-type(even) img.description-pic {
         position: absolute;
         top: 0;
         left: 0;
         transform: translateX(-52vw);
-        max-height: 150%;
+        min-height: 80%;
+        max-height: 120%;
         max-width: 40vw;
         width: auto;
+        transition: ease-in-out 0.3s;
     }
+    
+    .timeline ul.achievements-ul li.timeline-li:nth-of-type(even):hover img {
+        transform: translateX(-45vw);
+    }
+
+    .timeline ul.achievements-ul li.timeline-li img.description-pic {
+        border-color: black;
+        border-style: solid;
+        border-radius: 1em;
+        border-width: 0.1em;
+    }
+
 }
 .timeline::before {
     content: "";
