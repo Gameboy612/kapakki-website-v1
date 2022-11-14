@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/code_block.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/style.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/remove_underline.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <title>Locate Me</title>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="sidebar_content">
+            <br>
+            <h2 class="black">Locate Me</h1></div>
+    </div>
+
+
+
+    <div class="background"></div>
+    <section class="box">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">HKCert22: Locate Me (又一城)</h1>
+                <h2 class="date">Date: 14/11/2022 8:56 PM</h2>
+                <h2 class="points">(150 points, 70 solves)</h2>
+                <div class="difficulty">misc</div>
+                <div class="difficulty">★★☆☆☆</div>
+                <br><br>
+                <p><span class="light_type">Author:</span><br>GonJK</p>
+                <br>
+                <p>
+                    <span class="light_type">Description:</span><br>
+                    What drawing? No one seems to know you!<br><br>
+                    Attachment: <a href="https://file.hkcert22.pwnable.hk/locate-me_f88ddb5d5df316c0e7f780cdd4cf231b.zip"><span class="white underlined">locate-me_f88ddb5d5df316c0e7f780cdd4cf231b.zip</span></a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="analysis" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">Analysis:</h1>
+                <br>
+                <p>
+                    <span class="light_type">Description:</span><br>
+                    Inside the folder, you would find a total of 297 pictures inside the pic folder, named 1-297, with jpg format.
+                </p>
+                <br>
+                <p class="text-align-center"><span class="white">i.e. &nbsp&nbsp2.jpg, 57.jpg, 280.jpg.</span></p>
+                <br>
+                <p>We recommend giving this puzzle a try before going to the solution, as the solution is not as complicated as you thought.</p>
+                <br>
+
+            </div>
+        </div>
+    </section>
+    <section id="thought_process" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">Thought Process:</h1>
+                <div class="line"></div>
+                <br>
+                <p>
+                    Upon analyzing the pictures, it is found that some of the pictures in the folder are repeated. Therefore, we can tell that the actual image of the folder is not important.
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1041706763226992650/image.png" style="max-width:50em;"><br><br>
+                </p>
+                <br><br>
+
+                <h2><span class="gray">Plans for the Flag:</span></h2>
+                <div class="line lighter"></div>
+                <br>
+                <h2>
+                    <span class="light_type">Idea 1:</span><span class="gray"> (Dead End)</span><br>
+                </h2>
+                    <p>
+The first idea we had thought of before finding the solution, is to split the photos up to the factors of 297, notably 11 x 27, 9 x 33 and 3 x 99.<br><br>However, no specific pattern can be found after arranging the files in this manner. (rip)
+                    </p>
+                    
+                    <br><br><br><br>
+                    <h2>
+                        <span class="light_type">Idea 2:</span><br>
+                    </h2>
+                    <p>
+                    We then decided to start analyzing the photo data.<br><br>When we threw these pictures into autopsy, we had two main directions for finding the key.<br><br>
+                    <ol class="key">
+                        <li class="white"><a href="#attempt_creation_date"><span class="white underlined">Creation Date of pictures</span></a></li>
+                        <li class="white"><a href="attempt_coordinates" ></a><span class="white underlined">Coordinates of pictures</span></li>
+                    </ol>
+                </p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2><span class="gray">Analyzing the Data:</span></h2>
+                <div class="line lighter"></div>
+                <br>
+                <h2 id="attempt_creation_date"><span class="light_type">1. &nbspCreation Date?</span><span class="gray"> (Dead End)</span></h2>
+                <p>Apparently all of the pictures have the same creation date lol, so nope.</p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2 id="attempt_cordinates"><span class="light_type">2. &nbspCoordinates?</span></h2>
+                <p>When we decided to analyze the coordinates of all the pictures. It was found that even the <span class="red underlined">SAME</span> pictures have <span class="red underlined">different</span> coordinates.<br><br>With this new found knowledge, we tried to plot all the different picture coordinates into a map, hopefully seeing some sort of pattern.</p>
+                <br><br>
+                <a href="https://www.internetgeography.net/map-your-photos-using-google-maps/"><span class="gray underlined">[How to plot waypoints into Google Map (My Map) via Google Photos]</span></a>
+
+                <br><br><br><br><br>
+
+                
+                <h2><span class="gray">Unexpected Behavior</span></h2>
+                <div class="line lighter"></div><br>
+                <p>When we deployed the album of 297 photos into Google Map, we found strange patterns which seem like the flag, but didn't make any sense.</p>
+                <img src="https://cdn.discordapp.com/attachments/738532982985457724/1041718178708979762/image.png" alt="Image of failed attempt">
+                <p>It is obvious that it is the flag, but the flag pattern is not showing up completely.</p>
+                <br><br><br><br>
+                <h2 class="gray">Explanation:</h2>
+                <div class="line lighter"></div><br>
+                <p>It appears that Google Map can only show 100 locations per layer. Therefore, we would need to split up the data set to 3 seperate albums, and then putting them in seperately.</p>
+                <br>
+                <p>This should be the expected result:</p>
+                <img src="https://media.discordapp.net/attachments/1041270714306678824/1041292357359910972/image.png">
+                <p class="gray">(The rest of the flag would be left as an exercise for the reader)</p>
+
+
+            </div>
+        </div>
+    </section>
+    <section id="solution" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">TL;DR <span class="gray" style="font-size:var(--fs-400);">(just gimme solution)</span></h1>
+                <div class="line"></div><br>
+                <h1 class="white">Steps:</h1>
+                <ol class="key">
+                    <li class="white">Open Google Photos.</li>
+                    <li class="white">Split the photos into 3 albums.</li>
+                    <li class="white">Enter <a class="gray underlined" href="https://www.google.com/maps/about/mymaps/">Google Maps (My Maps)</a>.</li>
+                    <li class="white">Add the 3 albums to the map.</li>
+                    <li class="white">Read.</li>
+
+                </ol>
+
+
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+</html>
