@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/code_block.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/style.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/remove_underline.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <title>Auction with Blockchain</title>
+</head>
+<body>
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar_content">
+            <br>
+            <a href="#description"><h2 class="black">Auction with Blockchain</h1></a>
+                <div style="height:0.75em"></div>
+                <ul style="margin-left:1.5em; list-style-type:'-   ';">
+                    <li class="black"><a href="#description" class="black">Description</a></li>
+                    <div style="height:0.75em"></div>
+                    <li class="black"><a href="#analysis" class="black">Analysis</a></li>
+                    <div style="height:0.75em"></div>
+                    <li class="black"><a href="#what_is_blockchain" class="black">What is Blockchain?</a></li>
+                </ul>
+                <ul style="margin-left:3em; list-style-type:'-   ';">
+                    <li class="black"><a href="#what_is_blockchain-the_block_stuffing_attack" class="black">The Block Stuffing Attack</a></li>
+                </ul>
+                <div style="height:0.75em"></div>
+                <ul style="margin-left:1.5em; list-style-type:'-   ';">
+                    <li class="black"><a href="#solution" class="black">TL;DR &nbsp<span style="color:#666">(Solution)</span></a></li>
+                </ul>
+            </div>
+    </div>
+
+
+
+    <div class="background"></div>
+    <section id="description" class="box">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">HKCert22: Auction with Blockchain (油街實現 Oi!)</h1>
+                <h2 class="date">Date: 15/11/2022 12:52 AM</h2>
+                <h2 class="points">(188 points, 44 solves)</h2>
+                <div class="difficulty">misc</div>
+                <div class="difficulty">★★☆☆☆</div>
+                <br><br><br><br>
+                <p><span class="light_type">Author:</span><br>ozetta</p>
+                <br>
+                <p>
+                    <span class="light_type">Description:</span><br>
+                    No one reads or cites Dr. Ke's paper, so he made a CTF challenge from his paper.<br><br>
+                    Can you implement the "Block Stuffing Attack" mentioned in the paper?
+                    <br><br>
+
+                    Reference: <a href="https://www.youtube.com/watch?v=gw04ULXLUuM"><span class="white underlined">https://www.youtube.com/watch?v=gw04ULXLUuM</span></a>
+                    <br>
+                    Web: <a href="https://auction-blockchain.hkcert22.pwnable.hk"><span class="white underlined">https://auction-blockchain.hkcert22.pwnable.hk</span></a>
+
+                </p>
+                <br>
+                <br><br>
+                <p id="flag" style="display:none">hkcert22{BitcoinChivesG0ttaG0forLosingTradingTraining}</p>
+                <form id="Flag">
+                    <label for="flag_input">Flag: </label>
+                    <input id="flag_input" type="text" value="">
+                    <input type="button" value="Submit" id="submit_button" onclick="formSubmit()">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section id="analysis" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">Analysis:</h1>
+                <br>
+                <p>
+                    <span class="light_type">Description:</span><br>
+                    When entering the website, you would find that no matter how many times you reset, there is always one person with higher AKA then you.
+                </p><br>
+                <p>You may adjust the oil price of the transaction.</p>
+                <br>
+
+            </div>
+        </div>
+    </section>
+    <section id="what_is_blockchain" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">What is Blockchain?</h1>
+                <div class="line"></div>
+                <br>
+                <p>
+                    Blockchain is an auction, more specifically, a double-layered auction.<br><br>
+                    When you are trying to buy something from a Blockchain auction, you would need to send a request to the middleman, and they would then forward the request to the auction.<br><br>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1041760208822734900/image.png"><br>
+                    In technical terms of Blockchain, a middleman is known as a “miner”.<br><br>
+                    However, there is only a set number of miners in the Blockchain, and each miner can only carry one transaction to the Blockchain. To prioritize your transaction to the Blockchain, you must pay more money to the miner, the money paid to the miner is called the “Oil Price”.
+                </p>
+                <br><br><br><br><br>
+
+                <h2 id="what_is_blockchain-the_block_stuffing_attack"><span class="gray">The Block Stuffing Attack</span></h2>
+                <div class="line lighter"></div>
+                <br>
+                <p>By spamming requests with high oil prices to the miners, they will prioritize    your transactions to bring to the auction. <br><br>
+                    In the Block Stuffing Attack, the attacker sends a large amount of requests with high oil price, but 1 AKA bids. This fills up all the miners with the requests, as they would want to earn more money for their transactions.<br><br>
+                    Therefore, an actual bidder, for example 1000 AKA tries to bid, would be unable to process their transaction if the oil price they are paying is low. At last, you would be able to win the auction with 1 AKA + oil prices. 
+                    
+                </p>
+                
+                <br>
+                <img src="https://cdn.discordapp.com/attachments/738532982985457724/1041761198959501393/image.png">
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="solution" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">TL;DR <span class="gray" style="font-size:var(--fs-400);">(just gimme solution)</span></h1>
+                <div class="line"></div><br>
+                <h1 class="white">Steps:</h1>
+                <p class="white">Use your phone to spam 1 AKA requests with high oil price.</p>
+
+
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+<script src="../../scripts/sidebar.js"></script>
+<script src="check_flag.js"></script>
+</html>

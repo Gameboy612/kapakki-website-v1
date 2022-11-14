@@ -1,29 +1,14 @@
 
+const top_part = document.querySelector(".top-menu");
+const mid_part = document.querySelector(".mid-menu");
+const bottom_part = document.querySelector(".bottom-menu");
+const sidebar = document.querySelector(".sidebar");
 
-'use strict';
+function togglemenu() {
 
-const e = React.createElement;
-
-class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
-
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
-    console.log('loaded')
-    return (
-        <div id='sidebar' class="open">
-            test
-        </div>
-      );
-  }
+    sidebar.classList.toggle("sidebar-activated");
+    // sidebar.classList.remove("sidebar-init");
+    top_part.classList.toggle("menu-close");
+    mid_part.classList.toggle("menu-close");
+    bottom_part.classList.toggle("menu-close");
 }
-
-
-const domContainer = document.querySelector('#sidebar');
-const root = ReactDOM.createRoot(domContainer);
-root.render(e(Sidebar));

@@ -3,7 +3,7 @@
     margin: 0;
     font-family: Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 600;
-    color: #eee8c5ed;
+    color: #c5c5c5ed;
 }
 
 
@@ -27,15 +27,23 @@
 }
 
 .content {
-    background-color: #000000ab;
+    background-color: #000000bb;
     width: 70vw;
     height: auto;
     color: white;
-    margin-top: 5em;
+    margin-top: 10em;
 }
 
 .data {
     padding: 5em 8em;
+}
+@media (max-width: 60em) {
+    .data {
+        padding: 3em 5em;
+    }
+    .content {
+        width: 80vw;
+    }
 }
 @media (max-width: 50em) {
     .data {
@@ -68,7 +76,7 @@
     margin: 0.6em 0.3em;
     border-radius: 0.4em;
     color: #000;
-    background-color: #fefefec0;
+    background-color: #fefefed0;
     flex-direction: row;
     display: inline-flex;
 }
@@ -84,4 +92,56 @@ li {
 
 body {
     padding-bottom: 10em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+form {
+    padding: 0.5em 2em;
+    border: 0.15em white;
+    border-style: solid;
+    border-radius: 3em;
+    width: fit-content;
+}
+
+form input {
+    color: black;
+    margin-right: 0.5em;
+}
+
+form label {
+    font-size: var(--fs-400);
+    margin-right: 0.5em;
+}
+
+#flag_input {
+    font-size: var(--fs-350);
+    color: #444;
+    padding: 0.1em 1em;
+    min-width: 15em;
+    background-color: #ddd;
+    border-radius: 3em;
+}
+
+#submit_button {
+    font-size: var(--fs-350);
+    color: #222;
+    padding: 0.1em 0.5em;
+    background-color: #aaa;
+    border-radius: 3em;
+
 }

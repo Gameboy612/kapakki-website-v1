@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/code_block.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/style.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/remove_underline.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    <title>Minecraft Geoguessr</title>
+</head>
+<body>
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar_content">
+            <br>
+            <a href="#description"><h2 class="black">Minecraft Geoguessr</h1></a>
+                <div style="height:0.75em"></div>
+                <ul style="margin-left:1.5em; list-style-type:'-   ';">
+                    <li class="black"><a href="#description" class="black">Description</a></li>
+                    <div style="height:0.75em"></div>
+                    <li class="black"><a href="#analysis" class="black">Analysis</a></li>
+                    <div style="height:0.75em"></div>
+                    <li class="black"><a href="#solving_process" class="black">Solving Process</a></li>
+                </ul>
+                <ul style="margin-left:3em; list-style-type:'-   ';">
+                    <li class="black"><a href="#solving_process-texture_rotation" class="black">Texture Rotation</a></li>
+                    <li class="black"><a href="#solving_process-sea_level_optimization" class="black">Sea Level optimization</a></li>
+                    <li class="black"><a href="#solving_process-boundary_of_the_search_area" class="black">Boundary of the Search Area
+                    </a></li>
+                    <li class="black"><a href="#solving_process-rotation_of_player" class="black">Rotation of Player</a></li>
+                </ul>
+                <div style="height:0.75em"></div>
+                <ul style="margin-left:1.5em; list-style-type:'-   ';">
+                    <li class="black"><a href="#solution" class="black">TL;DR &nbsp<span style="color:#666">(Solution)</span></a></li>
+                </ul>
+            </div>
+    </div>
+
+
+
+    <div class="background"></div>
+    <section id="description" class="box">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">HKCert22: Minecraft Geoguessr (CGA 香港電競館)</h1>
+                <h2 class="date">Date: 15/11/2022 1:17 AM</h2>
+                <h2 class="points">(425 points, 4 solves)</h2>
+                <div class="difficulty">misc</div>
+                <div class="difficulty">★★★★★</div>
+                <br><br><br><br>
+                <p><span class="light_type">Author:</span><br>ozetta</p>
+                <br>
+                <p>
+                    <span class="light_type">Description:</span><br>
+                    Do you know Rainbolt? If you send him a photo, he could immediately tell you where it was taken in.<br><br>
+                    Can you do the same in the Minecraft world?
+                    <br><br>
+                    <p>
+                        Note: If you are desperate, you can watch <a class="white underlined" href="https://www.youtube.com/watch?v=2KXcQ18JyMs">Rainbolt's most insane geoguessr moments</a>, or <a class="white underlined" href="https://www.youtube.com/watch?v=Ekcseve-mOg&list=PLhixgUqwRTjwvBI-hmbZ2rpkAl4lutnJG">LiveOverflow's video series on Minecraft Hacking</a>.<br><br>
+                        By the way, the map is generated with Minecraft 1.17.1. With that said, you may be unable to look for the better caves.
+                    </p><br><br>
+                    <a href="https://file.hkcert22.pwnable.hk/minecraft-geoguessr_92102d07609feffc12de1372b3124552.png"><span class="white underlined">https://file.hkcert22.pwnable.hk/minecraft-geoguessr_92102d07609feffc12de1372b3124552.png</span></a>
+                    <br><br>
+                    <a href="https://minecraft-geoguessr.hkcert22.pwnable.hk/"><span class="white underlined">https://minecraft-geoguessr.hkcert22.pwnable.hk/</span></a>
+                    <p>This link is only available before 20/11/2022.</p>
+
+                </p>
+                <br>
+                <br><br>
+                <p id="flag" style="display:none">hkcert22{s33d_cr34kin9_1s_r3ver53_4nd_cryp70_com61ned}</p>
+                <form id="Flag">
+                    <label for="flag_input">Flag: </label>
+                    <input id="flag_input" type="text" value="">
+                    <input type="button" value="Submit" id="submit_button" onclick="formSubmit()">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section id="analysis" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">Analysis:</h1>
+                <br>
+                <p>
+                    <span class="light_type">Description:</span><br>
+                    An in-game screenshot with a plains biome, and a taiga biome close by, all next to a river biome.
+Clouds are visible from the screenshot, which may be useful for coordinates cracking.
+The resolution of the image is relatively high, clear block patterns can be seen.
+
+                </p><br>
+                <img alt="The screenshot provided by the team." src="https://cdn.discordapp.com/attachments/738532982985457724/1041765892142407762/image.png">
+                <br><br>
+                <p>
+                    <span class="light_type">Tips:</span><br>
+                    If you are new to finding Minecraft coordinates through screenshots, you can refer to this discord server which discovered the pack.png seed:
+                    <a class="white underlined" href="https://discord.gg/mch">https://discord.gg/mch</a><span class="white"> (Minecraft@Home Discord Server)</span>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="solving_process" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">Solving Process</h1>
+                <div class="line"></div>
+                <br>
+                <p>
+                    When attempting to crack the coordinates of a screenshot in Minecraft, the typical methods would be using Texture Rotations, Bedrock Formation, and Cloud Locations.<br><br>
+
+                    In this case, using Texture Rotation would be more than enough, due to the large amount of grass being clearly shown in the screenshot.
+                </p>
+                <br><br><br><br><br>
+
+                <h2 id="solving_process-texture_rotation"><span class="gray">Texture Rotation:</span></h2>
+                <div class="line lighter"></div>
+                <br>
+                <p>In Minecraft, there are some blocks that have texture orientation dependent on the x, y, z location of the block. Some of those include Grass Blocks, Sand, Gravel, etc.<br><br>The orientation of these blocks are universal around all seeds, and it can be manipulated to search for the exact coordinates of images, especially if you know the range of the image taken.
+                </p>
+                <img src="https://media.discordapp.net/attachments/1041293656319082526/1041293758156767232/unknown.png?width=1089&height=654" alt="Picture with markups of the relative coordinates and directions of the visible grass blocks.">
+                <p>(a picture by Mystiz which laid out some of the grass block orientations)</p>
+                <br><br><br>
+                <p>
+                    To make the process of finding these rotation patterns faster, a programming named 19MisterX98, made a java program which can help search for Texture Rotation patterns.<br><br><a class="white underlined" href="https://github.com/19MisterX98/TextureRotations">https://github.com/19MisterX98/TextureRotations</a>
+                </p><br><br><br><br><br><br>
+                <h2 id="solving_process-sea_level_optimization"><span class="gray">Sea Level optimization:</span></h2>
+                <div class="line lighter"></div><br>
+                <p>
+                    With this image alone, it is already possible to decode the location of the screenshot, but would still take some time to run through all possible results. To minimize the time, we may try and find the y coordinates of the (0, 0, 0) defined in the picture.    
+                </p><br>
+                <div style="display: flex;">
+                    <div class="text" style="flex: auto;">
+                        <p><br><br>
+                            Looking at the image, you would be able to see a river biome not far away from the nearest patch of grass. By viewing the Minecraft Wiki (or source code if you want to be fancy), the sea level is set to a default of 62.<br><a href="https://minecraft.fandom.com/wiki/Altitude" class="white underlined">[Wiki Page about Altitude]</a>
+                            <br><br><br>
+                            By counting up the y-levels, we may choose one of the blocks as the starting position, and loop through all the possible outcomes in that y-level, so that we can further reduce the runtime of the program.
+                        </p>
+                    </div>
+                    <img style="flex: auto; width: 40%; " src="https://cdn.discordapp.com/attachments/738532982985457724/1041773496663035924/unknown.png">
+                </div><br><br><br><br><br>
+                <h2 id="solving_process-boundary_of_the_search_area"><span class="gray">Boundary of the Search Area</span></h2>
+                <div class="line lighter"></div><br>
+                <p>An additional thing to mention, is when performing simple boundary tests, you will find out that the coordinates are restricted to this limit:</p><br>
+                <img src="https://cdn.discordapp.com/attachments/738532982985457724/1041775447479951370/image.png">
+                <p>
+                    As shown, we can further limit the program to only search for blocks between:
+                </p><br>
+                \[
+                    x \in [-20000, 20000],
+                \]
+                \[
+                    y = \hbox{insert found y-position here},
+                \]
+                \[
+                    z \in [-20000, 20000],
+                \]
+                <img src="https://media.discordapp.net/attachments/738532982985457724/1041781694434385950/image.png"><br><br>
+
+                <h2 id="solving_process-rotation_of_player"><span class="gray">Rotation of Player</span></h2>
+                <div class="line lighter"></div><br>
+                <p>As for the direction of the player, we can simply bruteforce it by trying all rotations.</p>
+                <br><br>
+                <p>If you insist on finding the actual rotation of the screenshot, you may use the cloud patterns to try and find the rotation. However, since there are only 4 possible cardinal directions, it is not advised to spend extra time in finding the direction of the blocks.</p>
+            </div>
+        </div>
+    </section>
+    <section id="solution" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">TL;DR <span class="gray" style="font-size:var(--fs-400);">(just gimme solution)</span></h1>
+                <div class="line"></div><br>
+                <h1 class="white">Steps:</h1>
+                <p class="white">
+                    <a href="https://www.youtube.com/watch?v=gSxcDYCK_lY&t=1499s&ab_channel=LiveOverflow">https://www.youtube.com/watch?v=gSxcDYCK_lY&t=1499s&ab_channel=LiveOverflow</a><br><br>
+                    <a href="https://github.com/19MisterX98/TextureRotations">https://github.com/19MisterX98/TextureRotations</a>
+
+                </p><br><br>
+                <p>Code Snippet of the blocks of choice I have used during the CTF.</p>
+                <div class="code black">
+                    formation.add(new RotationInfo(-5, 2, -0, (0+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-5, 2, -1, (2+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-5, 2, -2, (3+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-4, 2, -2, (1+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-4, 2, -3, (0+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-4, 1, -1, (2+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-3, 1, -1, (1+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-3, 1, -2, (1+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-3, 1, -3, (3+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-2, 1, -3, (0+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-2, 1, -4, (2+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-1, 1, -4, (0+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-2, 0, -2, (2+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-1, 0, -2, (0+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-1, 0, -3, (1+2) % 4, false));<br>
+                    formation.add(new RotationInfo(-0, 0, -3, (0+2) % 4, false));
+                </div>
+                <div class="code black">
+                    public static final int xMin = -20000, xMax = 20000;<br>
+                    public static final int zMin = -20000, zMax = 20000;<br>
+                    public static final int yMin = 65, yMax = 65;<br>
+                    public static final int threads = 10;<br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+<script src="../../scripts/sidebar.js"></script>
+<script src="check_flag.js"></script>
+</html>

@@ -12,16 +12,53 @@
     <title>Locate Me</title>
 </head>
 <body>
-    <div id="sidebar">
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+    <div class="sidebar">
         <div class="sidebar_content">
             <br>
-            <h2 class="black">Locate Me</h1></div>
+            <a href="#description"><h2 class="black">Locate Me</h1></a>
+                <div style="height:0.75em"></div>
+                <ul style="margin-left:1.5em; list-style-type:'-   ';">
+                    <li class="black"><a href="#description" class="black">Description</a></li>
+                    <div style="height:0.75em"></div>
+                    <li class="black"><a href="#analysis" class="black">Analysis</a></li>
+                    <div style="height:0.75em"></div>
+                    <li class="black"><a href="#thought_process" class="black">Thought Process</a></li>
+                </ul>
+                <ul style="margin-left:3em; list-style-type:'-   ';">
+                    <li class="black"><a href="#thought_process-plans" class="black">Plans for the Flag</a></li>
+                </ul>
+                <ol style="margin:0; margin-left:4.5em;" class="black">
+                    <li class="black"><a href="#thought_process-idea1" class="black">Idea 1 (Dead End)</a></li>
+                    <li class="black"><a href="#thought_process-idea2" class="black">Idea 2</a></li>
+                </ol>
+                <ul style="margin-left:3em; list-style-type:'-   ';">
+                    <li class="black"><a href="#thought_process-analyzing_the_data" class="black">Analyzing the Data</a></li>
+                </ul>
+                <ol style="margin:0; margin-left:4.5em;" class="black">
+                    <li class="black"><a href="#thought_process-analyzing_the_data-creation_date" class="black">Creation Date</a></li>
+                    <li class="black"><a href="#thought_process-analyzing_the_data-coordinates" class="black">Coordinates</a></li>
+                </ol>
+                <ul style="margin-left:3em; list-style-type:'-   ';">
+                    <li class="black"><a href="#thought_process-unexpected_behavior" class="black">Unexpected Behavior</a></li>
+                    <li class="black"><a href="#thought_process-explanation" class="black">Explanation</a></li>
+                </ul>
+                <div style="height:0.75em"></div>
+                <ul style="margin-left:1.5em; list-style-type:'-   ';">
+                    <li class="black"><a href="#solution" class="black">TL;DR &nbsp<span style="color:#666">(Solution)</span></a></li>
+                </ul>
+            </div>
     </div>
 
 
 
     <div class="background"></div>
-    <section class="box">
+    <section id="description" class="box">
         <div class="content">
             <div class="data">
                 <h1 class="title">HKCert22: Locate Me (又一城)</h1>
@@ -29,7 +66,7 @@
                 <h2 class="points">(150 points, 70 solves)</h2>
                 <div class="difficulty">misc</div>
                 <div class="difficulty">★★☆☆☆</div>
-                <br><br>
+                <br><br><br><br>
                 <p><span class="light_type">Author:</span><br>GonJK</p>
                 <br>
                 <p>
@@ -37,6 +74,14 @@
                     What drawing? No one seems to know you!<br><br>
                     Attachment: <a href="https://file.hkcert22.pwnable.hk/locate-me_f88ddb5d5df316c0e7f780cdd4cf231b.zip"><span class="white underlined">locate-me_f88ddb5d5df316c0e7f780cdd4cf231b.zip</span></a>
                 </p>
+                <br>
+                <br><br>
+                <p id="flag" style="display:none">hkcert22{w3lc0m3_t0_hk}</p>
+                <form id="Flag">
+                    <label for="flag_input">Flag: </label>
+                    <input id="flag_input" type="text" value="">
+                    <input type="button" value="Submit" id="submit_button" onclick="formSubmit()">
+                </form>
             </div>
         </div>
     </section>
@@ -70,26 +115,26 @@
                 </p>
                 <br><br>
 
-                <h2><span class="gray">Plans for the Flag:</span></h2>
+                <h2 id="thought_process-plans"><span class="gray">Plans for the Flag:</span></h2>
                 <div class="line lighter"></div>
                 <br>
-                <h2>
+                <h2 id="thought_process-idea1">
                     <span class="light_type">Idea 1:</span><span class="gray"> (Dead End)</span><br>
                 </h2>
-                    <p>
+                <p>
 The first idea we had thought of before finding the solution, is to split the photos up to the factors of 297, notably 11 x 27, 9 x 33 and 3 x 99.<br><br>However, no specific pattern can be found after arranging the files in this manner. (rip)
-                    </p>
-                    
-                    <br><br><br><br>
-                    <h2>
-                        <span class="light_type">Idea 2:</span><br>
-                    </h2>
-                    <p>
-                    We then decided to start analyzing the photo data.<br><br>When we threw these pictures into autopsy, we had two main directions for finding the key.<br><br>
-                    <ol class="key">
-                        <li class="white"><a href="#attempt_creation_date"><span class="white underlined">Creation Date of pictures</span></a></li>
-                        <li class="white"><a href="attempt_coordinates" ></a><span class="white underlined">Coordinates of pictures</span></li>
-                    </ol>
+                </p>
+                
+                <br><br><br><br>
+                <h2 id="thought_process-idea2">
+                    <span class="light_type">Idea 2:</span><br>
+                </h2>
+                <p>
+                We then decided to start analyzing the photo data.<br><br>When we threw these pictures into autopsy, we had two main directions for finding the key.<br><br>
+                <ol class="key">
+                    <li class="white"><a href="#attempt_creation_date"><span class="white underlined">Creation Date of pictures</span></a></li>
+                    <li class="white"><a href="attempt_coordinates" ></a><span class="white underlined">Coordinates of pictures</span></li>
+                </ol>
                 </p>
                 <br>
                 <br>
@@ -97,16 +142,16 @@ The first idea we had thought of before finding the solution, is to split the ph
                 <br>
                 <br>
                 <br>
-                <h2><span class="gray">Analyzing the Data:</span></h2>
+                <h2 id="thought_process-analyzing_the_data"><span class="gray">Analyzing the Data:</span></h2>
                 <div class="line lighter"></div>
                 <br>
-                <h2 id="attempt_creation_date"><span class="light_type">1. &nbspCreation Date?</span><span class="gray"> (Dead End)</span></h2>
+                <h2 id="thought_process-analyzing_the_data-creation_date"><span class="light_type">1. &nbspCreation Date?</span><span class="gray"> (Dead End)</span></h2>
                 <p>Apparently all of the pictures have the same creation date lol, so nope.</p>
                 <br>
                 <br>
                 <br>
                 <br>
-                <h2 id="attempt_cordinates"><span class="light_type">2. &nbspCoordinates?</span></h2>
+                <h2 id="thought_process-analyzing_the_data-coordinates"><span class="light_type">2. &nbspCoordinates?</span></h2>
                 <p>When we decided to analyze the coordinates of all the pictures. It was found that even the <span class="red underlined">SAME</span> pictures have <span class="red underlined">different</span> coordinates.<br><br>With this new found knowledge, we tried to plot all the different picture coordinates into a map, hopefully seeing some sort of pattern.</p>
                 <br><br>
                 <a href="https://www.internetgeography.net/map-your-photos-using-google-maps/"><span class="gray underlined">[How to plot waypoints into Google Map (My Map) via Google Photos]</span></a>
@@ -114,13 +159,13 @@ The first idea we had thought of before finding the solution, is to split the ph
                 <br><br><br><br><br>
 
                 
-                <h2><span class="gray">Unexpected Behavior</span></h2>
+                <h2 id="thought_process-unexpected_behavior"><span class="gray">Unexpected Behavior</span></h2>
                 <div class="line lighter"></div><br>
                 <p>When we deployed the album of 297 photos into Google Map, we found strange patterns which seem like the flag, but didn't make any sense.</p>
                 <img src="https://cdn.discordapp.com/attachments/738532982985457724/1041718178708979762/image.png" alt="Image of failed attempt">
                 <p>It is obvious that it is the flag, but the flag pattern is not showing up completely.</p>
                 <br><br><br><br>
-                <h2 class="gray">Explanation:</h2>
+                <h2 id="thought_process-explanation" class="gray">Explanation:</h2>
                 <div class="line lighter"></div><br>
                 <p>It appears that Google Map can only show 100 locations per layer. Therefore, we would need to split up the data set to 3 seperate albums, and then putting them in seperately.</p>
                 <br>
@@ -154,4 +199,6 @@ The first idea we had thought of before finding the solution, is to split the ph
 
     
 </body>
+<script src="../../scripts/sidebar.js"></script>
+<script src="check_flag.js"></script>
 </html>
