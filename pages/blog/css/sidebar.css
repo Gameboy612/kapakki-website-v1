@@ -47,7 +47,7 @@
 .menu-rectangle {
     z-index: 10001;
     position: fixed;
-    left: 5em;
+    left: 3em;
     top: calc(1.5 * var(--menubar-icon-size));
     width: calc(1 * var(--menubar-icon-size));
     height: calc(0.15 * var(--menubar-icon-size));
@@ -60,6 +60,8 @@
     transition-timing-function: ease-in-out;
     box-shadow: 0 0 20px #0000;
     transition: transform 0.5s, top 0.5s, width 0.5s, box-shadow 0.25s;
+    box-shadow: 0 0 1em white, 
+                0 0 1em white;
 }
 
 

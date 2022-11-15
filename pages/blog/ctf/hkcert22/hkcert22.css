@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+.background {
+    background-image: url('https://miro.medium.com/max/1178/1*-oNPWS2F4TMge19BuO8bPg.png');
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    opacity: 0.85;
+    z-index: -1;
+    position: fixed;
+}
+
+
+.content {
+    padding: 1em
+}
+
+.content h1 {
+    text-align: center;
+}
+
+.content h2 {
+    font-size: var(--fs-500)
+}

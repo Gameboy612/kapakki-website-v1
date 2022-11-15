@@ -1,0 +1,46 @@
+
+:root {
+    --clr-0: #e4eef7;
+    --clr-1: #F5EFE6;
+    --clr-2: #303030;
+    --clr-3: #AEBDCA;
+    --clr-4: #7895B2;
+
+    --clr-10: #c5bbac;
+    --clr-11: #656363;
+
+    --clr-pale: #ddd;
+
+    --fs-xl: 5rem; --ts-xl: 0.25rem;
+    --fs-l: 3.5rem; --ts-l: 0.1rem;
+    --fs-m: 3rem; --ts-m: 0.16rem;
+    --fs-850: 2.5rem; --ts-850: 0.1rem;
+    --fs-800: 2rem; --ts-800: 0.08rem;
+    --fs-750: 1.875rem; --ts-750: 0.06rem;
+    --fs-700: 1.75rem; --ts-700: 0.06rem;
+    --fs-600: 1.5rem; --ts-600: 0.025rem;
+    --fs-500: 1.25rem; --ts-500: 0.0125rem;
+    --fs-450: 1.15rem; --ts-400: 0.001rem;
+    --fs-400: 1.1rem; --ts-400: 0.001rem;
+    --fs-350: 1rem; --ts-350: 0.001rem;
+    --fs-300: 0.875rem; --ts-300: 0.001rem;
+    --fs-200: 0.8rem; --ts-200: 0.001rem;
+}
+
+
+@media (max-width: 50em) {
+    :root {
+        --fs-xl: 3.3rem; --ts-xl: 0.08rem;
+        --fs-l: 3rem; --ts-l: 0.05rem;
+        --fs-m: 2.2rem; --ts-m: 0.04rem;
+        --fs-850: 2rem; --ts-850: 0.03rem;
+        --fs-800: 1.7rem; --ts-800: 0.028rem;
+        --fs-750: 1.5rem; --ts-750: 0.025rem;
+        --fs-700: 1.45rem; --ts-700: 0.02rem;
+        --fs-600: 1.4rem; --ts-600: 0.003rem;
+        --fs-500: 1.25rem; --ts-500: 0.0125rem;
+        --fs-400: 1rem; --ts-400: 0.001rem;
+        --fs-350: 0.875rem; --ts-350: 0.001rem;
+        --fs-300: 0.75rem; --ts-300: 0.001rem;
+    }
+}
