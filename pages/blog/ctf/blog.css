@@ -137,6 +137,14 @@ form label {
     border-radius: 3em;
 }
 
+@media (max-width: 30em) {
+    #flag_input {
+        min-width: 0;
+        width: 40%;
+        max-width: 6em;
+    }
+}
+
 #submit_button {
     font-size: var(--fs-350);
     color: #222;
@@ -144,4 +152,20 @@ form label {
     background-color: #aaa;
     border-radius: 3em;
 
+}
+
+
+.back {
+    position: fixed;
+    right: 10%;
+    top: 7%;
+    border-radius: 1em;
+    border: none;
+    padding: 0.5em 1em;
+    background-color: #fffd;
+    z-index: 200000; }
+
+.back p {
+    font-size: var(--fs-500);
+    color: #222;
 }

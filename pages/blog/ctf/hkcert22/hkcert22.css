@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     color: white;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .background {
     background-image: url('https://miro.medium.com/max/1178/1*-oNPWS2F4TMge19BuO8bPg.png');
@@ -10,20 +12,162 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-    opacity: 0.85;
+    opacity: 0.8;
     z-index: -1;
     position: fixed;
 }
-
+.background2 {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    background-color: #0007;
+}
 
 .content {
-    padding: 1em
+    padding: 6em 10% 0 10%;
 }
 
 .content h1 {
     text-align: center;
+    font-size: var(--fs-l);
 }
 
 .content h2 {
-    font-size: var(--fs-500)
+    font-size: var(--fs-500);
+}
+
+.content h2.center {
+    text-align: center;
+}
+
+.links {
+    margin: 0 0 10% 0;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.links .items {
+    width: 15em;
+    min-height: 13em;
+    border-style: dashed;
+    margin: 3em;
+    padding: 1.5em;
+    transition: ease-in-out 0.15s;
+    position: relative;
+}
+
+@media (max-width: 50em) {
+    .content {
+        padding: 7em 3.5em 0 3.5em;
+    }
+    .links  {
+        margin: 0 1em;
+        grid-template-columns: 65%;
+    }
+    .links .items {
+        width: 12em;
+        padding: 1em;
+        margin-top: 0;
+        margin-bottom: 3em;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+}
+
+
+.links .items:hover {
+    transform: scale(1.05);
+    border-color: gold;
+}
+
+
+.links .items::before {
+    top: -0.75em;
+    left: -0.75em;
+    content: '';
+    position: absolute;
+    border-radius: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: white;
+    transition: ease-in-out 0.15s;
+}
+
+.links .items:hover::before {
+    background-color: gold;
+}
+
+.links .items:hover h1 {
+    color: gold
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.line {
+    width: 100%;
+    height: 0.1em;
+    background-color: #fffb;
+}
+
+h1 {
+    font-family: 'Gemunu Libre', sans-serif, Arial, Helvetica, sans-serif;
+    font-size: var(--fs-650);
+    margin-bottom: 0.2em;
+    font-weight: 700;
+}
+h2 {
+    font-family: 'Gemunu Libre', sans-serif, Arial, Helvetica, sans-serif;
+    font-size: var(--fs-600);
+    font-weight: 700;
+
+}
+
+p {
+    font-size: var(--fs-400);
+
+}
+.date {
+    font-size: var(--fs-400);
+    color: #eeed;
+}
+
+.points {
+    font-size: var(--fs-400);
+    color: #aaa;
+}
+
+.difficulty {
+    width: fit-content;
+    height: 1.5em;
+    padding: 0.175em 0.75em;
+    margin: 0.6em 0.3em;
+    border-radius: 0.4em;
+    color: #000;
+    background-color: #fefefed0;
+    flex-direction: row;
+    display: inline-flex;
+}
+
+
+
+
+
+
+
+
+.content p {
+    color: #ddde;
 }
