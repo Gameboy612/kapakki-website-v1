@@ -19,6 +19,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
         onload="renderMathInElement(document.body);"></script>
     <title>Minecraft Geoguessr</title>
+    <link rel="icon" href="../../../../assets/logo/website_logo.png">
 </head>
 <body>
     <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
@@ -53,7 +54,7 @@
                 </ul>
                 <div style="height:0.75em"></div>
                 <ul style="margin-left:1.5em; list-style-type:'-   ';">
-                    <li class="black"><a href="#solution" class="black">TL;DR &nbsp<span style="color:#666">(Solution)</span></a></li>
+                    <li class="black"><a href="#solution" class="black">Walkthrough &nbsp<span style="color:#666">(Solution)</span></a></li>
                 </ul>
             </div>
     </div>
@@ -69,8 +70,9 @@
                 <h2 class="points">(425 points, 4 solves)</h2>
                 <div class="difficulty">misc</div>
                 <div class="difficulty">★★★★★</div>
+                <div class="difficulty first_blood">First Blood</div>
                 <br><br><br><br>
-                <p><span class="light_type">Author:</span><br>ozetta</p>
+                <p><span class="light_type">Author:</span><br>apple, Mistiz</p>
                 <br>
                 <p>
                     <span class="light_type">Description:</span><br>
@@ -78,7 +80,7 @@
                     Can you do the same in the Minecraft world?
                     <br><br>
                     <p>
-                        Note: If you are desperate, you can watch <a class="white underlined" href="https://www.youtube.com/watch?v=2KXcQ18JyMs">Rainbolt's most insane geoguessr moments</a>, or <a class="white underlined" href="https://www.youtube.com/watch?v=Ekcseve-mOg&list=PLhixgUqwRTjwvBI-hmbZ2rpkAl4lutnJG">LiveOverflow's video series on Minecraft Hacking</a>.<br><br>
+                        Note: If you are desperate, you can watch <a class="white underlined" href="https://www.youtube.com/watch?v=2KXcQ18JyMs" target="_blank">Rainbolt's most insane geoguessr moments</a>, or <a class="white underlined" href="https://www.youtube.com/watch?v=Ekcseve-mOg&list=PLhixgUqwRTjwvBI-hmbZ2rpkAl4lutnJG" target="_blank">LiveOverflow's video series on Minecraft Hacking</a>.<br><br>
                         By the way, the map is generated with Minecraft 1.17.1. With that said, you may be unable to look for the better caves.
                     </p><br><br>
                     <a href="https://file.hkcert22.pwnable.hk/minecraft-geoguessr_92102d07609feffc12de1372b3124552.png"><span class="white underlined">https://file.hkcert22.pwnable.hk/minecraft-geoguessr_92102d07609feffc12de1372b3124552.png</span></a>
@@ -188,39 +190,80 @@ The resolution of the image is relatively high, clear block patterns can be seen
     <section id="solution" class="box hidden">
         <div class="content">
             <div class="data">
-                <h1 class="title">TL;DR <span class="gray" style="font-size:var(--fs-400);">(just gimme solution)</span></h1>
+                <h1 class="title">Walkthrough <span class="gray" style="font-size:var(--fs-400);"></span></h1>
                 <div class="line"></div><br>
-                <h1 class="white">Steps:</h1>
-                <p class="white">
-                    <a href="https://www.youtube.com/watch?v=gSxcDYCK_lY&t=1499s&ab_channel=LiveOverflow">https://www.youtube.com/watch?v=gSxcDYCK_lY&t=1499s&ab_channel=LiveOverflow</a><br><br>
-                    <a href="https://github.com/19MisterX98/TextureRotations">https://github.com/19MisterX98/TextureRotations</a>
+                <p class="white">Reference sources which may help complete the task:</p>
+                <ol class="white">
+                    <li><a href="https://www.youtube.com/watch?v=gSxcDYCK_lY&t=1499s&ab_channel=LiveOverflow">https://www.youtube.com/watch?v=gSxcDYCK_lY&t=1499s&ab_channel=LiveOverflow</a></li>
+                    <br>
+                    <li><a href="https://github.com/19MisterX98/TextureRotations">https://github.com/19MisterX98/TextureRotations</a></li>
 
-                </p><br><br>
+                </ol>
+                <br><br>
                 <p>Code Snippet of the blocks of choice I have used during the CTF.</p>
                 <div class="code black">
-                    formation.add(new RotationInfo(-5, 2, -0, (0+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-5, 2, -1, (2+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-5, 2, -2, (3+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-4, 2, -2, (1+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-4, 2, -3, (0+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-4, 1, -1, (2+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-3, 1, -1, (1+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-3, 1, -2, (1+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-3, 1, -3, (3+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-2, 1, -3, (0+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-2, 1, -4, (2+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-1, 1, -4, (0+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-2, 0, -2, (2+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-1, 0, -2, (0+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-1, 0, -3, (1+2) % 4, false));<br>
-                    formation.add(new RotationInfo(-0, 0, -3, (0+2) % 4, false));
+                    <p>
+                        formation.add(new RotationInfo(-5, 2, -0, (0+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-5, 2, -1, (2+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-5, 2, -2, (3+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-4, 2, -2, (1+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-4, 2, -3, (0+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-4, 1, -1, (2+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-3, 1, -1, (1+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-3, 1, -2, (1+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-3, 1, -3, (3+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-2, 1, -3, (0+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-2, 1, -4, (2+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-1, 1, -4, (0+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-2, 0, -2, (2+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-1, 0, -2, (0+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-1, 0, -3, (1+2) % 4, false));<br>
+                        formation.add(new RotationInfo(-0, 0, -3, (0+2) % 4, false));
+
+                    </p>
                 </div>
                 <div class="code black">
-                    public static final int xMin = -20000, xMax = 20000;<br>
-                    public static final int zMin = -20000, zMax = 20000;<br>
-                    public static final int yMin = 65, yMax = 65;<br>
-                    public static final int threads = 10;<br>
+                    <p>
+                        public static final int xMin = -20000, xMax = 20000;<br>
+                        public static final int zMin = -20000, zMax = 20000;<br>
+                        public static final int yMin = 65, yMax = 65;<br>
+                        public static final int threads = 10;<br>
+
+                    </p>
                 </div>
+                <br><br><br>
+                <h1 class="white">Steps:</h1>
+                <ol class="key">
+                    <li class="white">Choose a block as the origin to start labelling relative coordinates.</li>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042368835291979796/image.png" alt="image with origin marked up.">
+                    <li class="white">Start finding the rotations of the other nearby grass blocks relative to the grass blocks, as shown with the yellow arrows above.<br>
+                        <span class="gray">ALTERNATIVELY, you may use the resource packs provided <a class="underlined" href="https://github.com/19MisterX98/TextureRotations">here</a> to recreate the blocks in Minecraft, and find the corresponding block rotations.</span>
+                        <img src="https://imagedelivery.net/aG82t-qDLn415HP9HHoOeg/a4906138-a744-473f-4b42-59cac94db700/original" alt="Recreation of terrain in Minecraft.">
+                        <img src="https://imagedelivery.net/aG82t-qDLn415HP9HHoOeg/56042a89-8424-4052-2f15-8d718feacc00/original" alt="Using the resource pack to find the texture rotation.">
+                    </li>
+                    <br>
+                    <li class="white">
+                        Clone the github repository from <a class="underlined" href="https://github.com/19MisterX98/TextureRotations">here</a> and import the relative coordinates and block rotations into the <span class="gray">src/main/java/TextureFinder.java</span>  file.
+                    </li>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042370986529525810/image.png" alt="Example code by Gameboy612.">
+                    <br>
+                    <li class="white">
+                        Find the y-coordinate of your origin. We may use the water level as a reference.
+                        <span class="gray">(Universal water level in Minecraft is y-level 62)</span>
+                    </li>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042371319020404736/image.png" alt="Finding y-level of terrain.">
+
+                    <li class="white">
+                        Run the program to search for the location.
+                        <span class="gray">(You may need to try all four cardinal directions for step 3, as there is no simple way in determining the cardinal direction of player.)</span>
+                    </li>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042372067103870996/image.png" alt="output">
+                    <br><br><br>
+                    <li class="white">
+                        Teleport to the location and see the flag.<br>
+                        <span class="gray">(This step took us the longest)</span>
+                    </li>
+                </ol>
             </div>
         </div>
     </section>

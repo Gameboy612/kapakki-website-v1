@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../fs.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/code_block.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/style.css">
+    <link rel="stylesheet" href="../../../../devas/pages/documentation/style/remove_underline.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <title>Locate Me</title>
+    <link rel="icon" href="../../../../assets/logo/website_logo.png">
+</head>
+<body>
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+    <a href="hkcert22.html">
+        <div class="back">
+            <p>Back</p>
+        </div>
+    </a>
+    <div class="sidebar">
+        <div class="sidebar_content">
+            <br>
+            <a href="#description"><h2 class="black">Secured Web Service</h1></a>
+                <div style="height:0.75em"></div>
+                <ul style="margin-left:1.5em; list-style-type:'-   ';">
+                    <li class="black"><a href="#description" class="black">Description</a></li>
+                    <div style="height:0.75em"></div>
+                    <li class="black"><a href="#analysis" class="black">Analysis</a></li>
+                    <div style="height:0.75em"></div>
+                    <li class="black"><a href="#thought_process" class="black">Thought Process</a></li>
+                </ul>
+                <ul style="margin-left:3em; list-style-type:'-   ';">
+                    <li class="black"><a href="#thought_process-nginx_conf_file" class="black">nginx.conf file</a></li>
+                    <li class="black"><a href="#thought_process-solution" class="black">Solution</a></li>
+                </ul>
+                <div style="height:0.75em"></div>
+                <ul style="margin-left:1.5em; list-style-type:'-   ';">
+                    <li class="black"><a href="#solution" class="black">Walkthrough &nbsp<span style="color:#666">(Solution)</span></a></li>
+                </ul>
+            </div>
+    </div>
+
+
+
+    <div class="background"></div>
+    <section id="description" class="box">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">HKCert22: Secured Web Service (正街)</h1>
+                <h2 class="date">Date: 17/11/2022 10:49 PM</h2>
+                <h2 class="points">(175 points, 82 solves)</h2>
+                <div class="difficulty">web</div>
+                <div class="difficulty">★★☆☆☆</div>
+                <br><br><br><br>
+                <p><span class="light_type">Author:</span><br>GonJK</p>
+                <br>
+                <p>
+                    <span class="light_type">Description:</span><br>
+                    Find the flag in /var/www/html/flag.txt<br><br>
+                    Web: <a href="http://chal.hkcert22.pwnable.hk:28308/flag/" target="_blank"><span class="white underlined">http://chal.hkcert22.pwnable.hk:28308/flag/</span></a><br><br>
+                    Attachment: <a href="https://file.hkcert22.pwnable.hk/secured-web-service_8a208bc65eff67c1cc1f2502e39337bb.zip" target="_blank"><span class="white underlined">secured-web-service_8a208bc65eff67c1cc1f2502e39337bb.zip</span></a>
+                </p>
+                <br>
+                <br><br>
+                <p id="flag" style="display:none">hkcert22{y0u_4re_4s_k1ng_4s_0r4ng3_g0_bug_hunt1ng}</p>
+                <form id="Flag">
+                    <label for="flag_input">Flag: </label>
+                    <input id="flag_input" type="text" value="">
+                    <input type="button" value="Submit" id="submit_button" onclick="formSubmit()">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section id="analysis" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">Analysis:</h1>
+                <br>
+                <p>
+                    <span class="light_type">Description:</span><br>
+                    When you enter the website, you immediately get redirected to another website.
+                </p>
+                <br>
+                <p>Checking the attachment, there is a nginx.conf file inside the zip.</p>
+                <br>
+                <div class="code">
+                    <pre><p>worker_processes auto;
+error_log stderr warn;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include mime.types;
+    default_type application/octet-stream;
+
+    # Define custom log format to include reponse times
+    log_format main_timed '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for" '
+                          '$request_time $upstream_response_time $pipe $upstream_cache_status';
+
+    access_log /dev/stdout main_timed;
+    error_log /dev/stderr notice;
+
+    keepalive_timeout 65;
+
+    # Write temporary files to /tmp so they can be created as a non-privileged user
+    client_body_temp_path /tmp/client_temp;
+    proxy_temp_path /tmp/proxy_temp_path;
+    fastcgi_temp_path /tmp/fastcgi_temp;
+    uwsgi_temp_path /tmp/uwsgi_temp;
+    scgi_temp_path /tmp/scgi_temp;
+
+    # Default server definition
+    server {
+        listen [::]:8080 default_server;
+        listen 8080 default_server;
+        server_name _;
+
+        sendfile off;
+        tcp_nodelay on;
+        absolute_redirect off;
+
+
+        location /flag {
+            # First attempt to serve request as file, then
+            # as directory, then fall back to index.php
+            #try_files $uri $uri/ /index.php?q=$uri&$args;
+            alias /var/www/html/flag/;
+        }
+
+    }
+}</p></pre>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="thought_process" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">Thought Process:</h1>
+                <div class="line"></div>
+                <br>
+                <p>
+                    When checking the website, it immediately redirects the user to this page: <a class="white" href="https://www.youtube.com/watch?v=RQ76vkzmolQ&ab_channel=Mostima.mp4">[Ghost Astley Tokyo]</a><br><br>
+                    At first, we thought it may be related to the website itself, so we decided to use Linux to wget the website's source code.<br><br>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042824384026521651/image.png" style="max-width:50em;"><br>
+                    However, as shown above, the source code of the website is not really that helpful in solving the puzzle.
+                </p>
+                <br><br>
+
+                <h2 id="thought_process-nginx_conf_file"><span class="gray">nginx.conf file</span></h2>
+                <div class="line lighter"></div>
+                <br>
+                <p>
+                    We soon started to find documentations about the nginx.conf file.
+                    <br><br>
+                    We suspected that line 42-47 was where the vulnerability was located, as it was related to the flag.
+                    <br><br>
+                    Therefore, we looked up documentation about the alias path:
+                    <a class="white" href="https://nginx.org/en/docs/http/ngx_http_core_module.html#alias">https://nginx.org/en/docs/http/ngx_http_core_module.html#alias</a>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042827292902162493/image.png" alt="alias documentation">
+
+                    <br><br>
+                    We realized that there should be a slash at the back of /flag, which was missing in nginx.conf.
+                    <div class="code">
+<pre><p>location /flag<span class="dark_red">(/ missing here)</span> {
+    # First attempt to serve request as file, then
+    # as directory, then fall back to index.php
+    #try_files $uri $uri/ /index.php?q=$uri&$args;
+    alias /var/www/html/flag/;
+}</p></pre>
+                    </div class="code">
+                    <br>
+                </p>
+                <p>
+                    After doing some research, with the keywords: 'nginx path traversal vulnerability' (that was not what we searched during the CTF, but we still managed to find similar results online about the exploit of doing ..), we found out that path traversal is possible if the / is removed.
+                    <br><br><br>
+                    <a class="underlined" href="https://www.acunetix.com/vulnerabilities/web/path-traversal-via-misconfigured-nginx-alias/">https://www.acunetix.com/vulnerabilities/web/path-traversal-via-misconfigured-nginx-alias/</a>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042829693474316308/image.png" alt="vulnerability">
+                </p>
+
+                <br><br><br><br>
+
+                
+                <h2 id="thought_process-solution"><span class="gray">Solution</span></h2>
+                <div class="line lighter"></div><br>
+                <p>Use this knowledge to traverse the link (Tip: .. means go backwards one directory.)</p>
+
+
+            </div>
+        </div>
+    </section>
+    <section id="solution" class="box hidden">
+        <div class="content">
+            <div class="data">
+                <h1 class="title">Walkthrough <span class="gray" style="font-size:var(--fs-400);"></span></h1>
+                <div class="line"></div><br>
+                <h1 class="white">Steps:</h1>
+                <ol class="key">
+                    <li class="white">Copy the website's URL to any text editor.</li>
+                    <li class="white">See this vulnerability.</li>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042829693474316308/image.png" alt="vulnerability">
+                    <li class="white">Read the nginx.conf file's location part.</li>
+                    <div class="code">
+<pre><p>location /flag<span class="dark_red">(/ missing here)</span> {
+    # First attempt to serve request as file, then
+    # as directory, then fall back to index.php
+    #try_files $uri $uri/ /index.php?q=$uri&$args;
+    alias /var/www/html/flag/;
+}</p></pre>
+                    </div class="code">
+                    <br>
+                    <li class="white">Navigate to the path using the exploit from step 2.</li>
+                    <li class="white">Flag obtained.</li>
+
+                </ol>
+
+
+            </div>
+        </div>
+    </section>
+
+    
+</body>
+<script src="../../scripts/sidebar.js"></script>
+<script src="check_flag.js"></script>
+</html>

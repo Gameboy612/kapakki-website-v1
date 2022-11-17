@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../blog.css">
     <link rel="stylesheet" href="../../css/sidebar.css">
     <title>Auction with Blockchain</title>
+    <link rel="icon" href="../../../../assets/logo/website_logo.png">
 </head>
 <body>
     <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
@@ -41,7 +42,7 @@
                 </ul>
                 <div style="height:0.75em"></div>
                 <ul style="margin-left:1.5em; list-style-type:'-   ';">
-                    <li class="black"><a href="#solution" class="black">TL;DR &nbsp<span style="color:#666">(Solution)</span></a></li>
+                    <li class="black"><a href="#solution" class="black">Walkthrough &nbsp<span style="color:#666">(Solution)</span></a></li>
                 </ul>
             </div>
     </div>
@@ -66,9 +67,9 @@
                     Can you implement the "Block Stuffing Attack" mentioned in the paper?
                     <br><br>
 
-                    Reference: <a href="https://www.youtube.com/watch?v=gw04ULXLUuM"><span class="white underlined">https://www.youtube.com/watch?v=gw04ULXLUuM</span></a>
+                    Reference: <a href="https://www.youtube.com/watch?v=gw04ULXLUuM" target="_blank"><span class="white underlined">https://www.youtube.com/watch?v=gw04ULXLUuM</span></a>
                     <br>
-                    Web: <a href="https://auction-blockchain.hkcert22.pwnable.hk"><span class="white underlined">https://auction-blockchain.hkcert22.pwnable.hk</span></a>
+                    Web: <a href="https://auction-blockchain.hkcert22.pwnable.hk"><span class="white underlined" target="_blank">https://auction-blockchain.hkcert22.pwnable.hk</span></a>
 
                 </p>
                 <br>
@@ -91,8 +92,9 @@
                     <span class="light_type">Description:</span><br>
                     When entering the website, you would find that no matter how many times you reset, there is always one person with higher AKA then you.
                 </p><br>
-                <p>You may adjust the oil price of the transaction.</p>
+                <p>You may adjust the gas price of the transaction.</p>
                 <br>
+                <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042365655372017745/image.png" alt="Image of what the site looks like.">
 
             </div>
         </div>
@@ -115,11 +117,11 @@
                 <h2 id="what_is_blockchain-the_block_stuffing_attack"><span class="gray">The Block Stuffing Attack</span></h2>
                 <div class="line lighter"></div>
                 <br>
-                <p>By spamming requests with high oil prices to the miners, they will prioritize    your transactions to bring to the auction. <br><br>
-                    In the Block Stuffing Attack, the attacker sends a large amount of requests with high oil price, but 1 AKA bids. This fills up all the miners with the requests, as they would want to earn more money for their transactions.<br><br>
-                    Therefore, an actual bidder which would like to bid 1000 AKA on the Blockchain, would be unable to have their transaction processed, if their oil price is low.
+                <p>By spamming requests with high gas prices to the miners, they will prioritize    your transactions to bring to the auction. <br><br>
+                    In the Block Stuffing Attack, the attacker sends a large amount of requests with high gas price, but 1 AKA bids. This fills up all the miners with the requests, as they would want to earn more money for their transactions.<br><br>
+                    Therefore, an actual bidder which would like to bid 1000 AKA on the Blockchain, would be unable to have their transaction processed, if their gas price is low.
                     <br><br>
-                    At last, you would be able to win the auction with 1 AKA + oil prices. 
+                    At last, you would be able to win the auction with 1 AKA + gas prices. 
                     
                 </p>
                 
@@ -145,11 +147,28 @@
     <section id="solution" class="box hidden">
         <div class="content">
             <div class="data">
-                <h1 class="title">TL;DR <span class="gray" style="font-size:var(--fs-400);">(just gimme solution)</span></h1>
+                <h1 class="title">Walkthrough <span class="gray" style="font-size:var(--fs-400);"></span></h1>
                 <div class="line"></div><br>
                 <h1 class="white">Steps:</h1>
-                <p class="white">Use your phone to spam 1 AKA requests with high oil price.</p>
+                <p class="white">Use your phone to spam 1 AKA requests with high gas price.</p>
 
+                <ol class="key">
+                    <li class="white">Enter <a class="underlined" href="https://auction-blockchain.hkcert22.pwnable.hk">https://auction-blockchain.hkcert22.pwnable.hk</a>.</li>
+                    <li class="white">Set the bid to 1 AKA.</li>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042363726793277490/image.png" alt="Set bid to 1 AKA">
+                    <li class="white">Click on bid, and select High Gas Price.</li>
+                    
+                    <img src="https://media.discordapp.net/attachments/738532982985457724/1042363785027002468/image.png?width=420&height=653" alt="Select high gas price">
+                    <br>
+
+                    <li class="white">Press confirm, and repeat steps 2-4  until you get the flag.<br>
+                    <span class="gray">It is advised to use touchscreen to finish this process, as you can usually spam faster with touchscreen than playing aimlab with your mouse.</span>
+                    </li>
+                    <br><br>
+                    <li class="white">The flag will show as an alert when completed.</li>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1042375430356860938/image.png" alt="Image of what a successful attempt look like.">
+                    
+                </ol>
 
             </div>
         </div>
