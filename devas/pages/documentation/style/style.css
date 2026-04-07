@@ -123,6 +123,12 @@ section.contents .post .text p {
     margin-top: 1em;
 }
 
+section.contents .post .text .code p {
+    font-size: var(--fs-500);
+    color: black;
+    margin-top: 1em;
+}
+
 section.contents .post .text ul, ol {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
