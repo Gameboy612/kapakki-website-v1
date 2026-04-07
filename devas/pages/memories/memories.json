@@ -1,0 +1,47 @@
+[
+  {
+    "title": "First Public Playtest - KALA Replay Mods Videos",
+    "date": "2025-06-02",
+    "description": "Elise's birthday celebration",
+    "embed": ["../../material/memories/2025_06_02_00_53_33.mp4",
+"../../material/memories/2025_06_02_01_03_06.mp4",
+"../../material/memories/2025_06_02_01_14_40.mp4",
+"../../material/memories/elise_birthday_4.mp4"],
+    "author": "fkw_hk"
+  },
+  {
+    "title": "Teammate Preview",
+    "date": "2025-01-03",
+    "author": "Gameboy612",
+    "description": "A system to view the loadouts of your teammates in the shop.",
+    "embed": "../../material/memories/teammate_viewer.webp"
+  },
+  {
+    "title": "Devas Devlog - Instant Barrier Gadget",
+    "date": "2024-06-04",
+    "description": "A short showcase of the new Instant Barrier gadget.",
+    "embed": "https://youtu.be/I3K5Zo34WQ8?si=PBv1UcnR3J_iTm2H",
+    "author": "Gameboy612"
+  },
+  {
+    "title": "Buffed Bobby Boss Fight",
+    "date": "2024-06-04",
+    "description": "A showcase of the buffed Bobby boss fight, which is now more challenging and engaging.",
+    "embed": "https://youtu.be/b9eEIj6WOCQ?si=4WdpL8dJVgBFAVsH",
+    "author": "Gameboy612"
+  },
+  {
+    "title": "Particle Magic Datapack",
+    "date": "2022-12-03",
+    "description": "Implemented a system to generate particles using python to form a custom magic circle.",
+    "author": "Gameboy612",
+    "embed": "../../material/memories/particle_magic.webp"
+  },
+  {
+    "title": "Earlier Versions of Devas in Minecraft Commands Discord",
+    "date": "2021-06-18",
+    "description": "Video recording of old Devas system footage, when I was answering questions in the Minecraft Commands Discord server.",
+    "author": "Gameboy612",
+    "embed": "../../material/memories/teaching_unloaded_teleport.mp4"
+  }
+]

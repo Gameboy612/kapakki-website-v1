@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>In Memory of Devas - 2026</title>
+	<style>
+		@font-face {
+			font-family: adventurer;
+			src: url("../../material/adventurer.ttf");
+		}
+
+		:root {
+			--ink: #f8f2df;
+			--ink-soft: #e7dcc0;
+			--panel: rgba(20, 17, 13, 0.72);
+			--panel-strong: rgba(13, 11, 8, 0.84);
+			--line: rgba(248, 242, 223, 0.3);
+			--accent: #d4a34f;
+			--shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			min-height: 100vh;
+			font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+			color: var(--ink);
+			line-height: 1.7;
+			background-image:
+				linear-gradient(125deg, rgba(10, 7, 4, 0.8), rgba(33, 25, 16, 0.55) 40%, rgba(14, 11, 8, 0.88)),
+				radial-gradient(circle at 80% 15%, rgba(212, 163, 79, 0.22), transparent 45%),
+				url("../../material/hill1.png");
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			padding: 5vh 4vw;
+		}
+
+		.page {
+			width: min(960px, 100%);
+			margin: 0 auto;
+			border: 1px solid var(--line);
+			border-radius: 20px;
+			overflow: hidden;
+			background: linear-gradient(180deg, var(--panel), var(--panel-strong));
+			box-shadow: var(--shadow);
+			backdrop-filter: blur(2px);
+			animation: fadeIn 0.85s ease-out;
+		}
+
+		.hero {
+			padding: 3rem clamp(1.25rem, 4vw, 3rem) 1.2rem;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.eyebrow {
+			display: inline-block;
+			font-size: 0.85rem;
+			letter-spacing: 0.15rem;
+			text-transform: uppercase;
+			color: var(--ink-soft);
+			margin-bottom: 0.75rem;
+			padding: 0.25rem 0.6rem;
+			border: 1px solid var(--line);
+			border-radius: 999px;
+			background: rgba(255, 255, 255, 0.04);
+		}
+
+		h1 {
+			font-family: adventurer, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+			font-size: clamp(2rem, 5.3vw, 3.8rem);
+			letter-spacing: 0.05em;
+			line-height: 1.1;
+			margin-bottom: 0.7rem;
+			text-wrap: balance;
+		}
+
+		.subtitle {
+			font-size: clamp(1rem, 2.2vw, 1.22rem);
+			color: var(--ink-soft);
+			max-width: 65ch;
+		}
+
+		.content {
+			padding: clamp(1.2rem, 3.6vw, 3rem);
+			display: grid;
+			gap: 1.15rem;
+		}
+
+		.content p {
+			font-size: clamp(1rem, 1.45vw, 1.18rem);
+		}
+
+		.quote {
+			margin-top: 0.5rem;
+			padding: 1rem 1.2rem;
+			border-left: 4px solid var(--accent);
+			background: rgba(255, 255, 255, 0.05);
+			border-radius: 0 10px 10px 0;
+			color: #ffe8bc;
+			font-style: italic;
+		}
+
+		.memories {
+			padding: 0 clamp(1.2rem, 3.6vw, 3rem) clamp(1.4rem, 3.6vw, 2.6rem);
+		}
+
+		.memories h2 {
+			font-family: adventurer, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+			font-size: clamp(1.35rem, 3vw, 2rem);
+			letter-spacing: 0.04em;
+			margin-bottom: 1rem;
+		}
+
+		.memories-grid {
+			display: grid;
+			gap: 1rem;
+		}
+
+		.memory-card {
+			border: 1px solid var(--line);
+			border-radius: 14px;
+			overflow: hidden;
+			background: rgba(255, 255, 255, 0.04);
+		}
+
+		.memory-media-wrap {
+			position: relative;
+		}
+
+		.memory-media {
+			width: 100%;
+			border: 0;
+			display: block;
+			aspect-ratio: 16 / 9;
+			object-fit: cover;
+			background: rgba(0, 0, 0, 0.35);
+		}
+
+		.memory-arrow {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 2.2rem;
+			height: 2.2rem;
+			border-radius: 999px;
+			border: 1px solid rgba(255, 255, 255, 0.5);
+			background: rgba(12, 10, 7, 0.62);
+			color: #f8f2df;
+			font-size: 1.2rem;
+			line-height: 1;
+			cursor: pointer;
+			z-index: 2;
+		}
+
+		.memory-arrow:hover {
+			background: rgba(12, 10, 7, 0.85);
+		}
+
+		.memory-arrow.prev {
+			left: 0.6rem;
+		}
+
+		.memory-arrow.next {
+			right: 0.6rem;
+		}
+
+		.memory-counter {
+			position: absolute;
+			right: 0.6rem;
+			bottom: 0.6rem;
+			padding: 0.2rem 0.45rem;
+			border-radius: 999px;
+			font-size: 0.82rem;
+			background: rgba(12, 10, 7, 0.7);
+			color: #f8f2df;
+		}
+
+		.memory-body {
+			padding: 0.9rem 1rem 1.1rem;
+		}
+
+		.memory-title {
+			font-size: clamp(1.05rem, 2vw, 1.3rem);
+			margin-bottom: 0.35rem;
+		}
+
+		.memory-date {
+			font-size: 0.88rem;
+			color: #e2c58a;
+			margin-bottom: 0.45rem;
+			letter-spacing: 0.03em;
+		}
+
+		.memory-description {
+			color: var(--ink-soft);
+			margin-bottom: 0.5rem;
+		}
+
+		.memory-author {
+			font-size: 0.92rem;
+			color: #f5d99a;
+			letter-spacing: 0.03em;
+		}
+
+		.memory-status {
+			font-size: 0.95rem;
+			color: var(--ink-soft);
+			padding: 0.4rem 0;
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(14px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@media (max-width: 760px) {
+			body {
+				background-attachment: scroll;
+				padding: 2vh 3vw;
+			}
+
+			.hero {
+				padding-top: 2.1rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main class="page">
+		<header class="hero">
+			<p class="eyebrow">Since 2021</p>
+			<h1>In Memory of Devas - 2026</h1>
+			<p class="subtitle">A page created to preserve the spirit, stories, and milestones of the Devas journey.</p>
+		</header>
+
+		<section class="content" aria-label="Memories and Project Story">
+			<p>This page is created in 2026, and is about the memories of Devas.</p>
+
+			<p>Devas is a Minecraft Datapack that aims to create a vanilla RPG experience. Despite countless syntax changes that Microsoft made to datapacks since 2021, the project managed to keep updating to newer versions.</p>
+
+			<p>However, the main developers of this project have moved on to other things in their lives, and the project is now in a state of limbo. The memories page is created to commemorate the good old days of Devas, and to share the memories of the project with the community.</p>
+
+			<p>Devas is currently already in a playable state, and we hope that someday the project can continue to grow. In here, we will share the memories of the project, including the development process, the challenges we faced, and the fun moments we had.</p>
+
+			<p>We have gambled on the long run. Since the EULA does not allow developers to profit from their own creations, we'll continue to work on our other projects, to hopefully be able to fund the development of Devas in the hopefully non-distant future.</p>
+
+			<p class="quote">We hope that the project can continue to grow, and that it can bring joy to the Minecraft community for years to come.</p>
+		</section>
+
+		<section class="memories" aria-label="Community Memories">
+			<h2>Shared Memories</h2>
+			<div id="memories-list" class="memories-grid">
+				<p class="memory-status">Loading memories...</p>
+			</div>
+		</section>
+	</main>
+
+	<script>
+		let memoriesData = [];
+		let memoryPointers = [];
+
+		function normalizeEmbeds(embedValue) {
+			if (Array.isArray(embedValue)) {
+				return embedValue.filter(function (item) {
+					return typeof item === "string" && item.trim() !== "";
+				});
+			}
+
+			if (typeof embedValue === "string" && embedValue.trim() !== "") {
+				return [embedValue];
+			}
+
+			return [];
+		}
+
+		function toEmbedUrl(url) {
+			if (!url) {
+				return "";
+			}
+
+			if (url.includes("youtube.com/watch?v=")) {
+				return "https://www.youtube.com/embed/" + url.split("v=")[1].split("&")[0];
+			}
+
+			if (url.includes("youtu.be/")) {
+				return "https://www.youtube.com/embed/" + url.split("youtu.be/")[1].split("?")[0];
+			}
+
+			return url;
+		}
+
+		function isVideoUrl(url) {
+			return /youtube\.com|youtu\.be|vimeo\.com|\.mp4($|\?)/i.test(url || "");
+		}
+
+		function isDirectVideoUrl(url) {
+			return /\.(mp4|webm|ogg)($|\?)/i.test(url || "");
+		}
+
+		function memoryMediaHtml(url, title) {
+			const safeTitle = title || "Memory media";
+			const embedUrl = toEmbedUrl(url);
+
+			if (isDirectVideoUrl(embedUrl)) {
+				return '<video class="memory-media" controls preload="metadata" title="' + safeTitle + '"><source src="' + embedUrl + '"></video>';
+			}
+
+			if (isVideoUrl(embedUrl)) {
+				return '<iframe class="memory-media" src="' + embedUrl + '" title="' + safeTitle + '" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+			}
+
+			return '<img class="memory-media" src="' + embedUrl + '" alt="' + safeTitle + '" loading="lazy">';
+		}
+
+		function renderMemories() {
+			const target = document.getElementById("memories-list");
+			const items = memoriesData;
+
+			if (!Array.isArray(items) || items.length === 0) {
+				target.innerHTML = '<p class="memory-status">No memories available yet.</p>';
+				return;
+			}
+
+			target.innerHTML = items.map(function (memory, cardIndex) {
+				const title = memory.title || "Untitled Memory";
+				const date = memory.date || "Date unknown";
+				const description = memory.description || "";
+				const embeds = normalizeEmbeds(memory.embed);
+				const totalEmbeds = embeds.length;
+				const activeIndex = totalEmbeds > 0 ? (memoryPointers[cardIndex] || 0) % totalEmbeds : 0;
+				const embed = totalEmbeds > 0 ? embeds[activeIndex] : "";
+				const author = memory.author || "Unknown";
+				const arrows = totalEmbeds > 1
+					? '<button class="memory-arrow prev" type="button" data-memory-index="' + cardIndex + '" data-direction="prev" aria-label="Previous embed">&#8249;</button>' +
+					  '<button class="memory-arrow next" type="button" data-memory-index="' + cardIndex + '" data-direction="next" aria-label="Next embed">&#8250;</button>' +
+					  '<span class="memory-counter">' + (activeIndex + 1) + ' / ' + totalEmbeds + '</span>'
+					: '';
+
+				return '' +
+					'<article class="memory-card">' +
+						'<div class="memory-media-wrap">' +
+							memoryMediaHtml(embed, title) +
+							arrows +
+						'</div>' +
+						'<div class="memory-body">' +
+							'<h3 class="memory-title">' + title + '</h3>' +
+							'<p class="memory-date">' + date + '</p>' +
+							'<p class="memory-description">' + description + '</p>' +
+							'<p class="memory-author">By ' + author + '</p>' +
+						'</div>' +
+					'</article>';
+			}).join('');
+		}
+
+		function setMemories(items) {
+			if (!Array.isArray(items)) {
+				memoriesData = [];
+				memoryPointers = [];
+				renderMemories();
+				return;
+			}
+
+			memoriesData = items;
+			memoryPointers = items.map(function () {
+				return 0;
+			});
+			renderMemories();
+		}
+
+		document.getElementById("memories-list").addEventListener("click", function (event) {
+			const button = event.target.closest(".memory-arrow");
+			if (!button) {
+				return;
+			}
+
+			const cardIndex = Number(button.getAttribute("data-memory-index"));
+			const direction = button.getAttribute("data-direction");
+			const embeds = normalizeEmbeds(memoriesData[cardIndex] && memoriesData[cardIndex].embed);
+
+			if (!Number.isInteger(cardIndex) || !embeds.length) {
+				return;
+			}
+
+			const current = memoryPointers[cardIndex] || 0;
+			const delta = direction === "prev" ? -1 : 1;
+			memoryPointers[cardIndex] = (current + delta + embeds.length) % embeds.length;
+			renderMemories();
+		});
+
+		fetch("./memories.json")
+			.then(function (response) {
+				if (!response.ok) {
+					throw new Error("Unable to load memories.json");
+				}
+
+				return response.json();
+			})
+			.then(setMemories)
+			.catch(function () {
+				document.getElementById("memories-list").innerHTML =
+					'<p class="memory-status">Could not load memories.json. Serve this page from a local/server host so fetch can read JSON.</p>';
+			});
+	</script>
+</body>
+</html>
