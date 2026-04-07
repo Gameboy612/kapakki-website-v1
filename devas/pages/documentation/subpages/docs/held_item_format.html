@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Stats</title>
+    <link rel="stylesheet" href="../../../../../fs.css">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/code_block.css">
+    <link rel="stylesheet" href="../../../../style/menubar.css">
+</head>
+<body>
+    <!--Animated Toggle-->
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+
+    <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+        
+        <ul>
+            <li class="menutoggle">
+                <button>    
+                    <a class="menutoggle_a" href="../../../../index.html">Devas</a>
+
+                </button>
+            </li>
+            <li><a href="pages/"></a></li>
+            <li>
+                <a class="menubar_links" href="../../index.html">About</a>
+                <a class="menubar_links" href="../../index.html">Documentation</a>
+            </li>
+        </ul>
+    </section>
+    <!--Go Top-->
+    <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
+    <div class="background"></div>
+    <section class="contents">
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1>Held Item Format [Technical]</h1>
+                    <h2 class="date">24-10-2022</h2>
+                    <p>To give an item with custom stats in Devas, the format of the item tag typically goes like the following:</p>
+
+
+                    <div class="code">
+                        <p>give @s diamond_sword{Stats:{Weapon:{WeaponDmg:10, Strength:5, Health:20}}}</p>
+                    </div>
+                    <p>This line of command would give an item which has:<br>
+                        <ul>
+                            <li>Weapon Damage: 10</li>
+                            <li>Strength: 5</li>
+                            <li>Health: 20</li>
+                        </ul>
+                    </p>
+                    <p>when held on mainhand.</p>
+                    <br>
+                    <p>In the first curly bracket, you would see the Stats object. Inside of it, is what the datapack reads, and evaluates the stats.</p>
+
+                    <br><br>
+
+                    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGuide</p>
+                    <ol class="key">
+                        <li><a href="#typical">Weapon/Shield/Armor/AbilitySlot</a></li>
+                        <li><a href="#bow">Bow</a></li>
+                        <li><a href="#wand">Wand</a></li>
+                        <li><a href="#ability">Ability</a></li>
+                        <li><a href="#food">Food</a></li>
+                    </ol>
+                    <br><br>
+                    <div class="code">
+<pre><p>give @s diamond_sword{
+    Stats: {
+        Weapon: {
+            ...
+        },
+        Shield: {
+            ...
+        },
+        Helmet: {
+            ...
+        },
+        Chestplate: {
+            ...
+        },
+        Leggings: {
+            ...
+        },
+        Boots: {
+            ...
+        },
+        AbilitySlot: {
+            ...
+        },
+        Bow: {
+            <span class="comment red"># Note: Bow has special stats syntax.</span>
+            ...
+        },
+        Wand: {
+            <span class="comment red"># Note: Wand has special stats syntax.</span>
+            ...
+        },
+        Ability: {
+            <span class="comment red"># Note: Ability has special stats syntax.</span>
+            ...
+        },
+        Food: {
+            <span class="comment red"># Note: Food has special stats syntax.</span>
+            ...
+        }
+
+    }
+}
+</p>
+</pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="post" id="typical">
+            <div class="text">
+                <h1>Default Equipments</h1>
+                <h2 class="date">Last Updated: 24-10-2022</h2>
+                <p>In default, there are 7 Main equipment calculation methods for the player, which are:</p>
+                <ol>
+                    <li>Weapon (Mainhand)</li>
+                    <li>Shield (Offhand)</li>
+                    <li>Helmet</li>
+                    <li>Chestplate</li>
+                    <li>Leggings</li>
+                    <li>Boots</li>
+                    <li>AbilitySlot (See more at <a href="ability_slot.html">here</a>)</li>
+                </ol>
+                <br>
+                <p>All of these methods also have the same format, and can be used to provide stats info of these following stats:</p>
+                <div class="code">
+<pre><p>{
+    Health: 100,
+    Mana: 100,
+    Stamina: 100,
+    Hunger: 100,
+    Oxygen: 100,
+    Strength: 10,
+    WeaponDmg: 5,
+    WWeight: 5,
+    AtkSpd: 5,
+    Earth: 3,
+    Water: 0,
+    Fire: 2,
+    Wind: -3,
+    Light: 2,
+    Dark: 0,
+    Power: 50,
+    Recovery: 100,
+    SRecovery: 100,
+    ORecovery: 100,
+    SRegenSpd: 50,
+    SLoseSpd: 50,
+    MobDmg: 100,
+    Speed: 100,
+    BaseMana: 100,
+    LifeSteal: 0,
+    AbilityCostMultiplier: {
+        Health: -35,
+        Stamina: -50,
+        Hunger: -30,
+        Mana: -25
+    },
+    Affinity: {
+        Earth: 3,
+        Water: 0,
+        Fire: 2,
+        Wind: -3,
+        Light: 2,
+        Dark: 0
+    },
+    Elemental: {
+        Earth: 3,
+        Water: 0,
+        Fire: 2,
+        Wind: -3,
+        Light: 2,
+        Dark: 0
+    },
+    Mastery: {
+        Earth: 3,
+        Water: 0,
+        Fire: 2,
+        Wind: -3,
+        Light: 2,
+        Dark: 0
+    },
+    
+    Defense: {
+        Physical: 10,
+        Earth: 3,
+        Water: 0,
+        Fire: 2,
+        Wind: -3,
+        Light: 2,
+        Dark: 0,
+        True: 1
+    },
+    Effect: {
+        Fire: {
+            Chance: 50,
+            Dmg: 10,
+            Duration: 60
+        },
+        Poison: {
+            Chance: 50,
+            Dmg: 100,
+            Duration: 60
+        }
+    }
+}
+</p></pre>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="post" id="bow">
+            <div class="text">
+                <h1>Bows</h1>
+                <h2 class="date">Last Updated: 24-10-2022</h2>
+                <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034090491534381066/unknown.png">
+                <p>For bows, default stats would not work with this tag, instead you would need to put it in Weapon or Shield in order to work for Mainhand and Offhand.</p>
+                <div class="code">
+<pre><p>Bow: {
+    Power: 50,
+    LoadTime: 20,
+    Velocity: 3000,
+    Earth: 3,
+    Water: 0,
+    Fire: 2,
+    Wind: -3,
+    Light: 2,
+    Dark: 0,
+    
+    Mastery: {
+        Earth: 3,
+        Water: 0,
+        Fire: 2,
+        Wind: -3,
+        Light: 2,
+        Dark: 0
+    },
+    
+    Defense: {
+        Physical: 10,
+        Earth: 3,
+        Water: 0,
+        Fire: 2,
+        Wind: -3,
+        Light: 2,
+        Dark: 0,
+        True: 1
+    }
+}
+</p></pre>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="post" id="wand">
+            <div class="text">
+                <h1>Wands</h1>
+                <h2 class="date">Last Updated: 24-10-2022</h2>
+                <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034090803041161246/unknown.png">
+                <p>For wands, default stats would not work with this tag, instead you would need to put it in Weapon or Shield in order to work for Mainhand and Offhand.</p>
+                <div class="code">
+<pre><p>Wand: {
+    "Ability": 0,
+    "MagicDmg": 10,
+    "Earth": 3,
+    "Water": 0,
+    "Fire": 2,
+    "Wind": -3,
+    "Light": 2,
+    "Dark": 0,
+    "True": 1
+}
+</p></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="post" id="ability">
+            <div class="text">
+                <h1>Abilities</h1>
+                <h2 class="date">Last Updated: 24-10-2022</h2>
+                <p>For abilities, SelAbil tag is for Wand Abilities. For more info on ability ids, please check <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/weapon_ability/functions/abilities/weapon_subtypes/wand">here</a>.</p>
+                <div class="code">
+<pre><p>Ability: {
+    SelAbil: 0,
+    Custom: ["Dodge"]
+}
+</p></pre>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="post" id="food">
+            <div class="text">
+                <h1>Food</h1>
+                <h2 class="date">Last Updated: 24-10-2022</h2>
+                <p>For food, The item used MUST be a warped fungus on a stick.</p>
+                <div class="code">
+<pre><p>Food: {
+    Left: 500,
+    Max: 500,
+    Hunger: 10
+}
+</p></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+</body>
+<script src="../../../../scripts/menubutton.js"></script>
+<script src="../../scripts/topbtn.js"></script>
+</html>

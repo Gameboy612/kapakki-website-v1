@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Generator</title>
+    <link rel="stylesheet" href="../../../../fs.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/stats.css">
+    <link rel="stylesheet" href="../../../style/menubar.css">
+
+
+</head>
+<body>
+    <!--Animated Toggle-->
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+
+    <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+        
+        <ul>
+            <li class="menutoggle">
+                <button>    
+                    <a class="menutoggle_a" href="../../../../index.html">Devas</a>
+
+                </button>
+            </li>
+            <li><a href="pages/"></a></li>
+            <li>
+                <a class="menubar_links" href="../../index.html">About</a>
+                <a class="menubar_links" href="../../index.html">Documentation</a>
+            </li>
+        </ul>
+    </section>
+    <div class="background"></div>
+    <section class="contents">
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1>Item Generator</h1>
+                    <h2 class="date">Last updated: 28-10-2022</h2>
+
+                    <form id="Generator" >
+                        <label for="itemtype">Item Type:&nbsp</label><br>
+                        <input id="itemtype" type="text" value="minecraft:warped_fungus_on_a_stick"><br>
+                        <br>
+                        <label for="itemtag">Item Tag:&nbsp</label><br>
+                        <textarea id="itemtag" name="itemtag" rows="3" cols="40">{display:{Name:'{"text":"Diamond Sword","color":"gold","italic":"false"}'}}</textarea><br>
+                        <br>
+
+                        <div class="search_stats">
+                            <label for="search_stats">Search Stats:</label>
+                            <input id="search_stats">
+                        </div>
+                        <div id="equipment_stats"></div>
+                        
+                        <input type="button" value="Submit" onclick="formSubmit()">
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <template id="geartype_template">
+        <input type="checkbox" class="geartype_checkbox" id="isWeapon" name="isWeapon">
+        <label class="geartype_label" for="isWeapon">Weapon</label><br>
+        <div class="geartype hidden">
+        
+        </div>
+    </template>
+
+    <template id="stat_template">
+        <div class="stat">
+            <label for="Stats.Weapon.WeaponDmg">WeaponDmg:</label>&nbsp
+            <input type="number" name="" id="Stats.Weapon.WeaponDmg">
+        </div>
+    </template>
+
+
+
+</body>
+<script src="../../../../scripts/menubutton.js"></script>
+<script src="../scripts/item_generator/populate.js"></script>
+</html>

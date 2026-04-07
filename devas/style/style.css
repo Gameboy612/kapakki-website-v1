@@ -1,0 +1,76 @@
+@font-face {
+    font-family: adventurer;
+    src: url(../material/adventurer.ttf);
+}
+
+
+:root {
+    --clr-0: #e4eef7;
+    --clr-1: #F5EFE6;
+    --clr-2: #303030;
+    --clr-3: #AEBDCA;
+    --clr-4: rgba(217, 193, 54, 0.702);
+
+    --clr-10: #c5bbac;
+    --clr-11: #656363;
+
+    --clr-pale: #ddd;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: adventurer;
+    border-color: transparent;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+}
+
+section.main_scene {
+    background-image: url("../material/blacksmith1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100%;
+    filter: grayscale(10%);
+    position: relative;
+}
+
+section.main_scene .text {
+    font-size: var(--fs-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+section.main_scene .text h1 {
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.275);
+    color: white;
+    padding: 0.2em 0.75em 0.075em 0.75em;
+    border-radius: 0.1em;
+}
+section.main_scene .text p {
+    font-size: var(--fs-l);
+    width: fit-content;
+    margin-top: 0.25em;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 0.075em 0.75em;
+    border-radius: 0.05em;
+}
+
+.bottomline {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    bottom: 0.5em;
+    height: 2px;
+    width: 100%;
+}

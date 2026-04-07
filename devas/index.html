@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../fs.css">
+    <link rel="stylesheet" href="style/menubar.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/introduction.css">
+</head>
+<body>
+
+    <!--Animated Toggle-->
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+
+    <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+        
+        <ul>
+            <li class="menutoggle">
+                <button>    
+                    <a class="menutoggle_a">Devas</a>
+
+                </button>
+            </li>
+            <li><a href="pages/"></a></li>
+            <li>
+                <a class="menubar_links" href="pages/about/index.html">About</a>
+                <a class="menubar_links" href="pages/documentation/index.html">Documentation</a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="main_scene">
+        <div class="text">
+            <h1>Devas</h1>
+            <p>A Minecraft Datapack</p>
+        </div>
+        <div class="bottomline"></div>
+    </section>
+    <section class="introduction">
+        <div class="content">
+            <div class="info">
+                <h1>What is Devas?</h1>
+                <p>Devas - A Vanilla RPG Experience.</p>
+                <!-- <p>Players create their own classes<br>with reference to the terrain, opponents/allies classes,<br>and other game mechanics.</p> -->
+                <p>Unleash the player's creativity,<br>Creating strategies never seen before.</p>
+
+            </div>
+            <div class="iframe_container">
+                <iframe src="https://www.youtube.com/embed/N282dS96YoM?loop=1&autoplay=1&mute=1&showinfo=0&playlist=N282dS96YoM" frameborder="0"></iframe>
+            </div>
+        </div> 
+    </section>
+</body>
+<script src="scripts/menubutton.js"></script>
+</html>

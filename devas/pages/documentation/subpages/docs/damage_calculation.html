@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Stats</title>
+    <link rel="stylesheet" href="../../../../../fs.css">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/code_block.css">
+    <link rel="stylesheet" href="../../../../style/menubar.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <!--Animated Toggle-->
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+
+    <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+        
+        <ul>
+            <li class="menutoggle">
+                <button>    
+                    <a class="menutoggle_a" href="../../../../index.html">Devas</a>
+
+                </button>
+            </li>
+            <li><a href="pages/"></a></li>
+            <li>
+                <a class="menubar_links" href="../../index.html">About</a>
+                <a class="menubar_links" href="../../index.html">Documentation</a>
+            </li>
+        </ul>
+    </section>
+
+    <!--Go Top-->
+    <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
+    <div class="background"></div>
+    <section class="contents">
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1>Damage Calculation</h1>
+                    <h2 class="date">30-10-2022</h2>
+                    <p>In Devas, there are 4 basic stats:</p>
+                    <ol class="key">
+                        <li><a href="#expected_damage">Expected Damage</a></li>
+                        <li><a href="#defense_mechanics">Defense Mechanics</a></li>
+                        <li><a href="#final_damange">Final Damage</a></li>
+                    </ol>
+                    <br>
+                    <img src="https://imagedelivery.net/aG82t-qDLn415HP9HHoOeg/52e7e20d-d16a-4798-098b-01f97d65de00/original">
+                </div>
+            </div>
+        </div>
+        <div class="post" id="defense_mechanics">
+            <div class="text">
+                <div class="section">
+                    <h1>Defense Mechanics</h1>
+                    <h2 class="date">Last Updated: 30-10-2022</h2>
+                    <h2>Legend:</h2>
+                    <ol class="key">
+                        <li><a href="#defense_mechanics.mechanics">Mechanics</a></li>
+                        <li><a href="#defense_mechanics.mathematical_derivation">Mathematical Derivation</a></li>
+                        <li><a href="#defense_mechanics.ingame_implementation">Ingame Implementation</a></li>
+                    </ol>
+                </div><br><br><br><br>
+                <ol>
+                    <li class="section_li" id="defense_mechanics.mechanics">
+                        <h2>Mechanics</h2>
+                        <div class="line lighter"></div>
+                        <p>Defense is calculated through a dilution formula:</p>
+                        \[D(x)=\frac{kx}{|x| + a}\]
+                        <p>where \(x\) is the Defense stat, \(D(x)\) is the Damage Reduction, and:</p>
+                        \[a=n\left(\frac{k}{h} - 1\right)\]
+                        <p>where \(n\) is a user-defined defense value, such that: \(D(n) = h\) and \[\lim_{x \to +\infty}D(x) = k\]</p>
+                        <p>or simply put, the maximum damage reduction is defined as \(k\).</p>
+                        <br><br>
+                        <img src="https://cdn.discordapp.com/attachments/598685071527903233/1036250713518506034/unknown.png" alt="An image of the Final Damage Reduction Graph.">
+                        <p>Evaluation Formula:</p>
+                        <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/damage_calc/defense_evaluation.mcfunction">damage_calc:defense_evaluation</a>
+                        <p>Desmos Graph:</p>
+                        <a href="https://www.desmos.com/calculator/y8rzgbsb3q">[Link]</a>
+                    </li><br><br><br><br>
+                    <li class="section_li" id="defense_mechanics.mathematical_derivation">
+                        <h2>Mathematical Derivation</h2>
+                        <div class="line lighter"></div><br>
+                        <img src="https://cdn.discordapp.com/attachments/738532982985457724/1036251237810700388/unknown.png" alt="An image of the Damage Reduction Draft">
+                        <p>Before we started planning the formula, we hoped that the maximum damage reduction that will ever occur would be at 60% Damage Reduction.</p>
+                        <p>During the discussion, DoubleA had suggested when the player has 200 Defense, the Damage Reduction would be set to 50%. Therefore, we have agreed on three constants for this formula.</p>
+                        \[
+                            \begin{cases}
+                                n := 200\\
+                                h := 50\%\\
+                                k := 60\%\\
+                                D(0) = 0\\
+                                D(n) = h\\
+                            \end{cases}
+                        \]
+                        <p>As we would require the horizontal asymptote to be on \(k\), we can determine that:</p>
+                        \[
+                            \lim_{x \to +\infty}D(x) = k \hbox{&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp......&nbsp[1]}
+                        \]
+                        <p>We have found that \(
+                            D(x) = k - \frac{k}{1+x}
+                            \),
+                            satisfies [1],<br>and \(D(0) = 0\).<br>However, \(D(n) = h\) is still not satisfied.<br>
+                            Therefore, we would need to scale \(x\) such that it satisfies this equation. We can do that by dividing \(x\) by \(a\), where \(a\) is a constant to be found.
+                        </p>
+                        \[
+                            D(x)=k-\frac{k}{1+\frac{x}{a}}
+                        \]
+                        <p>To solve this, we can plug in \(D(n)=h\), to find \(a\).</p>
+                        \[D(n)=k-\frac{k}{1+\frac{n}{a}}\]
+                        \[h=k-\frac{k}{1+\frac{n}{a}}\]
+                        \[k-h=\frac{k}{1+\frac{n}{a}}\]
+                        \[1+\frac{n}{a}=\frac{k}{k-h}\]
+                        \[\frac{n}{a}=\frac{k}{k-h}-1\]
+                        \[a=\frac{n}{\frac{k}{k-h}-1}\]
+                        \[a=\frac{n}{\frac{k}{k-h}-\frac{k-h}{k-h}}\]
+                        \[a=\frac{n}{\frac{h}{k-h}}\]
+                        \[a=n\frac{k-h}{h}\]
+                        \[a=n\left(\frac{k}{h} - 1\right)\]
+
+                        <p>Therefore, \(a\) is found.</p>
+                        <p>Afterwards, we would need to change the formula such that the equation has rotational symmetry about the origin.</p>
+                        <p>We can do this by first applying the absolute value to \(x\), and then multiplying the whole function by sign\((x)\).</p>
+                        \[D(x) = \hbox{sign}(x) \times \left( k-\frac{k}{1+\frac{|x|}{a}} \right)\]
+                        \[= \hbox{sign}(x) \times \left( k-\frac{k}{\frac{a + |x|}{a}} \right)\]
+                        \[= \hbox{sign}(x) \times \left( k-\frac{ak}{a + |x|} \right)\]
+                        \[= \hbox{sign}(x) \times \frac{ak + k|x| - ak}{a + |x|}\]
+                        \[= \hbox{sign}(x) \times \frac{k|x|}{a + |x|}\]
+                        \[= \frac{x}{|x|} \times \frac{k|x|}{a + |x|}\]
+                        \[\therefore &nbsp&nbsp D(x) = \frac{kx}{|x| + a}\]
+                        
+                        <p>As demonstrated, this is the formula which allows us to change the cap of the damage reduction formula.</p>
+                    </li><br><br><br><br>
+
+                    <li class="section_li" id="defense_mechanics.ingame_implementation">
+                        <h2>Ingame Implementation</h2>
+                        <div class="line lighter"></div><br>
+                        <p>
+                            When the damage calculation function is called, it takes in 3 parameters:
+                            <div class="code">
+                                <pre><p><span class="blue">
+scoreboard players get #In.DMG DC.temp
+scoreboard players get #In.DEF DC.temp
+scoreboard players get #In.E_DEF DC.temp
+                                </span></p></pre>
+                            </div>
+                            This function also requires 5 constants, which include:
+                            <div class="code">
+                                <pre><p><span class="blue">
+scoreboard players get %Physical_Defense_Elemental_Effectiveness DC.Settings
+scoreboard players get %DEF_Eval.n DC.Settings
+scoreboard players get %DEF_Eval.h DC.Settings
+scoreboard players get %DEF_Eval.k DC.Settings
+scoreboard players get %DEF_Eval.a DC.Settings
+                                </span></p></pre>
+                            </div>
+                            Note that %DEF_Eval.a is precalculated in the settings function, and would not need to be evaluated each time the function runs.
+                        </p>
+                        <p>To edit the constants, you may refer to <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/init/settings.mcfunction">stats:init/settings</a></p>
+
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+</body>
+<script src="../../../../scripts/menubutton.js"></script>
+<script src="../../scripts/topbtn.js"></script>
+</html>

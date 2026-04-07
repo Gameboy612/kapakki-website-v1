@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla Entity Tags</title>
+    <link rel="stylesheet" href="../../../../../fs.css">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/code_block.css">
+    <link rel="stylesheet" href="../../../../style/menubar.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <!--Animated Toggle-->
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+
+    <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+        
+        <ul>
+            <li class="menutoggle">
+                <button>    
+                    <a class="menutoggle_a" href="../../../../index.html">Devas</a>
+
+                </button>
+            </li>
+            <li><a href="pages/"></a></li>
+            <li>
+                <a class="menubar_links" href="../../index.html">About</a>
+                <a class="menubar_links" href="../../index.html">Documentation</a>
+            </li>
+        </ul>
+    </section>
+
+    <!--Go Top-->
+    <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
+    <div class="background"></div>
+    <section class="contents">
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1>Vanilla Entity States</h1>
+                    <h2 class="date">29-10-2022</h2>
+                    <p>In the source code of GBRPG (or Devas), Vanilla Minecraft <a href="https://minecraft.fandom.com/wiki/Commands/tag">Entity Tags</a> are used to store entity states for optimization purposes.</p>
+                    <ul>
+                        <li><a href="#player">Player Exclusive</a></li>
+                        <li><a href="#entities">All Entities</a></li>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+        </div>
+                
+        <div class="post" id="player">
+            <div class="text">
+                <h1>Player Exclusive</h1>
+                <div class="line"></div><br>
+                <ol class="key">
+                    <li><a href="#sneak">Sneaking:<br></a>
+                        <small>sneak/sneaking/sneaked</small>
+                    </li>
+                    <li><a href="#movement">Movements:<br></a>
+                        <small>walking/sprinting/swimming/water1/water2</small>
+                    </li>
+                    <li><a href="#fungus">Fungus:<br></a>
+                        <small>Fungus</small>
+                    </li>
+                    <li><a href="#inrain">In Rain:<br></a>
+                        <small>inRain</small>
+                    </li>
+                    <li><a href="#sis_swapped">Selected Item Slot:<br></a>
+                        <small>SIS.Swapped/SIS.FastSwapping</small>
+                    </li>
+                </ol>
+                <br><br><br><br>
+                <ol>
+                    <li class="section_li" id="sneak">
+                        <div class="section">
+                            <h1>Sneak</h1>
+                            <div class="line lighter"></div>
+                            <p>As for sneaking, GBRPG uses the three tags:</p>
+                        
+                            <ol class="key">
+                                <li>sneak</li>
+                                <li>sneaking</li>
+                                <li>sneaked</li>
+                            </ol>
+                            <br>
+                            <p>sneak:<br>Player starts sneaking.</p>
+                            <p>sneaking:<br>Player is currently sneaking.</p>
+                            <p>sneaked:<br>Player stops sneaking.</p>
+                        </div>
+                    </li><br><br><br><br>
+                    <li class="section_li" id="movement">
+                        <div class="section">
+                            <h1>Movement</h1>
+                            <div class="line lighter"></div>
+                            <p>During Movement, players are granted the following tags.</p>
+                            <br>
+                            <ol class="key">
+                                <li>walking<br>
+                                    <small>Player is walking.</small>
+                                </li><br>
+                                <li>sprinting<br>
+                                    <small>Player is sprinting.</small>
+                                </li><br>
+                                <li>swimming<br>
+                                    <small>Player is swimming.</small>
+                                </li><br>
+                                <li>water1<br>
+                                    <small>If player is bobbing up and down over water.<br>(see <a href="https://minecraft.fandom.com/wiki/Statistics">minecraft.custom:minecraft.walk_on_water_one_cm</a>)</small>
+                                </li><br>
+                                <li>water2<br>
+                                    <small>If player is walking underwater.<br>(see <a href="https://minecraft.fandom.com/wiki/Statistics">minecraft:walk_under_water_one_cm</a>)</small>
+                                </li>
+                            </ol>
+                            <br>
+                            <p>Source Code: &nbsp<a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/player_state/movement.mcfunction">stats:player_state/movement</a></p>
+                        </div>
+                    </li><br><br><br><br>
+                    <li class="section_li" id="fungus">
+                        <div class="section">
+                            <h1>Fungus</h1>
+                            <div class="line lighter"></div>
+                            <p>When the player uses a warped fungus on a stick, the player is granted with the fungus tag.</p>
+                        </div>
+                    </li><br><br><br><br>
+                    <li class="section_li" id="inrain">
+                        <div class="section">
+                            <h1>inRain</h1>
+                            <div class="line lighter"></div>
+                            <p>Given when the player is exposed to rain.</p>
+                        </div>
+                    </li><br><br><br><br>
+                    <li class="section_li" id="sis_swapped">
+                        <div class="section">
+                            <h1>Selected Item Slots</h1>
+                            <div class="line lighter"></div>
+                            <p>When selected item slot is switched, these tags may be given.</p>
+                            <br>
+                            <ol class="key">
+                                <li>SIS.Swapped<br>
+                                    <small>SelectedItemSlot is swapped.</small>
+                                </li><br>
+                                <li>SIS.FastSwapping<br>
+                                    <small>SelectedItemSlot is swapped rapidly.</small>
+                                </li>
+                            </ol>
+                            <br>
+                            <p>Source Code: &nbsp<a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/player_state/movement.mcfunction">stats:player_state/movement</a></p>
+                        </div>
+                    </li><br><br><br><br>
+                </ol>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        <div class="post" id="entities">
+            <div class="text">
+                <h1>All Entities</h1>
+                <div class="line"></div><br>
+                <ol class="key">
+                    <li><a href="#hurttime">HurtTime:<br></a>
+                        <small>HurtTime.9 / HurtTime.10 / IFrame</small>
+                    </li>
+                    <li><a href="#onground">OnGround:<br></a>
+                        <small>OnGround</small>
+                    </li>
+                    <li><a href="#active_effects">Active Effects:<br></a>
+                        <small>AE.hasEffect / AE.hasBuff / AE.hasDebuff / <br> AE.Burn / AE.Freeze / AE.Wind / AE.Earth / AE.Seal / AE.Chaos</small>
+                    </li>
+                    <li><a href="#falling">Falling:<br></a>
+                        <small>Falling</small>
+                    </li>
+                </ol>
+                <br><br><br><br>
+                <ol>
+                    <li class="section_li" id="hurttime">
+                        <div class="section">
+                            <h1>Sneak</h1>
+                            <div class="line lighter"></div>
+                            <p>When entity is hurt, they are given the following tags.</p>
+                        
+                            <ol class="key">
+                                <li>HurtTime.9<br>
+                                    <small>Required NBT: {HurtTime:9s}</small>
+                                </li><br>
+                                <li>HurtTime.10<br>
+                                    <small>Required NBT: {HurtTime:10s}</small>
+                                </li><br>
+                                <li>IFrame<br>
+                                    <small>Entity has Invulnerability Frames.<br>
+                                    Has NBT of HurtTime > 0.</small>
+                                </li>
+                            </ol>
+                            <p>Source Code: &nbsp<a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/entity_state/hurttime.mcfunction">stats:entity_state/hurttime</a></p>
+                        </div>
+                    </li><br><br><br><br>
+                    <li class="section_li" id="onground">
+                        <div class="section">
+                            <h1>OnGround</h1>
+                            <div class="line lighter"></div>
+                            <p>When player is on the ground, this tag would be given.<br>
+                            <small>Required NBT: {OnGround:1b}</small>
+                            </p>
+                            <p>Source Code: &nbsp<a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/entity_state/onground.mcfunction">stats:entity_state/onground</a></p>
+                        </div>
+                    </li><br><br><br><br>
+                    <li class="section_li" id="active_effects">
+                        <div class="section">
+                            <h1>Active Effects</h1>
+                            <div class="line lighter"></div>
+                            <p>Given to entities with AE (Active Effects).</p>
+                            <br>
+                            <ol class="key">
+                                <li>AE.hasEffect<br>
+                                    <small>If entity has an AE effect.</small>
+                                </li><br>
+                                <li>AE.hasBuff<br>
+                                    <small>Entity has an AE buff.</small>
+                                </li><br>
+                                <li>AE.hasDebuff<br>
+                                    <small>Entity has an AE debuff.</small>
+                                </li><br>
+                                <li><span class="gold">AE.Burn</span><br>
+                                    <small>Entity is burning.</small>
+                                </li><br>
+                                <li><span class="aqua">AE.Freeze</span><br>
+                                    <small>Entity is freezing.</small>
+                                </li><br>
+                                <li><span class="green">AE.Paralyze</span><br>
+                                    <small>Entity is paralyzed.</small>
+                                </li><br>
+                                <li><span class="brown">AE.Poison</span><br>
+                                    <small>Entity is poisoned.</small>
+                                </li><br>
+                                <li><span class="light_type">AE.Seal</span><br>
+                                    <small>Entity is sealed.</small>
+                                </li><br>
+                                <li><span class="dark_type">AE.Chaos</span><br>
+                                    <small>Entity is chaotic.</small>
+                                </li><br>
+                            </ol>
+                            <br>
+                            <p>Source Code: &nbsp<a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/entity_state">stats:entity_state/</a></p>
+                        </div>
+                    </li><br><br><br><br>
+                    <li class="section_li" id="falling">
+                        <div class="section">
+                            <h1>Falling</h1>
+                            <div class="line lighter"></div>
+                            <p>Given when entity is falling.<br>
+                            <small>NBT of FallDistance > 0</small>
+                            </p>
+                            <p>Source Code: &nbsp<a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/entity_state/falldistance.mcfunction">stats:entity_state/falldistance</a></p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+</body>
+<script src="../../../../scripts/menubutton.js"></script>
+<script src="../../scripts/topbtn.js"></script>
+</html>

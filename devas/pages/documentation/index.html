@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../fs.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/remove_underline.css">
+    <link rel="stylesheet" href="style/search_box.css">
+    <link rel="stylesheet" href="../../style/menubar.css">
+</head>
+<body>
+    <!--Animated Toggle-->
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+
+    <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+        
+        <ul>
+            <li class="menutoggle">
+                <button>    
+                    <a class="menutoggle_a" href="../../index.html">Devas</a>
+
+                </button>
+            </li>
+            <li><a href="pages/"></a></li>
+            <li>
+                <a class="menubar_links" href="../about/index.html">About</a>
+                <a class="menubar_links" href="">Documentation</a>
+            </li>
+        </ul>
+    </section>
+    <!--Go Top-->
+    <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
+
+
+    <div class="background"></div>
+
+
+    <section id="posts" class="contents">
+        <!-- <div class="post">
+            <div class="text">
+                <h1>Devas Documentation</h1>
+                <p>Welcome to the documentation site of Devas.</p>
+            </div>
+        </div>
+        <div class="post">
+            <div class="text">
+                <h1>Devas Devlog v1.0.0</h1>
+                <h2>24-10-2022</h2>
+                <p>Hihi my name is icy icy, i love ice scream, they cold and gud. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, eius. Perferendis officiis fugiat temporibus quod aliquam. Assumenda vero deleniti, sunt, aut perspiciatis quibusdam ducimus totam omnis odio, hic non beatae.</p>
+                <br>
+                <img src="../../material/hill1.png">
+
+            </div>
+        </div> -->
+        <div class="search_box">
+            <label for="search_bar">Search:</label>
+            <input type="search" id="search_bar">
+        </div>
+
+        <a href="subpages/docs/damage_calculation.html">
+            <div class="post">
+                <div class="text">
+                    <h1>Damage Calculation (Documentation)</h1>
+                    <h2>30-10-2022</h2>
+                    <p>Technical Documentation for Defense, Expected Damage, etc.</p>
+                    <br>
+                    <img src="https://imagedelivery.net/aG82t-qDLn415HP9HHoOeg/52e7e20d-d16a-4798-098b-01f97d65de00/original">
+                </div>
+            </div>
+        </a>
+
+        <a href="subpages/docs/vanilla_entity_tags.html">
+            <div class="post">
+                <div class="text">
+                    <h1>Vanilla Entity Tags (Documentation)</h1>
+                    <h2>29-10-2022</h2>
+                    <p>Technical Documentation for Vanilla Entity Tags: Sneaking, Sprinting, OnGround, etc.</p>
+                    <br>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1035854003088670730/unknown.png">
+                </div>
+            </div>
+        </a>
+
+        
+        <a href="subpages/docs/active_effects.html">
+            <div class="post">
+                <div class="text">
+                    <h1>Active Effects (Documentation)</h1>
+                    <h2>29-10-2022</h2>
+                    <p>Technical Documentation for Active Effects.<br>Scoreboards, applying, effects, damage etc.</p>
+                    <p>Burn, Freeze, Paralyze, Poison, Seal and Chaos.</p>
+                    <br>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1035857365846732890/unknown.png">
+                </div>
+            </div>
+        </a>
+
+        <a href="subpages/docs/basic_stats.html">
+            <div class="post">
+                <div class="text">
+                    <h1>Basic Stats (Documentation)</h1>
+                    <h2>25-10-2022</h2>
+                    <p>Technical Documentation for Basic Stats: Health, Stamina, Hunger and Mana.</p>
+                    <p></p>
+                    <br>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034090103225729024/unknown.png">
+                </div>
+            </div>
+        </a>
+        <a href="subpages/docs/held_item_format.html">
+            <div class="post">
+                <div class="text">
+                    <h1>Held Item Format [Technical] (Documentation)</h1>
+                    <h2>24-10-2022</h2>
+                    <p>Learn how to obtain an item with custom stats.</p>
+                    <br>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034089883729395723/unknown.png">
+                </div>
+            </div>
+        </a>
+    </section>
+</body>
+<script src="../../scripts/menubutton.js"></script>
+<script src="scripts/topbtn.js"></script>
+<script src="scripts/search.js"></script>
+</html>

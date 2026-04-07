@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Stats</title>
+    <link rel="stylesheet" href="../../../../../fs.css">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/code_block.css">
+    <link rel="stylesheet" href="../../../../style/menubar.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <!--Animated Toggle-->
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+
+    <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+        
+        <ul>
+            <li class="menutoggle">
+                <button>    
+                    <a class="menutoggle_a" href="../../../../index.html">Devas</a>
+
+                </button>
+            </li>
+            <li><a href="pages/"></a></li>
+            <li>
+                <a class="menubar_links" href="../../index.html">About</a>
+                <a class="menubar_links" href="../../index.html">Documentation</a>
+            </li>
+        </ul>
+    </section>
+
+    <!--Go Top-->
+    <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
+    <div class="background"></div>
+    <section class="contents">
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1>Basic Stats</h1>
+                    <h2 class="date">25-10-2022</h2>
+                    <p>In Devas, there are 4 basic stats:</p>
+                    <ol class="key">
+                        <li><a href="#health">Health</a></li>
+                        <li><a href="#stamina">Stamina</a></li>
+                        <li><a href="#hunger">Hunger</a></li>
+                        <li><a href="#mana">Mana</a></li>
+                    </ol>
+                    <br>
+                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034090103225729024/unknown.png">
+                </div>
+            </div>
+        </div>
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1 id="health">Health</h1>
+                    <div class="line"></div>
+                    <br>
+                    <h2 class="date">Last updated:&nbsp&nbsp&nbsp&nbsp24-10-2022</h2>
+                    <ol class="key">
+                        <li><a href="#health.mechanics">Mechanics</a></li>
+                        <li><a href="#health.scoreboard_variables">Scoreboard Variables</a></li>
+                        <li><a href="#health.hp_calculation">HP Calculation</a></li>
+                        <li><a href="#health.recovery">Recovery</a></li>
+                        <li><a href="#health.falldmg">Fall Damage</a></li>
+                    </ol>
+                    <br><br><br><br>
+                    <ol>
+                        <li class="section_li" id="health.mechanics">
+                            <h2>Mechanics</h2>
+                            <div class="line lighter"></div>
+                            <p>Health is one of the 4 basic stats of a player.<br>It indicates how much Health Points a player has, which is shown by the red bar on top of the hotbar.
+                            </p>
+                            <p>The minimum amount of HP is 1,<br> and when the player has an HP ≤ 0, the player will die.</p> 
+                            
+                            <br>
+                            <p>The player has a Base Health of 100,<br>
+                            This variable can be tuned in <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/init/settings.mcfunction">stats:init/settings</a>.</p>
+                            <div class="code">
+                                <p>
+                                    scoreboard players set Base_Health Stats.Settings 100
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+                        <li class="section_li" id="health.scoreboard_variables">
+                            <h2>Scoreboard Variables</h2>
+                            <div class="line lighter"></div>
+                            <p>The scoreboard variables associated with Health are the following:</p>
+                            <div class="code">
+                                <p class="blue">
+                                    PS.Health &nbsp&nbsp&nbsp(Total Health)<br>
+                                    PS.Health_HI (Held Item Bonus)<br>
+                                    PS.Health_SB (Skill Bonus)<br>
+                                    PS.Health_AB (Arena Bonus)<br>
+                                    PS.Health_SM (Skill Multiplier)<br>
+                                    PS.Health_AM (Arena Multiplier)<br>
+                                    <br>
+                                    <span class="comment darkgreen"># Please note that SM, AM are in percentage values.</span>
+                                </p>
+                                <br><br>
+                                <p class="blue">
+                                    CurrentHealth (Health Left)<br>
+                                    ExtraHealth &nbsp&nbsp(Absorption Health)
+                                </p>
+                            </div>
+                            <br>
+                            <p>Evaluation:</p>
+                            <div class="code">
+                                <p>
+                                    PS.Health = Stats.Settings[Base_Health]<br>
+                                    PS.Health += PS.Health_HI<br>
+                                    PS.Health += PS.Health_SB<br>
+                                    PS.Health += PS.Health_AB<br>
+                                    <br>
+                                    PS.Health *= PS.Health_SM / 100<br>
+                                    PS.Health *= PS.Health_AM / 100<br>
+                                </p>
+                            </div>
+                            <p>Source Code:
+                                <div class="code">
+                                    <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/update_stats/total/health.mcfunction">
+                                    stats:update_stats/total/health
+                                    <img src="https://media.discordapp.net/attachments/738532982985457724/1034043886991069184/unknown.png?width=1037&height=654">
+                                    </a>
+
+                                </div>
+
+                            </p>
+                        </li>
+                        <br><br><br><br>
+                        <li class="section_li" id="health.hp_calculation">
+                            <h2>HP Calculation</h2>
+                            <div class="line lighter"></div>
+                            <p>The Current Player HP is calculated by 2 substats:</p>
+                            <ol>
+                                <li>CurrentHealth (Abbreviated as HP)</li>
+                                <li>ExtraHealth</li>
+                            </ol>
+                            <p>CurrentHealth is the current player health, ExtraHealth is the absorption health for the players (a.k.a. golden hearts in vanilla Minecraft).</p>
+                            <p>When the HP of a player is lower than their Max HP, ExtraHealth will be transferred over to CurrentHealth.</p>
+                            <br>
+                            <p>Evaluation Formula:</p>
+                            <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/health/extra_health.mcfunction">stats:health/extra_health</a>
+                            <br>
+                            <div class="code">
+                                <p>
+                                    if ExtraHealth > 0 and CurrentHealth < PS.Health:<br>
+                                    &nbsp&nbsp&nbsp CurrentHealth += ExtraHealth<br>
+                                    &nbsp&nbsp&nbsp ExtraHealth = CurrentHealth - PS.Health<br>
+                                    &nbsp&nbsp&nbsp if ExtraHealth < 0:<br>
+                                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp ExtraHealth = 0<br>
+                                    &nbsp&nbsp&nbsp CurrentHealth -= ExtraHealth<br>
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+
+                        <li class="section_li" id="health.recovery">
+                            <h2>Recovery</h2>
+                            <div class="line lighter"></div>
+                            <p>The natural regeneration stat of the player is called Recovery.<br><br>
+                                Every 20 ticks (1 second), &nbspplayers will lose 10 <span class="dark_red bold">Hunger</span> points and gain X% HP,</p>
+                            <br>    
+                            <p>
+                            where&nbsp \(X = 20 - \frac{400000}{\hbox{PS.Recovery} &nbsp+&nbsp 20000}\)</p>
+                            <br>
+                            <p>
+                                If the player is currently in combat, X will be divided by 2.
+                            </p>
+                            <p>
+                                For natural regeneration to occur, the player must have at least <span class="gold bold">4000 Stamina</span> and <span class="dark_red bold">100 Hunger</span>.
+                            </p>
+                            <br><br>
+                            <p>The Base Recovery of a player is 2500.<br>
+                                This variable can be tuned in <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/init/settings.mcfunction">stats:init/settings</a></p>
+                            <div class="code">
+                                <p>
+                                    scoreboard players set Base_Recovery Stats.Settings 2500
+                                </p>
+                            </div>
+                            <br>
+                            <p>Evaluation Formula:</p>
+                            <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/health/natural_regeneration.mcfunction">stats:health/natural_regeneration</a>
+
+                            <br><br>
+                            <p>Quick Note: This formula caps at X = 20, as</p>
+                            \[\scriptsize X = \lim_{\hbox{PS.Recovery} \to \infty}(20 - \frac{400000}{\hbox{PS.Recovery} &nbsp+&nbsp 20000}) = 20\]
+                            <p>Therefore, maximum HP the player can regen is 20% per second. </p>
+                        </li>
+                        <br><br><br><br>
+
+
+
+                        
+                        <li class="section_li" id="health.falldmg">
+                            <h2>Fall Damage</h2>
+                            <div class="line lighter"></div>
+                            <p>Fall Damage deals PERCENTAGE damage to the player.<br><br>
+                                When player falls and takes damage, damage is calculated through the following formula:</p>
+                            <br>    
+                            <p>
+                            \(\hbox{Fall&nbspDamage&nbsp\%} =\frac{\hbox{FallDistance} &nbsp-&nbsp 30}{2} \times \frac{100}{\hbox{PS.Earth}&nbsp-&nbsp\hbox{Base\_Earth\_Def}&nbsp+&nbsp100} \times \frac{1}{100}\)</p>
+                            <br>
+                            <p>
+                                If the player experiences fatal fall damage,
+                                the player will endure the fall with 1 HP, and receive Slowness and Blindness 6 for 5 seconds.
+                            </p>
+                            <br>
+                            <p>Evaluation Formula:</p>
+                            <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/health/fall_damage.mcfunction">stats:health/fall_damage</a>
+                        </li>
+                    </ol>
+
+    
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1 id="stamina">Stamina</h1>
+                    <div class="line"></div>
+                    <br>
+                    <h2 class="date">Last updated:&nbsp&nbsp&nbsp&nbsp25-10-2022</h2>
+                    <ol class="key">
+                        <li><a href="#stamina.mechanics">Mechanics</a></li>
+                        <li><a href="#stamina.scoreboard_variables">Scoreboard Variables</a></li>
+                        <li><a href="#stamina.stamina_calculation">Stamina Calculation</a></li>
+                        <li><a href="#stamina.srecovery">SRecovery / SRegenSpd</a></li>
+                        <li><a href="#stamina.lost">Stamina Lost</a></li>
+                    </ol>
+                    <br><br><br><br>
+                    <ol>
+                        <li class="section_li" id="stamina.mechanics">
+                            <h2>Mechanics</h2>
+                            <div class="line lighter"></div>
+                            <p>Stamina is one of the 4 basic stats of a player.<br>It indicates how much Stamina a player has, which is shown by the yellow bar on top of the hotbar.
+                            </p>
+                            <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034116742538068069/unknown.png">
+                            <br>
+                            <p>The minimum amount of Stamina is 1.</p>
+                            <p>
+                                When the player has too little stamina, they will receive debuffs, such as slowness and weakness.<br><br>
+                                CurrentStamina ≤ 3000 => Slowness 0.<br>
+                                CurrentStamina ≤ 2000 => Slowness 3.<br>
+                                CurrentStamina ≤ 1000 => Slowness + Weakness 255.<br>
+                                
+                            </p> 
+                            
+                            <br>
+                            <p>The player has a Base Stamina of 10000,<br>
+                            This variable can be tuned in <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/init/settings.mcfunction">stats:init/settings</a>.</p>
+                            <div class="code">
+                                <p>
+                                    scoreboard players set Base_Stamina Stats.Settings 10000
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+                        <li class="section_li" id="stamina.scoreboard_variables">
+                            <h2>Scoreboard Variables</h2>
+                            <div class="line lighter"></div>
+                            <p>The scoreboard variables associated with Stamina are the following:</p>
+                            <div class="code">
+                                <p class="blue">
+                                    PS.Stamina &nbsp&nbsp&nbsp(Total Stamina)<br>
+                                    PS.Stamina_HI (Held Item Bonus)<br>
+                                    PS.Stamina_SB (Skill Bonus)<br>
+                                    PS.Stamina_AB (Arena Bonus)<br>
+                                    PS.Stamina_SM (Skill Multiplier)<br>
+                                    PS.Stamina_AM (Arena Multiplier)<br>
+                                    <br>
+                                    <span class="darkgreen"># Please note that SM, AM are in percentage values.</span>
+                                </p>
+                                <br><br>
+                                <p class="blue">
+                                    CurrentStamina (Stamina Left)<br>
+                                    ExtraStamina &nbsp&nbsp(Absorption Stamina)
+                                </p>
+                            </div>
+                            <br>
+                            <p>Evaluation:</p>
+                            <div class="code">
+                                <p>
+                                    PS.Stamina = Stats.Settings[Base_Stamina]<br>
+                                    PS.Stamina += PS.Stamina_HI<br>
+                                    PS.Stamina += PS.Stamina_SB<br>
+                                    PS.Stamina += PS.Stamina_AB<br>
+                                    <br>
+                                    PS.Stamina *= PS.Stamina_SM / 100<br>
+                                    PS.Stamina *= PS.Stamina_AM / 100<br>
+                                </p>
+                            </div>
+                            <p>Source Code:
+                                <div class="code">
+                                    <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/update_stats/total/stamina.mcfunction">
+                                    stats:update_stats/total/stamina
+                                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034118297635016766/unknown.png">
+                                    </a>
+
+                                </div>
+
+                            </p>
+                        </li>
+                        <br><br><br><br>
+                        <li class="section_li" id="stamina.stamina_calculation">
+                            <h2>Stamina Calculation</h2>
+                            <div class="line lighter"></div>
+                            <p>The Current Player Stamina is calculated by 2 substats:</p>
+                            <ol>
+                                <li>CurrentStamina</li>
+                                <li>ExtraStamina</li>
+                            </ol>
+                            <p>CurrentStamina is the current player stamina, ExtraStamina is the absorption stamina for the players (similar to ExtraHealth, but for stamina).</p>
+                            <p>When the HP of a player is lower than their Max HP, ExtraStamina will be transferred over to CurrentStamina.</p>
+                            <br>
+                            <p>Evaluation Formula:</p>
+                            <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/stamina/extra_stamina.mcfunction">stats:stamina/extra_stamina</a>
+                            <br>
+                            <div class="code">
+                                <p>
+                                    if ExtraStamina > 0 and CurrentStamina < PS.Stamina:<br>
+                                    &nbsp&nbsp&nbsp CurrentStamina += ExtraStamina<br>
+                                    &nbsp&nbsp&nbsp ExtraStamina = CurrentStamina - PS.Stamina<br>
+                                    &nbsp&nbsp&nbsp if ExtraStamina < 0:<br>
+                                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp ExtraStamina = 0<br>
+                                    &nbsp&nbsp&nbsp CurrentStamina -= ExtraStamina<br>
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+
+                        <li class="section_li" id="stamina.srecovery">
+                            <h2>SRecovery / SRegenSpd</h2>
+                            <div class="line lighter"></div>
+                            <p>
+                                Every 2 ticks (0.1 second), if <span class="gold bold">stamina</span> is not full, <span class="dark_red bold">hunger</span> will be converted to <span class="gold bold">stamina</span>.</p>
+                            <br>    
+                            <p>
+                                \(
+                                    \Delta\hbox{&nbspStamina} = 
+                                    \frac{\hbox{CurrentHunger}}{\hbox{PS.Hunger}} \times \frac{\hbox{PS.RegenSpd}}{100}   
+                                \)
+                            </p>
+                            <p>
+                                \(
+                                    \Delta\hbox{&nbspHunger} = -&nbsp(\frac{\hbox{CurrentHunger}}{\hbox{PS.Hunger}} \times \frac{10}{PS.SRecovery} + 1)  
+                                \)
+                            </p>
+                            <br>
+                            <p>
+                                If the player has less than 2000 CurrentOxygen, the Stamina-Hunger conversion rate will be reduced by half.
+                            </p>
+                            <p>
+                                When the player is walking (not sprinting), Stamina-Hunger conversion rate will be reduced by half.
+                            </p>
+                            <p>
+                                This means, the <span class="gold bold">Stamina</span> regeneration speed depends on the <span class="dark_red bold">Hunger</span> percentage of the player.
+                            </p>
+                            <br>
+                            <p>Evaluation Formula:</p>
+                            <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/mana_stamina_hunger/regen_stamina.mcfunction">stats:mana_stamina_hunger/regen_stamina</a>
+                            <br><br><br><br>
+                            <p>The Base SRecovery and SRegenSpd of a player is 100 and 135 respectively.<br>
+                                This variable can be tuned in <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/init/settings.mcfunction">stats:init/settings</a></p>
+                            <div class="code">
+                                <p>
+                                    scoreboard players set Base_SRecovery Stats.Settings 100<br>
+                                    scoreboard players set Base_SRegenSpd Stats.Settings 135
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+
+
+
+                        
+                        <li class="section_li" id="stamina.lost">
+                            <h2>Stamina Lost</h2>
+                            <div class="line lighter"></div>
+                            <p>Most ingame activity would cause lost in Stamina.
+                            </p>
+                            <br>    
+                            <p>
+                            Every tick, if the player is performing the following activities, they will lose a certain amount of stamina.</p>
+                            <ul>
+                                <li>Sprinting: rng(\(\frac{5}{6}\)) \(\times &nbsp4\)</li>
+                                <li>Walking: 1</li>
+                                <li>Being in water: 1</li>
+                                <li>Walking in water: 1</li>
+                                <li>Swimming: 5</li>
+                                <li>Riding Horse: 0.5</li>
+                                <li>Jump: 20</li>
+                            </ul>
+                            <p>
+                                The amount of stamina lost is correlated to the PS.SLoseSpd stat.
+                                <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/mana_stamina_hunger/lose_stamina/main.mcfunction">stats:mana_stamina_hunger/lose_stamina/main</a>
+                                <div class="code">
+                                    <p>
+                                        scoreboard players operation .temp Stats.temp *= @s PS.SLoseSpd<br>
+                                        scoreboard players operation .temp Stats.temp /= 100 Numbers
+                                    </p>
+
+                                </div>
+                            </p>
+                        </li>
+                    </ol>
+
+    
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1 id="hunger">Hunger</h1>
+                    <div class="line"></div>
+                    <br>
+                    <h2 class="date">Last updated:&nbsp&nbsp&nbsp&nbsp25-10-2022</h2>
+                    <ol class="key">
+                        <li><a href="#hunger.mechanics">Mechanics</a></li>
+                        <li><a href="#hunger.scoreboard_variables">Scoreboard Variables</a></li>
+                        <li><a href="#hunger.hunger_calculation">Hunger Calculation</a></li>
+                        <li><a href="#hunger.eating">Eating</a></li>
+                    </ol>
+                    <br><br><br><br>
+                    <ol>
+                        <li class="section_li" id="hunger.mechanics">
+                            <h2>Mechanics</h2>
+                            <div class="line lighter"></div>
+                            <p>Hunger is one of the 4 basic stats of a player.<br>It indicates how much Hunger a player has, which is shown by the orange bar on top of the hotbar.
+                            </p>
+                            <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034138216980299837/unknown.png">
+                            <br>
+                            <p>The minimum amount of Hunger is 1.</p>
+                            <p>
+                                Hunger is used for Stamina Regeneration, and Health Regeneration.
+                            </p> 
+                            
+                            <br>
+                            <p>The player has a Base Hunger of 10000,<br>
+                            This variable can be tuned in <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/init/settings.mcfunction">stats:init/settings</a>.</p>
+                            <div class="code">
+                                <p>
+                                    scoreboard players set Base_Hunger Stats.Settings 10000
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+                        <li class="section_li" id="hunger.scoreboard_variables">
+                            <h2>Scoreboard Variables</h2>
+                            <div class="line lighter"></div>
+                            <p>The scoreboard variables associated with Hunger are the following:</p>
+                            <div class="code">
+                                <p class="blue">
+                                    PS.Hunger &nbsp&nbsp&nbsp(Total Hunger)<br>
+                                    PS.Hunger_HI (Held Item Bonus)<br>
+                                    PS.Hunger_SB (Skill Bonus)<br>
+                                    PS.Hunger_AB (Arena Bonus)<br>
+                                    PS.Hunger_SM (Skill Multiplier)<br>
+                                    PS.Hunger_AM (Arena Multiplier)<br>
+                                    <br>
+                                    <span class="darkgreen"># Please note that SM, AM are in percentage values.</span>
+                                </p>
+                                <br><br>
+                                <p class="blue">
+                                    CurrentHunger (Hunger Left)<br>
+                                    ExtraHunger &nbsp&nbsp(Absorption Hunger)
+                                </p>
+                            </div>
+                            <br>
+                            <p>Evaluation:</p>
+                            <div class="code">
+                                <p>
+                                    PS.Hunger = Stats.Settings[Base_Hunger]<br>
+                                    PS.Hunger += PS.Hunger_HI<br>
+                                    PS.Hunger += PS.Hunger_SB<br>
+                                    PS.Hunger += PS.Hunger_AB<br>
+                                    <br>
+                                    PS.Hunger *= PS.Hunger_SM / 100<br>
+                                    PS.Hunger *= PS.Hunger_AM / 100<br>
+                                </p>
+                            </div>
+                            <p>Source Code:
+                                <div class="code">
+                                    <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/update_stats/total/hunger.mcfunction">
+                                    stats:update_stats/total/hunger
+                                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034142458981929062/unknown.png">
+                                    </a>
+
+                                </div>
+
+                            </p>
+                        </li>
+                        <br><br><br><br>
+                        <li class="section_li" id="hunger.hunger_calculation">
+                            <h2>Hunger Calculation</h2>
+                            <div class="line lighter"></div>
+                            <p>Hunger is used in these two main ways:</p>
+                            <ol>
+                                <li><a href="#health.recovery">Natural Health Regeneration</a></li>
+                                <li><a href="#stamina.srecovery">Stamina Regeneration</a></li>
+                            </ol>
+                            <br><br>
+                            <p>The Current Player Hunger is calculated by 2 substats:</p>
+                            <ol>
+                                <li>CurrentHunger</li>
+                                <li>ExtraHunger</li>
+                            </ol>
+                            <p>CurrentHunger is the current player hunger, ExtraHunger is the absorption hunger for the players (similar to ExtraHealth, but for hunger).</p>
+                            <p>When the HP of a player is lower than their Max HP, ExtraHunger will be transferred over to CurrentHunger.</p>
+                            <br>
+                            <p>Evaluation Formula:</p>
+                            <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/hunger/extra_hunger.mcfunction">stats:hunger/extra_hunger</a>
+                            <br>
+                            <div class="code">
+                                <p>
+                                    if ExtraHunger > 0 and CurrentHunger < PS.Stamina:<br>
+                                    &nbsp&nbsp&nbsp CurrentHunger += ExtraHunger<br>
+                                    &nbsp&nbsp&nbsp ExtraHunger = CurrentHunger - PS.Stamina<br>
+                                    &nbsp&nbsp&nbsp if ExtraHunger < 0:<br>
+                                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp ExtraHunger = 0<br>
+                                    &nbsp&nbsp&nbsp CurrentHunger -= ExtraHunger<br>
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+
+                        <li class="section_li" id="hunger.eating">
+                            <h2>Eating</h2>
+                            <div class="line lighter"></div>
+                            <p>See <a href="food.html">Food (Item)</a> for more information on food and eating.</p>
+                        </li>
+                        <br><br><br><br>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1 id="mana">Mana</h1>
+                    <div class="line"></div>
+                    <br>
+                    <h2 class="date">Last updated:&nbsp&nbsp&nbsp&nbsp30-10-2022</h2>
+                    <ol class="key">
+                        <li><a href="#mana.mechanics">Mechanics</a></li>
+                        <li><a href="#mana.scoreboard_variables">Scoreboard Variables</a></li>
+                        <li><a href="#mana.obtain">Obtaining Mana</a></li>
+                        <li><a href="#mana.mana_calculation">Mana Calculation</a></li>
+                    </ol>
+                    <br><br><br><br>
+                    <ol>
+                        <li class="section_li" id="hunger.mechanics">
+                            <h2>Mechanics</h2>
+                            <div class="line lighter"></div>
+                            <p><span class="aqua bold">Mana</span> is one of the 4 basic stats of a player.</p>
+                            <br>
+                            <p>
+                                There are two types of Mana stats:
+                            </p>
+                            <ul>
+                                <li class="aqua" style="list-style:square;">Base Mana</li>
+                                <li class="aqua" style="list-style:square;">(Max) Mana</li>
+                            </ul>
+                            <br>
+                            <p><span class="aqua bold">Mana</span> is the direct counterpart of <span class="gold bold">Stamina</span></p>
+
+                            <p>It is shown by the light blue bar on top of the hotbar.
+                            </p>
+                            <img src="https://cdn.discordapp.com/attachments/738532982985457724/1034161635864084610/unknown.png">
+                            <br>
+                            <p><span class="aqua bold">Mana</span> is used for magic-based abilities, while <span class="gold bold">Stamina</span> is for physical-based abilities.</p>
+                            <br>
+                            <p>It is possible to convert Stamina into Mana, and Mana into Stamina.</p>
+                            <p><span class="red">However, keep in mind that if your Current Mana is higher than your Base Mana stat, the excess Mana would convert itself into Stamina again.</span></p>
+                            <br>
+                            <p>The player has a Default (Max) Mana of 10000, and a Default Base Mana of 0.<br>Max Mana is equal to BaseMana * 2 + 5000 + other bonuses.<br><br>
+                            This variable can be tuned in <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/init/settings.mcfunction">stats:init/settings</a>.</p>
+                            <div class="code">
+                                <p>
+                                    scoreboard players set Base_Mana Stats.Settings 10000<br>
+                                    scoreboard players set Base_BaseMana Stats.Settings 2500
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+                        <li class="section_li" id="hunger.scoreboard_variables">
+                            <h2>Scoreboard Variables</h2>
+                            <div class="line lighter"></div>
+                            <p>The scoreboard variables associated with Mana are the following:</p>
+                            <div class="code">
+                                <p>
+                                    <span class="blue">
+                                        PS.Mana &nbsp&nbsp&nbsp(Total Mana)<br>
+                                        PS.Mana_HI (Held Item Bonus)<br>
+                                        PS.Mana_SB (Skill Bonus)<br>
+                                        PS.Mana_AB (Arena Bonus)<br>
+                                        PS.Mana_SM (Skill Multiplier)<br>
+                                        PS.Mana_AM (Arena Multiplier)<br></span>
+                                    <br>
+                                    <span class="darkgreen"># Please note that SM, AM are in percentage values.</span>
+                                </p>
+                                <br><br>
+                                <p class="blue">
+                                    CurrentMana (Mana Left)<br>
+                                    ExtraMana &nbsp&nbsp(Absorption Mana)
+                                </p>
+                                <br><br>
+                                <p>
+                                    <span class="blue">
+                                    PS.BaseMana &nbsp&nbsp&nbsp(Total BaseMana)<br>
+                                    PS.BaseMana_HI (Held Item Bonus)<br>
+                                    PS.BaseMana_SB (Skill Bonus)<br>
+                                    PS.BaseMana_AB (Arena Bonus)<br>
+                                    PS.BaseMana_SM (Skill Multiplier)<br>
+                                    PS.BaseMana_AM (Arena Multiplier)<br></span>
+                                </p>
+                            </div>
+                            <br>
+                            <p>Evaluation:</p>
+                            <div class="code">
+                                <p>
+                                    PS.Mana = Stats.Settings[Base_Mana]<br>
+                                    PS.Mana -= Stats.Settings[Base_BaseMana] * 2<br>
+                                    PS.Mana += PS.Mana_HI<br>
+                                    PS.Mana += PS.Mana_SB<br>
+                                    PS.Mana += PS.Mana_AB<br>
+                                    <br>
+                                    PS.Mana *= PS.Mana_SM / 100<br>
+                                    PS.Mana *= PS.Mana_AM / 100<br>
+                                    <br>
+                                    PS.Mana += PS.BaseMana * 2
+                                    
+                                </p>
+                            </div>
+                            <div class="code">
+                                <p>
+                                    PS.BaseMana = Stats.Settings[Base_BaseMana]<br>
+                                    PS.BaseMana += PS.BaseMana_HI<br>
+                                    PS.BaseMana += PS.BaseMana_SB<br>
+                                    PS.BaseMana += PS.BaseMana_AB<br>
+                                    <br>
+                                    PS.BaseMana *= PS.BaseMana_SM / 100<br>
+                                    PS.BaseMana *= PS.BaseMana_AM / 100<br>
+
+                                    if PS.BaseMana > PS.Mana:
+                                    &nbsp&nbsp&nbsp&nbspPS.BaseMana = PS.Mana
+                                </p>
+                            </div>
+                            <p>Source Code:
+                                <div class="code">
+                                    <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/update_stats/total/mana.mcfunction">
+                                    stats:update_stats/total/mana
+                                    <img src="https://cdn.discordapp.com/attachments/738532982985457724/1036288346143604826/unknown.png">
+                                    </a>
+
+                                </div>
+
+                            </p>
+                        </li>
+                        <br><br><br><br>
+
+                        <li class="section_li" id="mana.obtain">
+                            <h2>Obtaining Mana</h2>
+                            <div class="line lighter"></div>
+                            <p>There are a variety of methods to obtain Mana.</p>
+                            <ol>
+                                <li>
+                                    <p>Brute Force</p>
+                                </li>
+                                <p>By crouching and looking downwards at the same time, you can convert your <span class="gold bold">Stamina</span> into <span class="aqua bold">Mana</span>.<br><br>
+
+                                    <span class="gray">This method of charging mana isn’t recommended as it is not practical during combat. However, it is still helpful if you need to setup simple spells, such as transportation or trap spells.</span>
+                                </p>
+                                <p><em>When holding a wand, crouching would automatically activate this process.</em></p>
+                                <br><br>
+                                <li>
+                                    <p>Base Mana</p>
+                                </li>
+                                <p>
+                                    Most magic items contain the <span class="aqua bold">Base Mana</span> stat.<br>This stat enables the user to have a particular amount of mana which is automatically recharged.
+                                </p>
+                                <br><br>
+                                <li>
+                                    <p>Abilities</p>
+                                </li>
+                                <p>
+                                    Some abilities in the game allow the user to regenerate mana with or without the use of stamina. For instance, the <em><span class="aqua">&ltMana Recovery Array></span></em> could help increase your <span class="aqua bold">Base Mana</span> and grant extra <span class="aqua bold">Mana</span> each second.
+                                    
+                                </p>
+                            </ol>
+                        </li>
+                        <br><br><br><br>
+                        <li class="section_li" id="mana.mana_calculation">
+                            <h2>Mana Calculation</h2>
+                            <div class="line lighter"></div>
+                            <ol>
+                                <li>Brute Force</li>
+                                <p>For Brute force, the function ran each tick is <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/mana_stamina_hunger/charge_mana.mcfunction">stats:mana_stamina_hunger/charge_mana</a></p>
+                                <p>The amount of mana regenerated each tick, is equal to the number of ticks the player has sneaked for.</p>
+                                \[\footnotesize{\hbox{Total Mana Regenerated for T ticks}} = \sum_{t=1}^{T}t\]
+
+                                <p><span class="red">Stamina and Mana is a one-to-one conversion.</span></p><br><br>
+                                
+                                <li>Base Mana</li>
+                                <p>For Brute force, the function ran each tick is <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/mana_stamina_hunger/recharge_mana.mcfunction">stats:mana_stamina_hunger/recharge_mana</a></p>
+                                <p>Each tick, <span class="gold">1 Stamina</span> is converted to <span class="aqua">7 Mana</span>.</p>
+                            </ol>
+                            <br>
+                            <div class="line lighter"></div>
+                            
+                            <br>
+                            <p>The Current Player Mana is calculated by 2 substats:</p>
+                            <ol>
+                                <li>CurrentMana</li>
+                                <li>ExtraMana</li>
+                            </ol>
+                            <p>CurrentMana is the current player mana, ExtraMana is the absorption mana for the players (similar to ExtraHealth, but for mana).</p>
+                            <p>When the HP of a player is lower than their Max HP, ExtraMana will be transferred over to CurrentMana.</p>
+                            <br>
+                            <p>Evaluation Formula:</p>
+                            <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/mana/extra_mana.mcfunction">stats:mana/extra_mana</a>
+                            <br>
+                            <div class="code">
+                                <p>
+                                    if ExtraMana > 0 and CurrentMana < PS.Stamina:<br>
+                                    &nbsp&nbsp&nbsp CurrentMana += ExtraMana<br>
+                                    &nbsp&nbsp&nbsp ExtraMana = CurrentMana - PS.Stamina<br>
+                                    &nbsp&nbsp&nbsp if ExtraMana < 0:<br>
+                                    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp ExtraMana = 0<br>
+                                    &nbsp&nbsp&nbsp CurrentMana -= ExtraMana<br>
+                                </p>
+                            </div>
+                        </li>
+                        <br><br><br><br>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+<script src="../../../../scripts/menubutton.js"></script>
+<script src="../../scripts/topbtn.js"></script>
+</html>

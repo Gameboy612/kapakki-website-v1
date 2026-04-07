@@ -1,0 +1,200 @@
+:root {
+    --menubar-fs: var(--fs-m);
+    --menubar-links-fs: var(--fs-800);
+}
+
+section.menubar {
+    z-index: 10000;
+    width: 100vw;
+    height: 20vh;
+    padding-top: calc(0.55 * var(--menubar-fs));
+    position: fixed;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0));
+    top: -100%;
+    transition: top 0.35s ease-in-out; 
+}
+
+section.menubar-activated {
+    transition: top 0.35s ease-in-out; 
+    animation: displaymenu 0.15s forwards;
+    top: 0%;
+}
+
+section.menubar-init {
+    transition: top 0.8s ease-in-out; 
+    animation: displaymenu 0.8s forwards;
+}
+
+section.menubar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+section.menubar ul li{
+    transform: translateY(calc(0.45 * var(--menubar-fs)));
+    z-index: 10015;
+    float: right;
+    display: inline;
+    padding-right: 7vw;
+}
+section.menubar li a {
+    font-family: adventurer;
+}
+
+section.menubar ul li a.menubar_links {
+    margin-right: 4em;
+}
+section.menubar ul li a.menubar_links:last-child {
+    margin-right: 0em;
+}
+
+
+section.menubar ul li.menutoggle {
+    float: left;
+    transform: translateY(calc(0.95 * var(--menubar-icon-size) - 0.65 * var(--menubar-fs)));
+    padding-left: calc(9vw + var(--menubar-icon-size) * 1.5 + 0.35 * var(--menubar-fs));
+}
+
+@media (max-width: 899px) {
+    section.menubar ul li{
+        display: flex;
+        flex-direction: column;
+        transform: translateY(0);
+        z-index: 10015;
+        float: right;
+        padding-right: 7vw;
+    }
+    section.menubar ul li a.menubar_links {
+        width: max-content;
+        margin-bottom: 0.5em;
+        margin-right: 0em;
+    }
+
+    section.menubar ul li.menutoggle {
+        float: left;
+        transform: translateY(calc(0.95 * var(--menubar-icon-size) - 0.65 * var(--menubar-fs)));
+        padding-left: calc(5vw + var(--menubar-icon-size) * 1.5 + 0.35 * var(--menubar-fs));
+    }
+
+}
+
+section.menubar ul li a {
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(255, 255, 255));
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: var(--menubar-links-fs);
+    text-decoration: none;
+
+    transition: background-size 0.25s ease-in-out;
+}
+
+section.menubar ul li a:hover {
+    background-size: 100% 0.1em;
+}
+
+section.menubar ul li.menutoggle a {
+    font-size: var(--menubar-fs);
+}
+
+
+
+section.menubar ul li button {
+    background-color: transparent;
+    width: fit-content;
+}
+
+@keyframes displaymenu {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+
+
+
+
+/* Animation */
+:root {
+    --menubar-icon-size: var(--fs-850);
+}
+
+.menu-rectangle {
+    z-index: 10001;
+    position: fixed;
+    left: 5vw;
+    top: calc(1.5 * var(--menubar-icon-size));
+    width: calc(1 * var(--menubar-icon-size));
+    height: calc(0.15 * var(--menubar-icon-size));
+    /* border: 0.08em solid black; */
+    background-image: linear-gradient(rgb(210, 210, 210), rgb(210, 210, 210));
+    background-size: 100% calc(0.2 * var(--menubar-icon-size));
+    background-repeat: no-repeat;
+
+    transform: rotate(0);
+    transition-timing-function: ease-in-out;
+    box-shadow: 0 0 20px #0000;
+    transition: transform 0.5s, top 0.5s, width 0.5s, box-shadow 0.25s;
+}
+
+
+.top-menu {
+    top: calc(1.2 * var(--menubar-icon-size));
+}
+
+.bottom-menu {
+    top: calc(1.8 * var(--menubar-icon-size));
+}
+
+.mid-menu.menu-close {
+    z-index: 10005;
+    transform: rotate(-45deg);
+    top: calc(1.5 * var(--menubar-icon-size));
+}
+
+.top-menu.menu-close {
+    transform: translateX(calc((-0.70710678118 / 4 + 0.25) * var(--menubar-icon-size)))
+            translateY(calc(-0.70710678118 / 4 * var(--menubar-icon-size))) rotate(45deg);
+    top: calc(1.5 * var(--menubar-icon-size));
+    width: calc(0.5 * var(--menubar-icon-size));
+}
+
+.bottom-menu.menu-close {
+    width: calc(0.5 * var(--menubar-icon-size));
+    transform: translateX(calc((0.70710678118 / 4 + 0.25) * var(--menubar-icon-size)))
+            translateY(calc(0.70710678118 / 4 * var(--menubar-icon-size))) rotate(45deg);
+    top: calc(1.5 * var(--menubar-icon-size));
+}
+
+#btn-toggle-menu {
+    position: fixed;
+    z-index: 10000;
+    background-color: transparent;
+    width: 100vw;
+    height: 10vh;
+    top: 3vh;
+}
+
+
+
+
+/* Blue Shadow */
+
+.menutoggle-animation:hover > .menu-rectangle {
+    box-shadow: 0 0 20px var(--clr-blue);
+}
+
+a {
+    transition: text-shadow 1s;
+}
+
+a:hover {
+    text-shadow:
+         0 0 20px var(--clr-blue),
+         0 0 20px var(--clr-blue);
+}

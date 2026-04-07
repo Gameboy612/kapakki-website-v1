@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Effects</title>
+    <link rel="stylesheet" href="../../../../../fs.css">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/code_block.css">
+    <link rel="stylesheet" href="../../../../style/menubar.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <!--Animated Toggle-->
+    <button type="button" id="btn-toggle-menu" onclick="togglemenu()"></button>
+    <div class="menutoggle-animation" onclick="togglemenu()">
+        <div class="menu-rectangle top-menu"></div>
+        <div class="menu-rectangle mid-menu"></div>
+        <div class="menu-rectangle bottom-menu"></div>
+    </div>
+
+    <section class="menubar menubar-init menubar-activated" onclick="togglemenu()">
+        
+        <ul>
+            <li class="menutoggle">
+                <button>    
+                    <a class="menutoggle_a" href="../../../../index.html">Devas</a>
+
+                </button>
+            </li>
+            <li><a href="pages/"></a></li>
+            <li>
+                <a class="menubar_links" href="../../index.html">About</a>
+                <a class="menubar_links" href="../../index.html">Documentation</a>
+            </li>
+        </ul>
+    </section>
+
+    <!--Go Top-->
+    <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
+
+    <div class="background"></div>
+    <section class="contents">
+        <div class="post">
+            <div class="text">
+                <div class="section">
+                    <h1>Active Effects</h1>
+                    <h2 class="date">25-10-2022</h2>
+                    <p>In Devas, there are 4 basic stats:</p>
+                    <ol class="key">
+                        <li><a href="#burn">Burn</a></li>
+                        <li><a href="#freeze">Freeze</a></li>
+                        <li><a href="#paralyze">Paralyze</a></li>
+                        <li><a href="#poison">Poison</a></li>
+                        <li><a href="#seal">Seal</a></li>
+                        <li><a href="#chaos">Chaos</a></li>
+                    </ol>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="post" id="burn">
+            <div class="text">
+                <div class="section">
+                    <h1>Burn</h1>
+                    <h2 class="date">29-10-2022</h2>
+                    <p>The Burn effect is correlated to the Fire Elemental Type.</p>
+                
+                    <ol class="key">
+                        <li>sneak</li>
+                        <li>sneaking</li>
+                        <li>sneaked</li>
+                    </ol>
+                    <br><br>
+                    <div class="section_li" id="health.scoreboard_variables">
+                        <h2>Scoreboard Variables</h2>
+                        <div class="line lighter"></div>
+                        <p>The scoreboard variables associated with Health are the following:</p>
+                        <div class="code">
+                            <p>
+                                    AE.BurnTimer<br>
+                                    AE.BurnLevel<br>
+                                    AE.BurnSource<br>
+                            </p>
+                        </div>
+                        <br>
+                        <p>Evaluation:</p>
+                        <div class="code">
+                            <p>
+                                PS.Health = Stats.Settings[Base_Health]<br>
+                                PS.Health += PS.Health_HI<br>
+                                PS.Health += PS.Health_SB<br>
+                                PS.Health += PS.Health_AB<br>
+                                <br>
+                                PS.Health *= PS.Health_SM / 100<br>
+                                PS.Health *= PS.Health_AM / 100<br>
+                            </p>
+                        </div>
+                        <p>Source Code:
+                            <div class="code">
+                                <a href="https://github.com/Gameboy612/gbrpg/tree/main/rpg/data/stats/functions/update_stats/total/health.mcfunction">
+                                stats:update_stats/total/health
+                                <img src="https://media.discordapp.net/attachments/738532982985457724/1034043886991069184/unknown.png?width=1037&height=654">
+                                </a>
+
+                            </div>
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    
+</body>
+<script src="../../../../scripts/menubutton.js"></script>
+<script src="../../scripts/topbtn.js"></script>
+</html>

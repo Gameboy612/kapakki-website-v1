@@ -1,0 +1,114 @@
+
+
+
+.code {
+    background-color: rgba(255,255,255,0.69);
+    padding: 0.5em 2em;
+    margin: 0.5em 1.5em;
+    border-color: rgba(0, 0, 0, 0.8);
+    border-width: 3px;
+    border-style: solid;
+    overflow-x: scroll;
+    overflow-y: unset;
+}
+
+
+.code p {
+    width: max-content;
+    font-family: monospace;
+    margin: 0;
+    font-weight: bolder;
+}
+.code a {
+    font-size: var(--fs-400);
+    color: black;
+}
+.code strong {
+    font-family: monospace;
+    font-size: var(--fs-500);
+    color: black;
+    font-weight: bolder;
+}
+
+.red {
+    color: #FF5555;
+    font-family: inherit;
+}
+.darkgreen {
+    color: darkgreen;
+    font-family: inherit;
+}
+.green {
+    color: #55FF55;
+    font-family: inherit;
+}
+.brown {
+    color: #BA6630;
+    font-family: inherit;
+}
+.dark_type {
+    color: #707070;
+    font-family: inherit;
+}
+.light_type {
+    color: #fff570;
+    font-family: inherit;
+}
+.blue {
+    color: teal;
+    font-family: inherit;
+}
+.gold {
+    color:#FFAA00;
+    font-family: inherit;
+}
+.dark_red {
+    color: #AA0000;
+    font-family: inherit;
+}
+.aqua {
+    color: #55FFFF
+    ;
+    font-family: inherit;
+}
+.gray {
+    color: #DDDDDDCC
+
+    ;
+    font-family: inherit;
+}
+.white {
+    color: #ffffffee;
+    font-family: inherit;
+}
+.black {
+    color: black;
+    font-family: inherit;
+}
+
+.bold {
+    font-weight: bold;
+    font-family: inherit;
+}
+.underlined {
+    text-decoration: underline;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+span.snippet {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    font-size: 0.9em;
+    padding: 0em 0.5em;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}

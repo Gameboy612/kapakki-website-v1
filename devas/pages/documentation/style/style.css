@@ -1,0 +1,202 @@
+@font-face {
+    font-family: adventurer;
+    src: url(../../../material/adventurer.ttf);
+}
+
+* {
+    font-family: var(--font-content);
+    padding: 0;
+    margin: 0;
+    opacity: 100%;
+    border-color: transparent;
+    word-wrap: break-word;
+}
+
+:root {
+    --clr-0: #e4eef7;
+    --clr-1: #F5EFE6;
+    --clr-2: #303030;
+    --clr-3: #AEBDCA;
+    --clr-4: rgba(217, 193, 54, 0.702);
+
+    --clr-10: #c5bbac;
+    --clr-11: #656363;
+
+    --clr-pale: #ddd;
+
+    --font-content: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@media (max-width: 50em) {
+    :root {
+        --fs-xl: 3.3rem; --ts-xl: 0.08rem;
+        --fs-l: 3rem; --ts-l: 0.05rem;
+        --fs-m: 2.2rem; --ts-m: 0.04rem;
+        --fs-850: 2rem; --ts-850: 0.03rem;
+        --fs-800: 1.7rem; --ts-800: 0.028rem;
+        --fs-750: 1.5rem; --ts-750: 0.025rem;
+        --fs-700: 1.45rem; --ts-700: 0.02rem;
+        --fs-600: 1.4rem; --ts-600: 0.003rem;
+        --fs-550: 1.25rem; --ts-550: 0.0125rem;
+        --fs-500: 1.25rem; --ts-500: 0.0125rem;
+        --fs-400: 1rem; --ts-400: 0.001rem;
+        --fs-350: 0.875rem; --ts-350: 0.001rem;
+        --fs-300: 0.75rem; --ts-300: 0.001rem;
+        --fs-200: 0.6rem; --ts-300: 0.001rem;
+    }
+}
+
+.background {
+    position: fixed;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../../material/desert1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    opacity: 80%;
+}
+
+section.contents {
+    width: 100%;
+    padding-top: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+section.contents .post {
+    width: 60vw;
+    height: auto;
+    padding-bottom: 3em;
+    margin-bottom: 7em;
+    background-color: rgba(0,0,0,0.65);
+    color: white;
+}
+
+@media (max-width: 50em) {
+    section.contents .post {
+        width: 80vw;
+    }
+}
+
+section.contents .post .text {
+    padding: 5.5vh 5.5vw 5vh 5.5vw;
+}
+
+
+@media (max-width: 50em) {
+    section.contents .post .text {
+        padding: 5.5vh 1em 5vh 1em;
+        overflow: hidden;
+    }
+}
+
+section.contents .post .text h1 {
+    font-family: adventurer;
+    font-size: var(--fs-m);
+    margin-bottom: 0.25em;
+    width: auto;
+    color: rgba(255, 255, 255, 0.9)
+}
+section.contents .post .text h2.date {
+    font-family: adventurer;
+    font-size: var(--fs-450);
+    margin-bottom: 1.75em;
+    width: auto;
+    color: rgba(200, 200, 200, 1)
+}
+section.contents .post .text h2 {
+    font-family: adventurer;
+    font-size: var(--fs-800);
+    margin-bottom: 0.5em;
+    width: auto;
+    color: rgba(255, 255, 255, 0.9)
+}
+
+section.contents .post .text p {
+    font-size: var(--fs-500);
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 1em;
+}
+
+section.contents .post .text ul, ol {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 1.75em;
+    margin-right: 2em;
+}
+section.contents .post .text ol li.section_li::marker {
+    font-family: adventurer;
+    font-size: var(--fs-800);
+}
+
+ul.key, ol.key {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+section.contents .post .text li {
+    padding-left: 1em;
+    font-size: var(--fs-450)
+}
+
+section.contents .post .text a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+img {
+    margin: 2.5%;
+    width: 95%;
+}
+
+
+small {
+    font-size: 0.8em;
+    opacity: 0.78;
+}
+
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+.line.lighter {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    opacity: 0.5;
+}
+
+
+
+
+#topBtn {
+    display: block; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 1em; /* Place the button at the bottom of the page */
+    right: 1em; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: rgba(255, 255, 255, 0.7); /* Set a background color */
+    color: black; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: var(--fs-600); /* Increase font size */
+    width: auto;
+    opacity: 0;
+    transition: ease-in-out 0.2s;
+}
+  
+#topBtn:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Add a dark-grey background on hover */
+  }

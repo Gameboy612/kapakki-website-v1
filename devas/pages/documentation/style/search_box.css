@@ -1,0 +1,36 @@
+.search_box {
+    width: 60vw;
+    height: auto;
+    margin-bottom: 3em;
+    background-color: rgba(0,0,0,0.65);
+    color: white;
+
+    text-align: center;
+    padding: 1.5em 0;
+    
+}
+
+.search_box input {
+    width: 15em;
+    background-color: #fffc;
+    padding: 0.1em 0.7em;
+    padding-bottom: 0.15em;
+    border-radius: 1em;
+    font-size: var(--fs-400);
+}
+
+.search_box label {
+    margin-right: 0.5em;
+    font-size: var(--fs-550);
+}
+
+@media (max-width: 50em) {
+    section.contents .search_box {
+        width: 80vw;
+    }
+}
+
+
+.hidden {
+    display: none;
+}
