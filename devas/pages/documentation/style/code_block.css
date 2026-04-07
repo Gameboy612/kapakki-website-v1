@@ -18,6 +18,7 @@
     font-family: monospace;
     margin: 0;
     font-weight: bolder;
+    color: black;
 }
 .code a {
     font-size: var(--fs-400);
